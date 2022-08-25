@@ -58,6 +58,15 @@
             this.interestInputExplaination2 = new System.Windows.Forms.Label();
             this.interestInputExplaination1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.conversionInvalidInput = new System.Windows.Forms.Label();
+            this.conversionOutput = new System.Windows.Forms.TextBox();
+            this.conversionResultLabel = new System.Windows.Forms.Label();
+            this.convertBtn = new System.Windows.Forms.Button();
+            this.conversionInput = new System.Windows.Forms.TextBox();
+            this.convertLabel = new System.Windows.Forms.Label();
+            this.endBaseLabel = new System.Windows.Forms.Label();
+            this.endBase = new System.Windows.Forms.ComboBox();
+            this.startBaseLabel = new System.Windows.Forms.Label();
             this.startBase = new System.Windows.Forms.ComboBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.leftPanel = new System.Windows.Forms.Panel();
@@ -82,15 +91,6 @@
             this.titlePanel = new System.Windows.Forms.Panel();
             this.author = new System.Windows.Forms.Label();
             this.title = new System.Windows.Forms.Label();
-            this.startBaseLabel = new System.Windows.Forms.Label();
-            this.endBaseLabel = new System.Windows.Forms.Label();
-            this.endBase = new System.Windows.Forms.ComboBox();
-            this.convertLabel = new System.Windows.Forms.Label();
-            this.conversionInput = new System.Windows.Forms.TextBox();
-            this.convertBtn = new System.Windows.Forms.Button();
-            this.conversionResultLabel = new System.Windows.Forms.Label();
-            this.conversionOutput = new System.Windows.Forms.TextBox();
-            this.conversionInvalidInput = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -180,7 +180,7 @@
             this.GCDandLCMinvalidInput.AutoSize = true;
             this.GCDandLCMinvalidInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GCDandLCMinvalidInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.GCDandLCMinvalidInput.Location = new System.Drawing.Point(352, 230);
+            this.GCDandLCMinvalidInput.Location = new System.Drawing.Point(337, 230);
             this.GCDandLCMinvalidInput.Name = "GCDandLCMinvalidInput";
             this.GCDandLCMinvalidInput.Size = new System.Drawing.Size(197, 20);
             this.GCDandLCMinvalidInput.TabIndex = 5;
@@ -461,6 +461,104 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Bin-Dec-Oct-Hex";
             // 
+            // conversionInvalidInput
+            // 
+            this.conversionInvalidInput.AutoSize = true;
+            this.conversionInvalidInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.conversionInvalidInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.conversionInvalidInput.Location = new System.Drawing.Point(362, 195);
+            this.conversionInvalidInput.Name = "conversionInvalidInput";
+            this.conversionInvalidInput.Size = new System.Drawing.Size(197, 20);
+            this.conversionInvalidInput.TabIndex = 16;
+            this.conversionInvalidInput.Text = "Please enter a valid input";
+            // 
+            // conversionOutput
+            // 
+            this.conversionOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.conversionOutput.Location = new System.Drawing.Point(373, 502);
+            this.conversionOutput.Name = "conversionOutput";
+            this.conversionOutput.ReadOnly = true;
+            this.conversionOutput.Size = new System.Drawing.Size(200, 34);
+            this.conversionOutput.TabIndex = 9;
+            this.conversionOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.conversionOutput.Click += new System.EventHandler(this.conversionOutput_Select);
+            this.conversionOutput.Enter += new System.EventHandler(this.conversionOutput_Select);
+            // 
+            // conversionResultLabel
+            // 
+            this.conversionResultLabel.AutoSize = true;
+            this.conversionResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.conversionResultLabel.Location = new System.Drawing.Point(419, 440);
+            this.conversionResultLabel.Name = "conversionResultLabel";
+            this.conversionResultLabel.Size = new System.Drawing.Size(103, 32);
+            this.conversionResultLabel.TabIndex = 8;
+            this.conversionResultLabel.Text = "Result:";
+            // 
+            // convertBtn
+            // 
+            this.convertBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.convertBtn.Location = new System.Drawing.Point(373, 343);
+            this.convertBtn.Name = "convertBtn";
+            this.convertBtn.Size = new System.Drawing.Size(200, 40);
+            this.convertBtn.TabIndex = 7;
+            this.convertBtn.Text = "Calculate";
+            this.convertBtn.UseVisualStyleBackColor = true;
+            this.convertBtn.Click += new System.EventHandler(this.convertBtn_Click);
+            // 
+            // conversionInput
+            // 
+            this.conversionInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.conversionInput.Location = new System.Drawing.Point(373, 149);
+            this.conversionInput.Name = "conversionInput";
+            this.conversionInput.Size = new System.Drawing.Size(200, 34);
+            this.conversionInput.TabIndex = 6;
+            this.conversionInput.Click += new System.EventHandler(this.conversionInput_Select);
+            this.conversionInput.Enter += new System.EventHandler(this.conversionInput_Select);
+            // 
+            // convertLabel
+            // 
+            this.convertLabel.AutoSize = true;
+            this.convertLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.convertLabel.Location = new System.Drawing.Point(414, 71);
+            this.convertLabel.Name = "convertLabel";
+            this.convertLabel.Size = new System.Drawing.Size(113, 32);
+            this.convertLabel.TabIndex = 5;
+            this.convertLabel.Text = "Convert";
+            // 
+            // endBaseLabel
+            // 
+            this.endBaseLabel.AutoSize = true;
+            this.endBaseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endBaseLabel.Location = new System.Drawing.Point(516, 246);
+            this.endBaseLabel.Name = "endBaseLabel";
+            this.endBaseLabel.Size = new System.Drawing.Size(49, 29);
+            this.endBaseLabel.TabIndex = 4;
+            this.endBaseLabel.Text = "To:";
+            // 
+            // endBase
+            // 
+            this.endBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endBase.FormattingEnabled = true;
+            this.endBase.Items.AddRange(new object[] {
+            "Binary",
+            "Octal",
+            "Decimal",
+            "Hexadecimal"});
+            this.endBase.Location = new System.Drawing.Point(615, 246);
+            this.endBase.Name = "endBase";
+            this.endBase.Size = new System.Drawing.Size(166, 33);
+            this.endBase.TabIndex = 3;
+            // 
+            // startBaseLabel
+            // 
+            this.startBaseLabel.AutoSize = true;
+            this.startBaseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startBaseLabel.Location = new System.Drawing.Point(166, 246);
+            this.startBaseLabel.Name = "startBaseLabel";
+            this.startBaseLabel.Size = new System.Drawing.Size(76, 29);
+            this.startBaseLabel.TabIndex = 2;
+            this.startBaseLabel.Text = "From:";
+            // 
             // startBase
             // 
             this.startBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -722,11 +820,11 @@
             this.author.AutoSize = true;
             this.author.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold);
             this.author.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.author.Location = new System.Drawing.Point(128, 67);
+            this.author.Location = new System.Drawing.Point(114, 67);
             this.author.Name = "author";
-            this.author.Size = new System.Drawing.Size(63, 22);
+            this.author.Size = new System.Drawing.Size(97, 22);
             this.author.TabIndex = 1;
-            this.author.Text = "by Jack";
+            this.author.Text = "by JackTech";
             // 
             // title
             // 
@@ -738,104 +836,6 @@
             this.title.Size = new System.Drawing.Size(199, 30);
             this.title.TabIndex = 0;
             this.title.Text = "MathTools";
-            // 
-            // startBaseLabel
-            // 
-            this.startBaseLabel.AutoSize = true;
-            this.startBaseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startBaseLabel.Location = new System.Drawing.Point(166, 246);
-            this.startBaseLabel.Name = "startBaseLabel";
-            this.startBaseLabel.Size = new System.Drawing.Size(76, 29);
-            this.startBaseLabel.TabIndex = 2;
-            this.startBaseLabel.Text = "From:";
-            // 
-            // endBaseLabel
-            // 
-            this.endBaseLabel.AutoSize = true;
-            this.endBaseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.endBaseLabel.Location = new System.Drawing.Point(516, 246);
-            this.endBaseLabel.Name = "endBaseLabel";
-            this.endBaseLabel.Size = new System.Drawing.Size(49, 29);
-            this.endBaseLabel.TabIndex = 4;
-            this.endBaseLabel.Text = "To:";
-            // 
-            // endBase
-            // 
-            this.endBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.endBase.FormattingEnabled = true;
-            this.endBase.Items.AddRange(new object[] {
-            "Binary",
-            "Octal",
-            "Decimal",
-            "Hexadecimal"});
-            this.endBase.Location = new System.Drawing.Point(615, 246);
-            this.endBase.Name = "endBase";
-            this.endBase.Size = new System.Drawing.Size(166, 33);
-            this.endBase.TabIndex = 3;
-            // 
-            // convertLabel
-            // 
-            this.convertLabel.AutoSize = true;
-            this.convertLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.convertLabel.Location = new System.Drawing.Point(414, 71);
-            this.convertLabel.Name = "convertLabel";
-            this.convertLabel.Size = new System.Drawing.Size(113, 32);
-            this.convertLabel.TabIndex = 5;
-            this.convertLabel.Text = "Convert";
-            // 
-            // conversionInput
-            // 
-            this.conversionInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.conversionInput.Location = new System.Drawing.Point(373, 149);
-            this.conversionInput.Name = "conversionInput";
-            this.conversionInput.Size = new System.Drawing.Size(200, 34);
-            this.conversionInput.TabIndex = 6;
-            this.conversionInput.Click += new System.EventHandler(this.conversionInput_Select);
-            this.conversionInput.Enter += new System.EventHandler(this.conversionInput_Select);
-            // 
-            // convertBtn
-            // 
-            this.convertBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.convertBtn.Location = new System.Drawing.Point(373, 343);
-            this.convertBtn.Name = "convertBtn";
-            this.convertBtn.Size = new System.Drawing.Size(200, 40);
-            this.convertBtn.TabIndex = 7;
-            this.convertBtn.Text = "Calculate";
-            this.convertBtn.UseVisualStyleBackColor = true;
-            this.convertBtn.Click += new System.EventHandler(this.convertBtn_Click);
-            // 
-            // conversionResultLabel
-            // 
-            this.conversionResultLabel.AutoSize = true;
-            this.conversionResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.conversionResultLabel.Location = new System.Drawing.Point(419, 440);
-            this.conversionResultLabel.Name = "conversionResultLabel";
-            this.conversionResultLabel.Size = new System.Drawing.Size(103, 32);
-            this.conversionResultLabel.TabIndex = 8;
-            this.conversionResultLabel.Text = "Result:";
-            // 
-            // conversionOutput
-            // 
-            this.conversionOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.conversionOutput.Location = new System.Drawing.Point(373, 502);
-            this.conversionOutput.Name = "conversionOutput";
-            this.conversionOutput.ReadOnly = true;
-            this.conversionOutput.Size = new System.Drawing.Size(200, 34);
-            this.conversionOutput.TabIndex = 9;
-            this.conversionOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.conversionOutput.Click += new System.EventHandler(this.conversionOutput_Select);
-            this.conversionOutput.Enter += new System.EventHandler(this.conversionOutput_Select);
-            // 
-            // conversionInvalidInput
-            // 
-            this.conversionInvalidInput.AutoSize = true;
-            this.conversionInvalidInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.conversionInvalidInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.conversionInvalidInput.Location = new System.Drawing.Point(362, 195);
-            this.conversionInvalidInput.Name = "conversionInvalidInput";
-            this.conversionInvalidInput.Size = new System.Drawing.Size(197, 20);
-            this.conversionInvalidInput.TabIndex = 16;
-            this.conversionInvalidInput.Text = "Please enter a valid input";
             // 
             // MathTools
             // 
