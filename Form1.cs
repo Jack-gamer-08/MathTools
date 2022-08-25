@@ -22,6 +22,9 @@ namespace MathTools
             indicator1.BackColor = Color.FromArgb(71, 48, 184);
             GCDandLCMinvalidInput.Hide();
 
+            interestInvalidInput1.Hide();
+            interestInvalidInput2.Hide();
+            interestInvalidInput3.Hide();
             normalInterestBtn.Checked = true;
         }
 
@@ -104,45 +107,6 @@ namespace MathTools
 
         }
 
-        private void calculateGCDandLCM_Click(object sender, EventArgs e)
-        {
-            string input = GCDandLCMinput.Text;
-            if(input.Replace(" ", "") != "")
-            {
-                if (input[input.Length - 1] == ' ')
-                {
-                    string temp = input;
-                    input = "";
-                    for (int i = 0; i < temp.Length - 1; i++)
-                    {
-                        input += temp[i];
-                    }
-                }
-                if (isValid(input, 1) && input[input.Length - 1] != ' ')
-                {
-                    GCDandLCMinvalidInput.Hide();
-                    string[] strings = input.Split(' ');
-                    int[] ints = new int[strings.Length];
-                    for (int i = 0; i < strings.Length; i++)
-                    {
-                        ints[i] = Convert.ToInt32(strings[i]);
-                    }
-                    GCDoutput.Text = "GCD: " + calculateGCD(ints);
-                    LCMoutput.Text = "LCM: " + calculateLCM(ints);
-                }
-                else
-                {
-                    GCDandLCMinvalidInput.Show();
-                    GCDoutput.Text = "GCD: ";
-                    LCMoutput.Text = "LCM: ";
-                }
-            }
-            else
-            {
-                GCDandLCMinput.Text = "";
-            }
-        }
-
         private bool isValid(String input, int t)
         {
             bool value = true;
@@ -155,6 +119,53 @@ namespace MathTools
                 }
             }
             return value;
+        }
+
+        private void calculateGCDandLCM_Click(object sender, EventArgs e)
+        {
+            GCDandLCMcalculator(GCDandLCMinput.Text);
+        }
+
+        private void GCDandLCMcalculator(string input)
+        {
+            if(input.Replace(" ", "") != "")
+            {
+                if (input[input.Length - 1] == ' ')
+                {
+                    string temp = input;
+                    input = "";
+                    for (int i = 0; i < temp.Length - 1; i++)
+                    {
+                        input += temp[i];
+                    }
+                    GCDandLCMcalculator(input);
+                }
+                else if (isValid(input, 1))
+                {
+                    GCDandLCMinvalidInput.Hide();
+                    string[] strings = input.Split(' ');
+                    int[] ints = new int[strings.Length];
+                    for (int i = 0; i < strings.Length; i++)
+                    {
+                        ints[i] = Convert.ToInt32(strings[i]);
+                    }
+                    GCDoutput.Text = "" + calculateGCD(ints);
+                    LCMoutput.Text = "" + calculateLCM(ints);
+                }
+                else
+                {
+                    GCDandLCMinvalidInput.Show();
+                    GCDoutput.Text = "";
+                    LCMoutput.Text = "";
+                }
+            }
+            else
+            {
+                GCDandLCMinvalidInput.Show();
+                GCDoutput.Text = "";
+                LCMoutput.Text = "";
+                GCDandLCMinput.Text = "";
+            }
         }
 
         private int calculateGCD(int[] ints)
@@ -223,24 +234,36 @@ namespace MathTools
             }
         }
 
+        private void GCDandLCMinput_Select(object sender, EventArgs e)
+        {
+            GCDandLCMinput.SelectAll();
+        }
+
         private void calculateInterestBtn_Click(object sender, EventArgs e)
         {
             string amount = amountInput.Text.Replace(" ", "").Replace(".", ",");
             string rate = rateInput.Text.Replace(" ", "").Replace(".", ",");
             string years = yearsInput.Text.Replace(" ", "");
             bool validInputs = true;
-            if (!isValid(amount, 2))
+            if (!isValid(amount, 2) || amount == "")
             {
                 validInputs = false;
+                interestInvalidInput1.Show();
             }
-            if (!isValid(rate, 2))
+            else interestInvalidInput1.Hide();
+            if (!isValid(rate, 2) || rate == "")
             {
                 validInputs = false;
+                interestInvalidInput2.Show();
             }
-            if (!isValid(years, 0))
+            else interestInvalidInput2.Hide();
+            if (!isValid(years, 0) || years == "")
             {
                 validInputs = false;
+                interestInvalidInput3.Show();
+                amountInput.SelectAll();
             }
+            else interestInvalidInput3.Hide();
             if(validInputs)
             {
                 double a = Convert.ToDouble(amount);
@@ -259,6 +282,36 @@ namespace MathTools
                     interestOutput.Text = "" + (total - a);
                 }
             }
+            else
+            {
+                totalOutput.Text = "";
+                interestOutput.Text = "";
+            }
+        }
+
+        private void amountInput_Select(object sender, EventArgs e)
+        {
+            amountInput.SelectAll();
+        }
+
+        private void rateInput_Select(object sender, EventArgs e)
+        {
+            rateInput.SelectAll();
+        }
+
+        private void yearsInput_Select(object sender, EventArgs e)
+        {
+            yearsInput.SelectAll();
+        }
+
+        private void totalOutput_Select(object sender, EventArgs e)
+        {
+            totalOutput.SelectAll();
+        }
+
+        private void interestOutput_Select(object sender, EventArgs e)
+        {
+            interestOutput.SelectAll();
         }
     }
 }

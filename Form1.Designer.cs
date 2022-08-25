@@ -29,31 +29,6 @@
         private void InitializeComponent()
         {
             this.mainPanel = new System.Windows.Forms.Panel();
-            this.tabControl = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.GCDandLCMinvalidInput = new System.Windows.Forms.Label();
-            this.LCMoutput = new System.Windows.Forms.Label();
-            this.GCDoutput = new System.Windows.Forms.Label();
-            this.calculateGCDandLCM = new System.Windows.Forms.Button();
-            this.GCDandLCMinputExplaination = new System.Windows.Forms.Label();
-            this.GCDandLCMinput = new System.Windows.Forms.TextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.totalOutput = new System.Windows.Forms.TextBox();
-            this.totalLabel = new System.Windows.Forms.Label();
-            this.interestOutput = new System.Windows.Forms.TextBox();
-            this.interestLabel = new System.Windows.Forms.Label();
-            this.calculateInterestBtn = new System.Windows.Forms.Button();
-            this.compoundInterestBtn = new System.Windows.Forms.RadioButton();
-            this.normalInterestBtn = new System.Windows.Forms.RadioButton();
-            this.percent = new System.Windows.Forms.Label();
-            this.yearsInput = new System.Windows.Forms.TextBox();
-            this.rateInput = new System.Windows.Forms.TextBox();
-            this.amountInput = new System.Windows.Forms.TextBox();
-            this.interestInputExplaination3 = new System.Windows.Forms.Label();
-            this.interestInputExplaination2 = new System.Windows.Forms.Label();
-            this.interestInputExplaination1 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.leftPanel = new System.Windows.Forms.Panel();
             this.btnPanel = new System.Windows.Forms.Panel();
             this.indicator8 = new System.Windows.Forms.Panel();
@@ -76,13 +51,43 @@
             this.titlePanel = new System.Windows.Forms.Panel();
             this.author = new System.Windows.Forms.Label();
             this.title = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.interestInputExplaination1 = new System.Windows.Forms.Label();
+            this.interestInputExplaination2 = new System.Windows.Forms.Label();
+            this.interestInputExplaination3 = new System.Windows.Forms.Label();
+            this.amountInput = new System.Windows.Forms.TextBox();
+            this.rateInput = new System.Windows.Forms.TextBox();
+            this.yearsInput = new System.Windows.Forms.TextBox();
+            this.percent = new System.Windows.Forms.Label();
+            this.normalInterestBtn = new System.Windows.Forms.RadioButton();
+            this.compoundInterestBtn = new System.Windows.Forms.RadioButton();
+            this.calculateInterestBtn = new System.Windows.Forms.Button();
+            this.interestLabel = new System.Windows.Forms.Label();
+            this.interestOutput = new System.Windows.Forms.TextBox();
+            this.totalLabel = new System.Windows.Forms.Label();
+            this.totalOutput = new System.Windows.Forms.TextBox();
+            this.interestInvalidInput1 = new System.Windows.Forms.Label();
+            this.interestInvalidInput2 = new System.Windows.Forms.Label();
+            this.interestInvalidInput3 = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.GCDandLCMinput = new System.Windows.Forms.TextBox();
+            this.GCDandLCMinputExplaination = new System.Windows.Forms.Label();
+            this.calculateGCDandLCM = new System.Windows.Forms.Button();
+            this.GCDoutputLabel = new System.Windows.Forms.Label();
+            this.LCMoutputLabel = new System.Windows.Forms.Label();
+            this.GCDandLCMinvalidInput = new System.Windows.Forms.Label();
+            this.GCDoutput = new System.Windows.Forms.TextBox();
+            this.LCMoutput = new System.Windows.Forms.TextBox();
+            this.tabControl = new System.Windows.Forms.TabControl();
             this.mainPanel.SuspendLayout();
-            this.tabControl.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.leftPanel.SuspendLayout();
             this.btnPanel.SuspendLayout();
             this.titlePanel.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // mainPanel
@@ -94,282 +99,6 @@
             this.mainPanel.Size = new System.Drawing.Size(903, 628);
             this.mainPanel.TabIndex = 1;
             this.mainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.MainPanel_Paint);
-            // 
-            // tabControl
-            // 
-            this.tabControl.Controls.Add(this.tabPage1);
-            this.tabControl.Controls.Add(this.tabPage2);
-            this.tabControl.Controls.Add(this.tabPage3);
-            this.tabControl.Controls.Add(this.tabPage4);
-            this.tabControl.Location = new System.Drawing.Point(-4, -27);
-            this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(912, 660);
-            this.tabControl.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(48)))), ((int)(((byte)(184)))));
-            this.tabPage1.Controls.Add(this.GCDandLCMinvalidInput);
-            this.tabPage1.Controls.Add(this.LCMoutput);
-            this.tabPage1.Controls.Add(this.GCDoutput);
-            this.tabPage1.Controls.Add(this.calculateGCDandLCM);
-            this.tabPage1.Controls.Add(this.GCDandLCMinputExplaination);
-            this.tabPage1.Controls.Add(this.GCDandLCMinput);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(904, 631);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "GCD-LCM";
-            // 
-            // GCDandLCMinvalidInput
-            // 
-            this.GCDandLCMinvalidInput.AutoSize = true;
-            this.GCDandLCMinvalidInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GCDandLCMinvalidInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.GCDandLCMinvalidInput.Location = new System.Drawing.Point(352, 230);
-            this.GCDandLCMinvalidInput.Name = "GCDandLCMinvalidInput";
-            this.GCDandLCMinvalidInput.Size = new System.Drawing.Size(197, 20);
-            this.GCDandLCMinvalidInput.TabIndex = 5;
-            this.GCDandLCMinvalidInput.Text = "Please enter a valid input";
-            // 
-            // LCMoutput
-            // 
-            this.LCMoutput.AutoSize = true;
-            this.LCMoutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LCMoutput.Location = new System.Drawing.Point(603, 471);
-            this.LCMoutput.Name = "LCMoutput";
-            this.LCMoutput.Size = new System.Drawing.Size(75, 29);
-            this.LCMoutput.TabIndex = 4;
-            this.LCMoutput.Text = "LCM: ";
-            // 
-            // GCDoutput
-            // 
-            this.GCDoutput.AutoSize = true;
-            this.GCDoutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GCDoutput.Location = new System.Drawing.Point(603, 342);
-            this.GCDoutput.Name = "GCDoutput";
-            this.GCDoutput.Size = new System.Drawing.Size(77, 29);
-            this.GCDoutput.TabIndex = 3;
-            this.GCDoutput.Text = "GCD: ";
-            // 
-            // calculateGCDandLCM
-            // 
-            this.calculateGCDandLCM.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calculateGCDandLCM.Location = new System.Drawing.Point(203, 401);
-            this.calculateGCDandLCM.Name = "calculateGCDandLCM";
-            this.calculateGCDandLCM.Size = new System.Drawing.Size(200, 40);
-            this.calculateGCDandLCM.TabIndex = 2;
-            this.calculateGCDandLCM.Text = "Calculate";
-            this.calculateGCDandLCM.UseVisualStyleBackColor = true;
-            this.calculateGCDandLCM.Click += new System.EventHandler(this.calculateGCDandLCM_Click);
-            // 
-            // GCDandLCMinputExplaination
-            // 
-            this.GCDandLCMinputExplaination.AutoSize = true;
-            this.GCDandLCMinputExplaination.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GCDandLCMinputExplaination.Location = new System.Drawing.Point(182, 126);
-            this.GCDandLCMinputExplaination.Name = "GCDandLCMinputExplaination";
-            this.GCDandLCMinputExplaination.Size = new System.Drawing.Size(538, 32);
-            this.GCDandLCMinputExplaination.TabIndex = 1;
-            this.GCDandLCMinputExplaination.Text = "Enter your numbers separated by a space";
-            // 
-            // GCDandLCMinput
-            // 
-            this.GCDandLCMinput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GCDandLCMinput.Location = new System.Drawing.Point(326, 180);
-            this.GCDandLCMinput.Name = "GCDandLCMinput";
-            this.GCDandLCMinput.Size = new System.Drawing.Size(250, 34);
-            this.GCDandLCMinput.TabIndex = 0;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(48)))), ((int)(((byte)(184)))));
-            this.tabPage2.Controls.Add(this.totalOutput);
-            this.tabPage2.Controls.Add(this.totalLabel);
-            this.tabPage2.Controls.Add(this.interestOutput);
-            this.tabPage2.Controls.Add(this.interestLabel);
-            this.tabPage2.Controls.Add(this.calculateInterestBtn);
-            this.tabPage2.Controls.Add(this.compoundInterestBtn);
-            this.tabPage2.Controls.Add(this.normalInterestBtn);
-            this.tabPage2.Controls.Add(this.percent);
-            this.tabPage2.Controls.Add(this.yearsInput);
-            this.tabPage2.Controls.Add(this.rateInput);
-            this.tabPage2.Controls.Add(this.amountInput);
-            this.tabPage2.Controls.Add(this.interestInputExplaination3);
-            this.tabPage2.Controls.Add(this.interestInputExplaination2);
-            this.tabPage2.Controls.Add(this.interestInputExplaination1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(904, 631);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Interest";
-            // 
-            // totalOutput
-            // 
-            this.totalOutput.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.totalOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalOutput.Location = new System.Drawing.Point(581, 520);
-            this.totalOutput.Name = "totalOutput";
-            this.totalOutput.ReadOnly = true;
-            this.totalOutput.Size = new System.Drawing.Size(240, 38);
-            this.totalOutput.TabIndex = 13;
-            this.totalOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // totalLabel
-            // 
-            this.totalLabel.AutoSize = true;
-            this.totalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalLabel.Location = new System.Drawing.Point(528, 480);
-            this.totalLabel.Name = "totalLabel";
-            this.totalLabel.Size = new System.Drawing.Size(347, 32);
-            this.totalLabel.TabIndex = 12;
-            this.totalLabel.Text = "Total amount with interest:";
-            // 
-            // interestOutput
-            // 
-            this.interestOutput.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.interestOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.interestOutput.Location = new System.Drawing.Point(581, 403);
-            this.interestOutput.Name = "interestOutput";
-            this.interestOutput.ReadOnly = true;
-            this.interestOutput.Size = new System.Drawing.Size(240, 38);
-            this.interestOutput.TabIndex = 11;
-            this.interestOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // interestLabel
-            // 
-            this.interestLabel.AutoSize = true;
-            this.interestLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.interestLabel.Location = new System.Drawing.Point(643, 356);
-            this.interestLabel.Name = "interestLabel";
-            this.interestLabel.Size = new System.Drawing.Size(116, 32);
-            this.interestLabel.TabIndex = 10;
-            this.interestLabel.Text = "Interest:";
-            // 
-            // calculateInterestBtn
-            // 
-            this.calculateInterestBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calculateInterestBtn.Location = new System.Drawing.Point(170, 480);
-            this.calculateInterestBtn.Name = "calculateInterestBtn";
-            this.calculateInterestBtn.Size = new System.Drawing.Size(220, 46);
-            this.calculateInterestBtn.TabIndex = 9;
-            this.calculateInterestBtn.Text = "Calculate";
-            this.calculateInterestBtn.UseVisualStyleBackColor = true;
-            this.calculateInterestBtn.Click += new System.EventHandler(this.calculateInterestBtn_Click);
-            // 
-            // compoundInterestBtn
-            // 
-            this.compoundInterestBtn.AutoSize = true;
-            this.compoundInterestBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.compoundInterestBtn.Location = new System.Drawing.Point(272, 410);
-            this.compoundInterestBtn.Name = "compoundInterestBtn";
-            this.compoundInterestBtn.Size = new System.Drawing.Size(199, 29);
-            this.compoundInterestBtn.TabIndex = 8;
-            this.compoundInterestBtn.TabStop = true;
-            this.compoundInterestBtn.Text = "Compound Interest";
-            this.compoundInterestBtn.UseVisualStyleBackColor = true;
-            // 
-            // normalInterestBtn
-            // 
-            this.normalInterestBtn.AutoSize = true;
-            this.normalInterestBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.normalInterestBtn.Location = new System.Drawing.Point(89, 410);
-            this.normalInterestBtn.Name = "normalInterestBtn";
-            this.normalInterestBtn.Size = new System.Drawing.Size(164, 29);
-            this.normalInterestBtn.TabIndex = 7;
-            this.normalInterestBtn.TabStop = true;
-            this.normalInterestBtn.Text = "Normal Interest";
-            this.normalInterestBtn.UseVisualStyleBackColor = true;
-            // 
-            // percent
-            // 
-            this.percent.AutoSize = true;
-            this.percent.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.percent.Location = new System.Drawing.Point(451, 210);
-            this.percent.Name = "percent";
-            this.percent.Size = new System.Drawing.Size(39, 32);
-            this.percent.TabIndex = 6;
-            this.percent.Text = "%";
-            // 
-            // yearsInput
-            // 
-            this.yearsInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.yearsInput.Location = new System.Drawing.Point(310, 310);
-            this.yearsInput.Name = "yearsInput";
-            this.yearsInput.Size = new System.Drawing.Size(180, 38);
-            this.yearsInput.TabIndex = 5;
-            this.yearsInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // rateInput
-            // 
-            this.rateInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rateInput.Location = new System.Drawing.Point(310, 210);
-            this.rateInput.Name = "rateInput";
-            this.rateInput.Size = new System.Drawing.Size(140, 38);
-            this.rateInput.TabIndex = 4;
-            this.rateInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // amountInput
-            // 
-            this.amountInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.amountInput.Location = new System.Drawing.Point(310, 110);
-            this.amountInput.Name = "amountInput";
-            this.amountInput.Size = new System.Drawing.Size(180, 38);
-            this.amountInput.TabIndex = 3;
-            this.amountInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // interestInputExplaination3
-            // 
-            this.interestInputExplaination3.AutoSize = true;
-            this.interestInputExplaination3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.interestInputExplaination3.Location = new System.Drawing.Point(70, 310);
-            this.interestInputExplaination3.Name = "interestInputExplaination3";
-            this.interestInputExplaination3.Size = new System.Drawing.Size(236, 32);
-            this.interestInputExplaination3.TabIndex = 2;
-            this.interestInputExplaination3.Text = "Number of years: ";
-            // 
-            // interestInputExplaination2
-            // 
-            this.interestInputExplaination2.AutoSize = true;
-            this.interestInputExplaination2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.interestInputExplaination2.Location = new System.Drawing.Point(70, 210);
-            this.interestInputExplaination2.Name = "interestInputExplaination2";
-            this.interestInputExplaination2.Size = new System.Drawing.Size(172, 32);
-            this.interestInputExplaination2.TabIndex = 1;
-            this.interestInputExplaination2.Text = "Interest rate:";
-            // 
-            // interestInputExplaination1
-            // 
-            this.interestInputExplaination1.AutoSize = true;
-            this.interestInputExplaination1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.interestInputExplaination1.Location = new System.Drawing.Point(70, 110);
-            this.interestInputExplaination1.Name = "interestInputExplaination1";
-            this.interestInputExplaination1.Size = new System.Drawing.Size(192, 32);
-            this.interestInputExplaination1.TabIndex = 0;
-            this.interestInputExplaination1.Text = "Initial amount:";
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(48)))), ((int)(((byte)(184)))));
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(904, 631);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Bin-Dec-Oct-Hex";
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(48)))), ((int)(((byte)(184)))));
-            this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(904, 631);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Pythagorean Triplets";
             // 
             // leftPanel
             // 
@@ -625,6 +354,350 @@
             this.title.TabIndex = 0;
             this.title.Text = "MathTools";
             // 
+            // tabPage4
+            // 
+            this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(48)))), ((int)(((byte)(184)))));
+            this.tabPage4.Location = new System.Drawing.Point(4, 25);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(904, 631);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Pythagorean Triplets";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(48)))), ((int)(((byte)(184)))));
+            this.tabPage3.Location = new System.Drawing.Point(4, 25);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(904, 631);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Bin-Dec-Oct-Hex";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(48)))), ((int)(((byte)(184)))));
+            this.tabPage2.Controls.Add(this.interestInvalidInput3);
+            this.tabPage2.Controls.Add(this.interestInvalidInput2);
+            this.tabPage2.Controls.Add(this.interestInvalidInput1);
+            this.tabPage2.Controls.Add(this.totalOutput);
+            this.tabPage2.Controls.Add(this.interestOutput);
+            this.tabPage2.Controls.Add(this.yearsInput);
+            this.tabPage2.Controls.Add(this.rateInput);
+            this.tabPage2.Controls.Add(this.amountInput);
+            this.tabPage2.Controls.Add(this.totalLabel);
+            this.tabPage2.Controls.Add(this.interestLabel);
+            this.tabPage2.Controls.Add(this.calculateInterestBtn);
+            this.tabPage2.Controls.Add(this.compoundInterestBtn);
+            this.tabPage2.Controls.Add(this.normalInterestBtn);
+            this.tabPage2.Controls.Add(this.percent);
+            this.tabPage2.Controls.Add(this.interestInputExplaination3);
+            this.tabPage2.Controls.Add(this.interestInputExplaination2);
+            this.tabPage2.Controls.Add(this.interestInputExplaination1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(904, 631);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Interest";
+            // 
+            // interestInputExplaination1
+            // 
+            this.interestInputExplaination1.AutoSize = true;
+            this.interestInputExplaination1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.interestInputExplaination1.Location = new System.Drawing.Point(70, 110);
+            this.interestInputExplaination1.Name = "interestInputExplaination1";
+            this.interestInputExplaination1.Size = new System.Drawing.Size(192, 32);
+            this.interestInputExplaination1.TabIndex = 0;
+            this.interestInputExplaination1.Text = "Initial amount:";
+            // 
+            // interestInputExplaination2
+            // 
+            this.interestInputExplaination2.AutoSize = true;
+            this.interestInputExplaination2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.interestInputExplaination2.Location = new System.Drawing.Point(70, 210);
+            this.interestInputExplaination2.Name = "interestInputExplaination2";
+            this.interestInputExplaination2.Size = new System.Drawing.Size(172, 32);
+            this.interestInputExplaination2.TabIndex = 1;
+            this.interestInputExplaination2.Text = "Interest rate:";
+            // 
+            // interestInputExplaination3
+            // 
+            this.interestInputExplaination3.AutoSize = true;
+            this.interestInputExplaination3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.interestInputExplaination3.Location = new System.Drawing.Point(70, 310);
+            this.interestInputExplaination3.Name = "interestInputExplaination3";
+            this.interestInputExplaination3.Size = new System.Drawing.Size(236, 32);
+            this.interestInputExplaination3.TabIndex = 2;
+            this.interestInputExplaination3.Text = "Number of years: ";
+            // 
+            // amountInput
+            // 
+            this.amountInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.amountInput.Location = new System.Drawing.Point(310, 110);
+            this.amountInput.Name = "amountInput";
+            this.amountInput.Size = new System.Drawing.Size(180, 38);
+            this.amountInput.TabIndex = 3;
+            this.amountInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.amountInput.Click += new System.EventHandler(this.amountInput_Select);
+            this.amountInput.Enter += new System.EventHandler(this.amountInput_Select);
+            // 
+            // rateInput
+            // 
+            this.rateInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rateInput.Location = new System.Drawing.Point(310, 210);
+            this.rateInput.Name = "rateInput";
+            this.rateInput.Size = new System.Drawing.Size(140, 38);
+            this.rateInput.TabIndex = 4;
+            this.rateInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.rateInput.Click += new System.EventHandler(this.rateInput_Select);
+            this.rateInput.Enter += new System.EventHandler(this.rateInput_Select);
+            // 
+            // yearsInput
+            // 
+            this.yearsInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yearsInput.Location = new System.Drawing.Point(310, 310);
+            this.yearsInput.Name = "yearsInput";
+            this.yearsInput.Size = new System.Drawing.Size(180, 38);
+            this.yearsInput.TabIndex = 5;
+            this.yearsInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.yearsInput.Click += new System.EventHandler(this.yearsInput_Select);
+            this.yearsInput.Enter += new System.EventHandler(this.yearsInput_Select);
+            // 
+            // percent
+            // 
+            this.percent.AutoSize = true;
+            this.percent.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.percent.Location = new System.Drawing.Point(451, 210);
+            this.percent.Name = "percent";
+            this.percent.Size = new System.Drawing.Size(39, 32);
+            this.percent.TabIndex = 6;
+            this.percent.Text = "%";
+            // 
+            // normalInterestBtn
+            // 
+            this.normalInterestBtn.AutoSize = true;
+            this.normalInterestBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.normalInterestBtn.Location = new System.Drawing.Point(89, 410);
+            this.normalInterestBtn.Name = "normalInterestBtn";
+            this.normalInterestBtn.Size = new System.Drawing.Size(164, 29);
+            this.normalInterestBtn.TabIndex = 7;
+            this.normalInterestBtn.TabStop = true;
+            this.normalInterestBtn.Text = "Normal Interest";
+            this.normalInterestBtn.UseVisualStyleBackColor = true;
+            // 
+            // compoundInterestBtn
+            // 
+            this.compoundInterestBtn.AutoSize = true;
+            this.compoundInterestBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.compoundInterestBtn.Location = new System.Drawing.Point(272, 410);
+            this.compoundInterestBtn.Name = "compoundInterestBtn";
+            this.compoundInterestBtn.Size = new System.Drawing.Size(199, 29);
+            this.compoundInterestBtn.TabIndex = 8;
+            this.compoundInterestBtn.TabStop = true;
+            this.compoundInterestBtn.Text = "Compound Interest";
+            this.compoundInterestBtn.UseVisualStyleBackColor = true;
+            // 
+            // calculateInterestBtn
+            // 
+            this.calculateInterestBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calculateInterestBtn.Location = new System.Drawing.Point(170, 480);
+            this.calculateInterestBtn.Name = "calculateInterestBtn";
+            this.calculateInterestBtn.Size = new System.Drawing.Size(220, 46);
+            this.calculateInterestBtn.TabIndex = 9;
+            this.calculateInterestBtn.Text = "Calculate";
+            this.calculateInterestBtn.UseVisualStyleBackColor = true;
+            this.calculateInterestBtn.Click += new System.EventHandler(this.calculateInterestBtn_Click);
+            // 
+            // interestLabel
+            // 
+            this.interestLabel.AutoSize = true;
+            this.interestLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.interestLabel.Location = new System.Drawing.Point(643, 356);
+            this.interestLabel.Name = "interestLabel";
+            this.interestLabel.Size = new System.Drawing.Size(116, 32);
+            this.interestLabel.TabIndex = 10;
+            this.interestLabel.Text = "Interest:";
+            // 
+            // interestOutput
+            // 
+            this.interestOutput.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.interestOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.interestOutput.Location = new System.Drawing.Point(581, 403);
+            this.interestOutput.Name = "interestOutput";
+            this.interestOutput.ReadOnly = true;
+            this.interestOutput.Size = new System.Drawing.Size(240, 38);
+            this.interestOutput.TabIndex = 11;
+            this.interestOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.interestOutput.Click += new System.EventHandler(this.interestOutput_Select);
+            this.interestOutput.Enter += new System.EventHandler(this.interestOutput_Select);
+            // 
+            // totalLabel
+            // 
+            this.totalLabel.AutoSize = true;
+            this.totalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalLabel.Location = new System.Drawing.Point(528, 480);
+            this.totalLabel.Name = "totalLabel";
+            this.totalLabel.Size = new System.Drawing.Size(347, 32);
+            this.totalLabel.TabIndex = 12;
+            this.totalLabel.Text = "Total amount with interest:";
+            // 
+            // totalOutput
+            // 
+            this.totalOutput.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.totalOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalOutput.Location = new System.Drawing.Point(581, 520);
+            this.totalOutput.Name = "totalOutput";
+            this.totalOutput.ReadOnly = true;
+            this.totalOutput.Size = new System.Drawing.Size(240, 38);
+            this.totalOutput.TabIndex = 13;
+            this.totalOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.totalOutput.Click += new System.EventHandler(this.totalOutput_Select);
+            this.totalOutput.Enter += new System.EventHandler(this.totalOutput_Select);
+            // 
+            // interestInvalidInput1
+            // 
+            this.interestInvalidInput1.AutoSize = true;
+            this.interestInvalidInput1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.interestInvalidInput1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.interestInvalidInput1.Location = new System.Drawing.Point(301, 154);
+            this.interestInvalidInput1.Name = "interestInvalidInput1";
+            this.interestInvalidInput1.Size = new System.Drawing.Size(197, 20);
+            this.interestInvalidInput1.TabIndex = 14;
+            this.interestInvalidInput1.Text = "Please enter a valid input";
+            // 
+            // interestInvalidInput2
+            // 
+            this.interestInvalidInput2.AutoSize = true;
+            this.interestInvalidInput2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.interestInvalidInput2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.interestInvalidInput2.Location = new System.Drawing.Point(301, 254);
+            this.interestInvalidInput2.Name = "interestInvalidInput2";
+            this.interestInvalidInput2.Size = new System.Drawing.Size(197, 20);
+            this.interestInvalidInput2.TabIndex = 15;
+            this.interestInvalidInput2.Text = "Please enter a valid input";
+            // 
+            // interestInvalidInput3
+            // 
+            this.interestInvalidInput3.AutoSize = true;
+            this.interestInvalidInput3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.interestInvalidInput3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.interestInvalidInput3.Location = new System.Drawing.Point(301, 354);
+            this.interestInvalidInput3.Name = "interestInvalidInput3";
+            this.interestInvalidInput3.Size = new System.Drawing.Size(197, 20);
+            this.interestInvalidInput3.TabIndex = 16;
+            this.interestInvalidInput3.Text = "Please enter a valid input";
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(48)))), ((int)(((byte)(184)))));
+            this.tabPage1.Controls.Add(this.LCMoutput);
+            this.tabPage1.Controls.Add(this.GCDoutput);
+            this.tabPage1.Controls.Add(this.GCDandLCMinput);
+            this.tabPage1.Controls.Add(this.GCDandLCMinvalidInput);
+            this.tabPage1.Controls.Add(this.LCMoutputLabel);
+            this.tabPage1.Controls.Add(this.GCDoutputLabel);
+            this.tabPage1.Controls.Add(this.calculateGCDandLCM);
+            this.tabPage1.Controls.Add(this.GCDandLCMinputExplaination);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(904, 631);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "GCD-LCM";
+            // 
+            // GCDandLCMinput
+            // 
+            this.GCDandLCMinput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GCDandLCMinput.Location = new System.Drawing.Point(326, 180);
+            this.GCDandLCMinput.Name = "GCDandLCMinput";
+            this.GCDandLCMinput.Size = new System.Drawing.Size(250, 34);
+            this.GCDandLCMinput.TabIndex = 0;
+            this.GCDandLCMinput.Click += new System.EventHandler(this.GCDandLCMinput_Select);
+            this.GCDandLCMinput.Enter += new System.EventHandler(this.GCDandLCMinput_Select);
+            // 
+            // GCDandLCMinputExplaination
+            // 
+            this.GCDandLCMinputExplaination.AutoSize = true;
+            this.GCDandLCMinputExplaination.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GCDandLCMinputExplaination.Location = new System.Drawing.Point(182, 126);
+            this.GCDandLCMinputExplaination.Name = "GCDandLCMinputExplaination";
+            this.GCDandLCMinputExplaination.Size = new System.Drawing.Size(538, 32);
+            this.GCDandLCMinputExplaination.TabIndex = 1;
+            this.GCDandLCMinputExplaination.Text = "Enter your numbers separated by a space";
+            // 
+            // calculateGCDandLCM
+            // 
+            this.calculateGCDandLCM.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calculateGCDandLCM.Location = new System.Drawing.Point(187, 401);
+            this.calculateGCDandLCM.Name = "calculateGCDandLCM";
+            this.calculateGCDandLCM.Size = new System.Drawing.Size(200, 40);
+            this.calculateGCDandLCM.TabIndex = 2;
+            this.calculateGCDandLCM.Text = "Calculate";
+            this.calculateGCDandLCM.UseVisualStyleBackColor = true;
+            this.calculateGCDandLCM.Click += new System.EventHandler(this.calculateGCDandLCM_Click);
+            // 
+            // GCDoutputLabel
+            // 
+            this.GCDoutputLabel.AutoSize = true;
+            this.GCDoutputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GCDoutputLabel.Location = new System.Drawing.Point(556, 342);
+            this.GCDoutputLabel.Name = "GCDoutputLabel";
+            this.GCDoutputLabel.Size = new System.Drawing.Size(77, 29);
+            this.GCDoutputLabel.TabIndex = 3;
+            this.GCDoutputLabel.Text = "GCD: ";
+            // 
+            // LCMoutputLabel
+            // 
+            this.LCMoutputLabel.AutoSize = true;
+            this.LCMoutputLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LCMoutputLabel.Location = new System.Drawing.Point(556, 471);
+            this.LCMoutputLabel.Name = "LCMoutputLabel";
+            this.LCMoutputLabel.Size = new System.Drawing.Size(75, 29);
+            this.LCMoutputLabel.TabIndex = 4;
+            this.LCMoutputLabel.Text = "LCM: ";
+            // 
+            // GCDandLCMinvalidInput
+            // 
+            this.GCDandLCMinvalidInput.AutoSize = true;
+            this.GCDandLCMinvalidInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GCDandLCMinvalidInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.GCDandLCMinvalidInput.Location = new System.Drawing.Point(352, 230);
+            this.GCDandLCMinvalidInput.Name = "GCDandLCMinvalidInput";
+            this.GCDandLCMinvalidInput.Size = new System.Drawing.Size(197, 20);
+            this.GCDandLCMinvalidInput.TabIndex = 5;
+            this.GCDandLCMinvalidInput.Text = "Please enter a valid input";
+            // 
+            // GCDoutput
+            // 
+            this.GCDoutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GCDoutput.Location = new System.Drawing.Point(638, 342);
+            this.GCDoutput.Name = "GCDoutput";
+            this.GCDoutput.ReadOnly = true;
+            this.GCDoutput.Size = new System.Drawing.Size(180, 34);
+            this.GCDoutput.TabIndex = 6;
+            // 
+            // LCMoutput
+            // 
+            this.LCMoutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LCMoutput.Location = new System.Drawing.Point(638, 471);
+            this.LCMoutput.Name = "LCMoutput";
+            this.LCMoutput.ReadOnly = true;
+            this.LCMoutput.Size = new System.Drawing.Size(180, 34);
+            this.LCMoutput.TabIndex = 7;
+            // 
+            // tabControl
+            // 
+            this.tabControl.Controls.Add(this.tabPage1);
+            this.tabControl.Controls.Add(this.tabPage2);
+            this.tabControl.Controls.Add(this.tabPage3);
+            this.tabControl.Controls.Add(this.tabPage4);
+            this.tabControl.Location = new System.Drawing.Point(-4, -27);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(912, 660);
+            this.tabControl.TabIndex = 0;
+            // 
             // MathTools
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -637,15 +710,15 @@
             this.Text = "MathTools";
             this.Load += new System.EventHandler(this.MathTools_Load);
             this.mainPanel.ResumeLayout(false);
-            this.tabControl.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             this.leftPanel.ResumeLayout(false);
             this.btnPanel.ResumeLayout(false);
             this.titlePanel.ResumeLayout(false);
             this.titlePanel.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabControl.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -676,29 +749,34 @@
         private System.Windows.Forms.Panel indicator4;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TextBox LCMoutput;
+        private System.Windows.Forms.TextBox GCDoutput;
         private System.Windows.Forms.TextBox GCDandLCMinput;
-        private System.Windows.Forms.Label LCMoutput;
-        private System.Windows.Forms.Label GCDoutput;
+        private System.Windows.Forms.Label GCDandLCMinvalidInput;
+        private System.Windows.Forms.Label LCMoutputLabel;
+        private System.Windows.Forms.Label GCDoutputLabel;
         private System.Windows.Forms.Button calculateGCDandLCM;
         private System.Windows.Forms.Label GCDandLCMinputExplaination;
-        private System.Windows.Forms.Label GCDandLCMinvalidInput;
-        private System.Windows.Forms.Label percent;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Label interestInvalidInput3;
+        private System.Windows.Forms.Label interestInvalidInput2;
+        private System.Windows.Forms.Label interestInvalidInput1;
+        private System.Windows.Forms.TextBox totalOutput;
+        private System.Windows.Forms.TextBox interestOutput;
         private System.Windows.Forms.TextBox yearsInput;
         private System.Windows.Forms.TextBox rateInput;
         private System.Windows.Forms.TextBox amountInput;
+        private System.Windows.Forms.Label totalLabel;
+        private System.Windows.Forms.Label interestLabel;
+        private System.Windows.Forms.Button calculateInterestBtn;
+        private System.Windows.Forms.RadioButton compoundInterestBtn;
+        private System.Windows.Forms.RadioButton normalInterestBtn;
+        private System.Windows.Forms.Label percent;
         private System.Windows.Forms.Label interestInputExplaination3;
         private System.Windows.Forms.Label interestInputExplaination2;
         private System.Windows.Forms.Label interestInputExplaination1;
-        private System.Windows.Forms.RadioButton compoundInterestBtn;
-        private System.Windows.Forms.RadioButton normalInterestBtn;
-        private System.Windows.Forms.Button calculateInterestBtn;
-        private System.Windows.Forms.Label interestLabel;
-        private System.Windows.Forms.TextBox interestOutput;
-        private System.Windows.Forms.TextBox totalOutput;
-        private System.Windows.Forms.Label totalLabel;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage4;
     }
 }
 
