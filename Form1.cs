@@ -26,6 +26,8 @@ namespace MathTools
             interestInvalidInput2.Hide();
             interestInvalidInput3.Hide();
             normalInterestBtn.Checked = true;
+
+            conversionInvalidInput.Hide();
         }
 
         private void leftPanel_Paint(object sender, PaintEventArgs e)
@@ -113,7 +115,7 @@ namespace MathTools
             for (int i = 0; i < input.Length; i++)
             {
                 char c = input[i];
-                if (!(c == '0' || c == '1' || c == '2' || c == '3' || c == '4' || c == '5' || c == '6' || c == '7' || c == '8' || c == '9' || (c == ' ' && (t == 1)) || (c == ',' && (t == 2))))
+                if (!(c == '0' || c == '1' || (c == '2' && t != 3) || (c == '3' && t != 3) || (c == '4' && t != 3) || (c == '5' && t != 3) || (c == '6' && t != 3) || (c == '7' && t != 3) || (c == '8' && t != 3 && t != 4) || (c == '9' && t != 3 && t != 4) || (c == ' ' && (t == 1)) || (c == ',' && (t == 2)) || (c == 'A' && t == 5) || (c == 'B' && t == 5) || (c == 'C' && t == 5) || (c == 'D' && t == 5) || (c == 'E' && t == 5) || (c == 'F' && t == 5)))
                 {
                     value = false;
                 }
@@ -239,6 +241,16 @@ namespace MathTools
             GCDandLCMinput.SelectAll();
         }
 
+        private void GCDoutput_Select(object sender, EventArgs e)
+        {
+            GCDoutput.SelectAll();
+        }
+
+        private void LCMoutput_Select(object sender, EventArgs e)
+        {
+            LCMoutput.SelectAll();
+        }
+
         private void calculateInterestBtn_Click(object sender, EventArgs e)
         {
             string amount = amountInput.Text.Replace(" ", "").Replace(".", ",");
@@ -312,6 +324,107 @@ namespace MathTools
         private void interestOutput_Select(object sender, EventArgs e)
         {
             interestOutput.SelectAll();
+        }
+
+        private void convertBtn_Click(object sender, EventArgs e)
+        {
+            convert(conversionInput.Text);
+        }
+
+        private void convert(string input)
+        {
+            if (input.Replace(" ", "") != "")
+            {
+                if (input[input.Length - 1] == ' ')
+                {
+                    string temp = input;
+                    input = "";
+                    for (int i = 0; i < temp.Length - 1; i++)
+                    {
+                        input += temp[i];
+                    }
+                    convert(input);
+                }
+                else
+                {
+                    int start = startBase.SelectedIndex + 1;
+                    int end = endBase.SelectedIndex + 1;
+                    int t;
+                    switch (start)
+                    {
+                        case 1:
+                            t = 3;
+                            break;
+                        case 2:
+                            t = 4;
+                            break;
+                        case 4:
+                            t = 5;
+                            break;
+                        default:
+                            t = 0;
+                            break;
+                    }
+                    if (!isValid(input.ToUpper(), t))
+                    {
+                        conversionInvalidInput.Show();
+                        conversionOutput.Text = "";
+                    }
+                    else
+                    {
+                        conversionInvalidInput.Hide();
+                        int decimalInput = 0;
+                        switch(start)
+                        {
+                            case 1:
+                                decimalInput = Convert.ToInt32(input, 2);
+                                break;
+                            case 2:
+                                decimalInput = Convert.ToInt32(input, 8);
+                                break;
+                            case 3:
+                                decimalInput = Convert.ToInt32(input);
+                                break;
+                            case 4:
+                                decimalInput = Convert.ToInt32(input, 16);
+                                break;
+                        }
+                        string output = "";
+                        switch(end)
+                        {
+                            case 1:
+                                output = Convert.ToString(decimalInput, 2);
+                                break;
+                            case 2:
+                                output = Convert.ToString(decimalInput, 8);
+                                break;
+                            case 3:
+                                output = Convert.ToString(decimalInput);
+                                break;
+                            case 4:
+                                output = Convert.ToString(decimalInput, 16);
+                                break;
+                        }
+                        conversionOutput.Text = output;
+                    }
+                }
+            }
+            else
+            {
+                conversionInvalidInput.Show();
+                conversionOutput.Text = "";
+                conversionInput.Text = "";
+            }
+        }
+
+        private void conversionInput_Select(object sender, EventArgs e)
+        {
+            conversionInput.SelectAll();
+        }
+
+        private void conversionOutput_Select(object sender, EventArgs e)
+        {
+            conversionOutput.SelectAll();
         }
     }
 }
