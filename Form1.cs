@@ -28,6 +28,9 @@ namespace MathTools
             normalInterestBtn.Checked = true;
 
             conversionInvalidInput.Hide();
+
+            invalidCoeffs.Hide();
+            secondSol.Hide();
         }
 
         private void leftPanel_Paint(object sender, PaintEventArgs e)
@@ -115,7 +118,7 @@ namespace MathTools
             for (int i = 0; i < input.Length; i++)
             {
                 char c = input[i];
-                if (!(c == '0' || c == '1' || (c == '2' && t != 3) || (c == '3' && t != 3) || (c == '4' && t != 3) || (c == '5' && t != 3) || (c == '6' && t != 3) || (c == '7' && t != 3) || (c == '8' && t != 3 && t != 4) || (c == '9' && t != 3 && t != 4) || (c == ' ' && (t == 1)) || (c == ',' && (t == 2)) || (c == 'A' && t == 5) || (c == 'B' && t == 5) || (c == 'C' && t == 5) || (c == 'D' && t == 5) || (c == 'E' && t == 5) || (c == 'F' && t == 5)))
+                if (!(c == '0' || c == '1' || (c == '2' && t != 3) || (c == '3' && t != 3) || (c == '4' && t != 3) || (c == '5' && t != 3) || (c == '6' && t != 3) || (c == '7' && t != 3) || (c == '8' && t != 3 && t != 4) || (c == '9' && t != 3 && t != 4) || (c == ' ' && (t == 1)) || (c == ',' && (t == 2 || t == 6)) || (c == '-' && (t == 6)) || (c == 'A' && t == 5) || (c == 'B' && t == 5) || (c == 'C' && t == 5) || (c == 'D' && t == 5) || (c == 'E' && t == 5) || (c == 'F' && t == 5)))
                 {
                     value = false;
                 }
@@ -425,6 +428,65 @@ namespace MathTools
         private void conversionOutput_Select(object sender, EventArgs e)
         {
             conversionOutput.SelectAll();
+        }
+
+        private void solveBtn_Click(object sender, EventArgs e)
+        {
+            firstSol.Text = "X =";
+            secondSol.Text = "X =";
+
+            string firstCoeff = xSquaredCoeff.Text.Replace(" ", "").Replace(".", ",");
+            string secondCoeff = xCoeff.Text.Replace(" ", "").Replace(".", ",");
+            string thirdCoeff = knownTerm.Text.Replace(" ", "").Replace(".", ",");
+
+            if (!(isValid(firstCoeff, 6) && isValid(secondCoeff, 6) && isValid(thirdCoeff, 6) && firstCoeff != "" && secondCoeff != "" && thirdCoeff != ""))
+            {
+                invalidCoeffs.Show();
+                deltaLabel.Text = "Delta:";
+            }
+            else
+            {
+                invalidCoeffs.Hide();
+
+                double a = Convert.ToDouble(firstCoeff);
+                double b = Convert.ToDouble(secondCoeff);
+                double c = Convert.ToDouble(thirdCoeff);
+                
+                double delta = b*b - 4*a*c;
+                deltaLabel.Text = "Delta: " + delta;
+                if(delta < 0)
+                {
+                    secondSol.Show();
+                    firstSol.Text += ((b != 0) ? (-b / 2 + " + ") : "") + ((Math.Sqrt(-delta) / 2 == 1) ? " " : ("" + Math.Sqrt(-delta) / 2)) + "i";
+                    secondSol.Text += ((b != 0) ? ("" + -b / 2) : "") + " -" + ((Math.Sqrt(-delta) / 2 == 1) ? "" : (" " + Math.Sqrt(-delta) / 2)) + "i";
+                }
+                else if(delta == 0)
+                {
+                    secondSol.Hide();
+                    firstSol.Text = "" + -b/2;
+                }
+                else
+                {
+                    secondSol.Show();
+                    firstSol.Text = "X = " + (-b - Math.Sqrt(delta)) / 2;
+                    secondSol.Text = "X = " + (-b + Math.Sqrt(delta)) / 2;
+                }
+            }
+        }
+
+        private void xSquaredCoeff_Select(object sender, EventArgs e)
+        {
+            xSquaredCoeff.SelectAll();
+        }
+
+        private void xCoeff_Select(object sender, EventArgs e)
+        {
+            xCoeff.SelectAll();
+        }
+
+        private void knownTerm_Select(object sender, EventArgs e)
+        {
+            knownTerm.SelectAll();
         }
     }
 }

@@ -69,6 +69,17 @@
             this.startBaseLabel = new System.Windows.Forms.Label();
             this.startBase = new System.Windows.Forms.ComboBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.equalsZero = new System.Windows.Forms.Label();
+            this.solveLabel = new System.Windows.Forms.Label();
+            this.invalidCoeffs = new System.Windows.Forms.Label();
+            this.deltaLabel = new System.Windows.Forms.Label();
+            this.solveBtn = new System.Windows.Forms.Button();
+            this.squaredLabel = new System.Windows.Forms.Label();
+            this.knownTerm = new System.Windows.Forms.TextBox();
+            this.xCoeff = new System.Windows.Forms.TextBox();
+            this.xLabel = new System.Windows.Forms.Label();
+            this.xSquaredLabel = new System.Windows.Forms.Label();
+            this.xSquaredCoeff = new System.Windows.Forms.TextBox();
             this.leftPanel = new System.Windows.Forms.Panel();
             this.btnPanel = new System.Windows.Forms.Panel();
             this.indicator8 = new System.Windows.Forms.Panel();
@@ -91,11 +102,15 @@
             this.titlePanel = new System.Windows.Forms.Panel();
             this.author = new System.Windows.Forms.Label();
             this.title = new System.Windows.Forms.Label();
+            this.solutionsLabel = new System.Windows.Forms.Label();
+            this.firstSol = new System.Windows.Forms.Label();
+            this.secondSol = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.leftPanel.SuspendLayout();
             this.btnPanel.SuspendLayout();
             this.titlePanel.SuspendLayout();
@@ -576,12 +591,141 @@
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(48)))), ((int)(((byte)(184)))));
+            this.tabPage4.Controls.Add(this.secondSol);
+            this.tabPage4.Controls.Add(this.firstSol);
+            this.tabPage4.Controls.Add(this.solutionsLabel);
+            this.tabPage4.Controls.Add(this.equalsZero);
+            this.tabPage4.Controls.Add(this.solveLabel);
+            this.tabPage4.Controls.Add(this.invalidCoeffs);
+            this.tabPage4.Controls.Add(this.deltaLabel);
+            this.tabPage4.Controls.Add(this.solveBtn);
+            this.tabPage4.Controls.Add(this.squaredLabel);
+            this.tabPage4.Controls.Add(this.knownTerm);
+            this.tabPage4.Controls.Add(this.xCoeff);
+            this.tabPage4.Controls.Add(this.xLabel);
+            this.tabPage4.Controls.Add(this.xSquaredLabel);
+            this.tabPage4.Controls.Add(this.xSquaredCoeff);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(904, 631);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Pythagorean Triplets";
+            this.tabPage4.Text = "Quadratic Equations";
+            // 
+            // equalsZero
+            // 
+            this.equalsZero.AutoSize = true;
+            this.equalsZero.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.equalsZero.Location = new System.Drawing.Point(653, 167);
+            this.equalsZero.Name = "equalsZero";
+            this.equalsZero.Size = new System.Drawing.Size(52, 29);
+            this.equalsZero.TabIndex = 17;
+            this.equalsZero.Text = "=  0";
+            // 
+            // solveLabel
+            // 
+            this.solveLabel.AutoSize = true;
+            this.solveLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.solveLabel.Location = new System.Drawing.Point(371, 89);
+            this.solveLabel.Name = "solveLabel";
+            this.solveLabel.Size = new System.Drawing.Size(155, 32);
+            this.solveLabel.TabIndex = 16;
+            this.solveLabel.Text = "Solve for x:";
+            // 
+            // invalidCoeffs
+            // 
+            this.invalidCoeffs.AutoSize = true;
+            this.invalidCoeffs.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.invalidCoeffs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.invalidCoeffs.Location = new System.Drawing.Point(332, 220);
+            this.invalidCoeffs.Name = "invalidCoeffs";
+            this.invalidCoeffs.Size = new System.Drawing.Size(233, 20);
+            this.invalidCoeffs.TabIndex = 15;
+            this.invalidCoeffs.Text = "Please enter valid coefficients";
+            // 
+            // deltaLabel
+            // 
+            this.deltaLabel.AutoSize = true;
+            this.deltaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deltaLabel.Location = new System.Drawing.Point(155, 418);
+            this.deltaLabel.Name = "deltaLabel";
+            this.deltaLabel.Size = new System.Drawing.Size(81, 29);
+            this.deltaLabel.TabIndex = 7;
+            this.deltaLabel.Text = "Delta: ";
+            // 
+            // solveBtn
+            // 
+            this.solveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.solveBtn.Location = new System.Drawing.Point(324, 263);
+            this.solveBtn.Name = "solveBtn";
+            this.solveBtn.Size = new System.Drawing.Size(250, 43);
+            this.solveBtn.TabIndex = 6;
+            this.solveBtn.Text = "Calculate solutions";
+            this.solveBtn.UseVisualStyleBackColor = true;
+            this.solveBtn.Click += new System.EventHandler(this.solveBtn_Click);
+            // 
+            // squaredLabel
+            // 
+            this.squaredLabel.AutoSize = true;
+            this.squaredLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.squaredLabel.Location = new System.Drawing.Point(325, 159);
+            this.squaredLabel.Name = "squaredLabel";
+            this.squaredLabel.Size = new System.Drawing.Size(15, 16);
+            this.squaredLabel.TabIndex = 5;
+            this.squaredLabel.Text = "2";
+            // 
+            // knownTerm
+            // 
+            this.knownTerm.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.knownTerm.Location = new System.Drawing.Point(543, 166);
+            this.knownTerm.Name = "knownTerm";
+            this.knownTerm.Size = new System.Drawing.Size(100, 34);
+            this.knownTerm.TabIndex = 4;
+            this.knownTerm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.knownTerm.Click += new System.EventHandler(this.knownTerm_Select);
+            this.knownTerm.Enter += new System.EventHandler(this.knownTerm_Select);
+            // 
+            // xCoeff
+            // 
+            this.xCoeff.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xCoeff.Location = new System.Drawing.Point(369, 166);
+            this.xCoeff.Name = "xCoeff";
+            this.xCoeff.Size = new System.Drawing.Size(100, 34);
+            this.xCoeff.TabIndex = 3;
+            this.xCoeff.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.xCoeff.Click += new System.EventHandler(this.xCoeff_Select);
+            this.xCoeff.Enter += new System.EventHandler(this.xCoeff_Select);
+            // 
+            // xLabel
+            // 
+            this.xLabel.AutoSize = true;
+            this.xLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xLabel.Location = new System.Drawing.Point(478, 167);
+            this.xLabel.Name = "xLabel";
+            this.xLabel.Size = new System.Drawing.Size(62, 29);
+            this.xLabel.TabIndex = 2;
+            this.xLabel.Text = "X   +";
+            // 
+            // xSquaredLabel
+            // 
+            this.xSquaredLabel.AutoSize = true;
+            this.xSquaredLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xSquaredLabel.Location = new System.Drawing.Point(304, 167);
+            this.xSquaredLabel.Name = "xSquaredLabel";
+            this.xSquaredLabel.Size = new System.Drawing.Size(62, 29);
+            this.xSquaredLabel.TabIndex = 1;
+            this.xSquaredLabel.Text = "X   +";
+            // 
+            // xSquaredCoeff
+            // 
+            this.xSquaredCoeff.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xSquaredCoeff.Location = new System.Drawing.Point(193, 166);
+            this.xSquaredCoeff.Name = "xSquaredCoeff";
+            this.xSquaredCoeff.Size = new System.Drawing.Size(100, 34);
+            this.xSquaredCoeff.TabIndex = 0;
+            this.xSquaredCoeff.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.xSquaredCoeff.Click += new System.EventHandler(this.xSquaredCoeff_Select);
+            this.xSquaredCoeff.Enter += new System.EventHandler(this.xSquaredCoeff_Select);
             // 
             // leftPanel
             // 
@@ -743,7 +887,7 @@
             this.option4.Name = "option4";
             this.option4.Size = new System.Drawing.Size(274, 60);
             this.option4.TabIndex = 8;
-            this.option4.Text = "Pythagorean Triplets Generator";
+            this.option4.Text = "Quadratic Equation Solver";
             this.option4.UseVisualStyleBackColor = false;
             this.option4.Click += new System.EventHandler(this.option4_Click);
             // 
@@ -800,7 +944,7 @@
             this.contactBtn.Name = "contactBtn";
             this.contactBtn.Size = new System.Drawing.Size(320, 60);
             this.contactBtn.TabIndex = 4;
-            this.contactBtn.Text = "Contact us";
+            this.contactBtn.Text = "Contact me";
             this.contactBtn.UseVisualStyleBackColor = false;
             this.contactBtn.Click += new System.EventHandler(this.contactBtn_Click);
             // 
@@ -837,6 +981,36 @@
             this.title.TabIndex = 0;
             this.title.Text = "MathTools";
             // 
+            // solutionsLabel
+            // 
+            this.solutionsLabel.AutoSize = true;
+            this.solutionsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.solutionsLabel.Location = new System.Drawing.Point(366, 418);
+            this.solutionsLabel.Name = "solutionsLabel";
+            this.solutionsLabel.Size = new System.Drawing.Size(119, 29);
+            this.solutionsLabel.TabIndex = 18;
+            this.solutionsLabel.Text = "Solutions:";
+            // 
+            // firstSol
+            // 
+            this.firstSol.AutoSize = true;
+            this.firstSol.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstSol.Location = new System.Drawing.Point(507, 418);
+            this.firstSol.Name = "firstSol";
+            this.firstSol.Size = new System.Drawing.Size(50, 29);
+            this.firstSol.TabIndex = 19;
+            this.firstSol.Text = "X =";
+            // 
+            // secondSol
+            // 
+            this.secondSol.AutoSize = true;
+            this.secondSol.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.secondSol.Location = new System.Drawing.Point(507, 478);
+            this.secondSol.Name = "secondSol";
+            this.secondSol.Size = new System.Drawing.Size(50, 29);
+            this.secondSol.TabIndex = 20;
+            this.secondSol.Text = "X =";
+            // 
             // MathTools
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -856,6 +1030,8 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.leftPanel.ResumeLayout(false);
             this.btnPanel.ResumeLayout(false);
             this.titlePanel.ResumeLayout(false);
@@ -928,6 +1104,20 @@
         private System.Windows.Forms.TextBox conversionOutput;
         private System.Windows.Forms.Label conversionResultLabel;
         private System.Windows.Forms.Label conversionInvalidInput;
+        private System.Windows.Forms.Label squaredLabel;
+        private System.Windows.Forms.TextBox knownTerm;
+        private System.Windows.Forms.TextBox xCoeff;
+        private System.Windows.Forms.Label xLabel;
+        private System.Windows.Forms.Label xSquaredLabel;
+        private System.Windows.Forms.TextBox xSquaredCoeff;
+        private System.Windows.Forms.Label deltaLabel;
+        private System.Windows.Forms.Button solveBtn;
+        private System.Windows.Forms.Label invalidCoeffs;
+        private System.Windows.Forms.Label equalsZero;
+        private System.Windows.Forms.Label solveLabel;
+        private System.Windows.Forms.Label secondSol;
+        private System.Windows.Forms.Label firstSol;
+        private System.Windows.Forms.Label solutionsLabel;
     }
 }
 
