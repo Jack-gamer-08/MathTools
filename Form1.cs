@@ -130,9 +130,18 @@ namespace MathTools
             return value;
         }
 
-        private void calculateGCDandLCM_Click(object sender, EventArgs e)
+        private void calculateGCDandLCMbtn_Click(object sender, EventArgs e)
         {
             GCDandLCMcalculator(GCDandLCMinput.Text);
+        }
+
+        private void GCDandLCMinput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                GCDandLCMcalculator(GCDandLCMinput.Text);
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void GCDandLCMcalculator(string input)
@@ -338,6 +347,15 @@ namespace MathTools
             convert(conversionInput.Text);
         }
 
+        private void conversionInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                convert(conversionInput.Text);
+                e.SuppressKeyPress = true;
+            }
+        }
+
         private void convert(string input)
         {
             if (input.Replace(" ", "") != "")
@@ -372,7 +390,7 @@ namespace MathTools
                             t = 0;
                             break;
                     }
-                    if (!isValid(input.ToUpper(), t))
+                    if (!isValid(input.ToUpper(), t) || startBase.SelectedIndex == -1 || endBase.SelectedIndex == -1)
                     {
                         conversionInvalidInput.Show();
                         conversionOutput.Text = "";
@@ -509,6 +527,20 @@ namespace MathTools
 
         private void romanToArabicBtn_Click(object sender, EventArgs e)
         {
+            romanToArabic();
+        }
+
+        private void romanInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                romanToArabic();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void romanToArabic()
+        {
             string input = romanInput.Text.ToUpper().Replace(" ", "");
             if (!isValidNumeral(input) || input == "")
             {
@@ -557,6 +589,20 @@ namespace MathTools
         private static StringBuilder romanBuilder = new StringBuilder();
 
         private void arabicToRomanBtn_Click(object sender, EventArgs e)
+        {
+            arabicToRoman();
+        }
+
+        private void arabicInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                arabicToRoman();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void arabicToRoman()
         {
             string input = arabicInput.Text.Replace(" ", "");
             if (!isValid(input, 0) || input == "")

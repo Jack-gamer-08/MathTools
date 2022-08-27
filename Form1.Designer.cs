@@ -37,7 +37,7 @@
             this.GCDandLCMinvalidInput = new System.Windows.Forms.Label();
             this.LCMoutputLabel = new System.Windows.Forms.Label();
             this.GCDoutputLabel = new System.Windows.Forms.Label();
-            this.calculateGCDandLCM = new System.Windows.Forms.Button();
+            this.calculateGCDandLCMbtn = new System.Windows.Forms.Button();
             this.GCDandLCMinputExplaination = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.interestInvalidInput3 = new System.Windows.Forms.Label();
@@ -160,7 +160,7 @@
             this.tabPage1.Controls.Add(this.GCDandLCMinvalidInput);
             this.tabPage1.Controls.Add(this.LCMoutputLabel);
             this.tabPage1.Controls.Add(this.GCDoutputLabel);
-            this.tabPage1.Controls.Add(this.calculateGCDandLCM);
+            this.tabPage1.Controls.Add(this.calculateGCDandLCMbtn);
             this.tabPage1.Controls.Add(this.GCDandLCMinputExplaination);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
@@ -202,6 +202,7 @@
             this.GCDandLCMinput.TabIndex = 0;
             this.GCDandLCMinput.Click += new System.EventHandler(this.GCDandLCMinput_Select);
             this.GCDandLCMinput.Enter += new System.EventHandler(this.GCDandLCMinput_Select);
+            this.GCDandLCMinput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GCDandLCMinput_KeyDown);
             // 
             // GCDandLCMinvalidInput
             // 
@@ -234,16 +235,16 @@
             this.GCDoutputLabel.TabIndex = 3;
             this.GCDoutputLabel.Text = "GCD: ";
             // 
-            // calculateGCDandLCM
+            // calculateGCDandLCMbtn
             // 
-            this.calculateGCDandLCM.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calculateGCDandLCM.Location = new System.Drawing.Point(187, 401);
-            this.calculateGCDandLCM.Name = "calculateGCDandLCM";
-            this.calculateGCDandLCM.Size = new System.Drawing.Size(200, 40);
-            this.calculateGCDandLCM.TabIndex = 2;
-            this.calculateGCDandLCM.Text = "Calculate";
-            this.calculateGCDandLCM.UseVisualStyleBackColor = true;
-            this.calculateGCDandLCM.Click += new System.EventHandler(this.calculateGCDandLCM_Click);
+            this.calculateGCDandLCMbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calculateGCDandLCMbtn.Location = new System.Drawing.Point(187, 401);
+            this.calculateGCDandLCMbtn.Name = "calculateGCDandLCMbtn";
+            this.calculateGCDandLCMbtn.Size = new System.Drawing.Size(200, 40);
+            this.calculateGCDandLCMbtn.TabIndex = 2;
+            this.calculateGCDandLCMbtn.Text = "Calculate";
+            this.calculateGCDandLCMbtn.UseVisualStyleBackColor = true;
+            this.calculateGCDandLCMbtn.Click += new System.EventHandler(this.calculateGCDandLCMbtn_Click);
             // 
             // GCDandLCMinputExplaination
             // 
@@ -542,6 +543,7 @@
             this.conversionInput.TabIndex = 6;
             this.conversionInput.Click += new System.EventHandler(this.conversionInput_Select);
             this.conversionInput.Enter += new System.EventHandler(this.conversionInput_Select);
+            this.conversionInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.conversionInput_KeyDown);
             // 
             // convertLabel
             // 
@@ -795,7 +797,7 @@
             this.romanInvalidInput.AutoSize = true;
             this.romanInvalidInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.romanInvalidInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.romanInvalidInput.Location = new System.Drawing.Point(143, 234);
+            this.romanInvalidInput.Location = new System.Drawing.Point(125, 234);
             this.romanInvalidInput.Name = "romanInvalidInput";
             this.romanInvalidInput.Size = new System.Drawing.Size(275, 20);
             this.romanInvalidInput.TabIndex = 9;
@@ -806,7 +808,7 @@
             this.arabicInvalidInput.AutoSize = true;
             this.arabicInvalidInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.arabicInvalidInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.arabicInvalidInput.Location = new System.Drawing.Point(529, 234);
+            this.arabicInvalidInput.Location = new System.Drawing.Point(511, 234);
             this.arabicInvalidInput.Name = "arabicInvalidInput";
             this.arabicInvalidInput.Size = new System.Drawing.Size(275, 20);
             this.arabicInvalidInput.TabIndex = 8;
@@ -845,6 +847,7 @@
             this.arabicInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.arabicInput.Click += new System.EventHandler(this.arabicInput_Select);
             this.arabicInput.Enter += new System.EventHandler(this.arabicInput_Select);
+            this.arabicInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.arabicInput_KeyDown);
             // 
             // arabicToRomanLabel
             // 
@@ -889,6 +892,7 @@
             this.romanInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.romanInput.Click += new System.EventHandler(this.romanInput_Select);
             this.romanInput.Enter += new System.EventHandler(this.romanInput_Select);
+            this.romanInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.romanInput_KeyDown);
             // 
             // romanToArabicLabel
             // 
@@ -1217,7 +1221,7 @@
         private System.Windows.Forms.Label GCDandLCMinvalidInput;
         private System.Windows.Forms.Label LCMoutputLabel;
         private System.Windows.Forms.Label GCDoutputLabel;
-        private System.Windows.Forms.Button calculateGCDandLCM;
+        private System.Windows.Forms.Button calculateGCDandLCMbtn;
         private System.Windows.Forms.Label GCDandLCMinputExplaination;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label interestInvalidInput3;
