@@ -31,6 +31,9 @@ namespace MathTools
 
             invalidCoeffs.Hide();
             secondSol.Hide();
+
+            romanInvalidInput.Hide();
+            arabicInvalidInput.Hide();
         }
 
         private void leftPanel_Paint(object sender, PaintEventArgs e)
@@ -70,6 +73,7 @@ namespace MathTools
         {
             indicatorsOff();
             indicator5.BackColor = Color.FromArgb(71, 48, 184);
+            tabControl.SelectTab(4);
         }
 
         private void option6_Click(object sender, EventArgs e)
@@ -173,7 +177,7 @@ namespace MathTools
             }
         }
 
-        private int calculateGCD(int[] ints)
+        private int calculateGCD(int[] ints) //not my code
         {
             int result = ints[0];
             for (int i = 1; i < ints.Length; i++)
@@ -187,7 +191,7 @@ namespace MathTools
             return result;
         }
 
-        private int gcd(int a, int b)
+        private int gcd(int a, int b) //some euclidian stuff
         {
             if (a == 0)
             {
@@ -196,7 +200,7 @@ namespace MathTools
             return gcd(b % a, a);
         }
 
-        private long calculateLCM(int[] ints)
+        private long calculateLCM(int[] ints) //again not my code lol
         {
             long result = 1;
             int divisor = 2;
@@ -430,7 +434,7 @@ namespace MathTools
             conversionOutput.SelectAll();
         }
 
-        private void solveBtn_Click(object sender, EventArgs e)
+        private void solveBtn_Click(object sender, EventArgs e) //just quadratic equation
         {
             firstSol.Text = "X =";
             secondSol.Text = "X =";
@@ -487,6 +491,163 @@ namespace MathTools
         private void knownTerm_Select(object sender, EventArgs e)
         {
             knownTerm.SelectAll();
+        }
+
+        private bool isValidNumeral(string input)
+        {
+            bool value = true;
+            for(int i = 0; i < input.Length; i++)
+            {
+                char c = input[i];
+                if(!(c == 'I' || c == 'V' || c == 'X' || c == 'L' || c == 'C' || c == 'D' || c == 'M'))
+                {
+                    value = false;
+                }
+            }
+            return value;
+        }
+
+        private void romanToArabicBtn_Click(object sender, EventArgs e)
+        {
+            string input = romanInput.Text.ToUpper().Replace(" ", "");
+            if (!isValidNumeral(input) || input == "")
+            {
+                romanInvalidInput.Show();
+            }
+            else
+            {
+                romanInvalidInput.Hide();
+
+                int sum = 0;
+                Dictionary<char, int> romanDictionary = new Dictionary<char, int>()
+                {
+                    { 'I', 1 },
+                    { 'V', 5 },
+                    { 'X', 10 },
+                    { 'L', 50 },
+                    { 'C', 100 },
+                    { 'D', 500 },
+                    { 'M', 1000 }
+                };
+
+                for(int i = 0; i < input.Length; i++)
+                {
+                    romanDictionary.TryGetValue(input[i], out int number);
+                    if(i + 1 < input.Length && romanDictionary[input[i + 1]] > romanDictionary[input[i]])
+                    {
+                        sum -= number;
+                    }
+                    else
+                    {
+                        sum += number;
+                    }
+                }
+                if(sum < 4000)
+                {
+                    arabicOutput.Text = "" + sum;
+                    romanInput.Text = input;
+                }
+                else
+                {
+                    romanInvalidInput.Show();
+                }
+            }
+        }
+
+        private static StringBuilder romanBuilder = new StringBuilder();
+
+        private void arabicToRomanBtn_Click(object sender, EventArgs e)
+        {
+            string input = arabicInput.Text.Replace(" ", "");
+            if (!isValid(input, 0) || input == "")
+            {
+                arabicInvalidInput.Show();
+                romanOutput.Text = "";
+            }
+            else if (Convert.ToInt32(input) > 3999 || Convert.ToInt32(input) < 1)
+            {
+                arabicInvalidInput.Show();
+                romanOutput.Text = "";
+            }
+            else //code by some random guy on github cause I can't bother
+            {
+                arabicInvalidInput.Hide();
+
+                romanBuilder.Clear();
+                toRoman(Convert.ToInt32(input));
+                romanOutput.Text = romanBuilder.ToString();
+            }
+        }
+        
+        private readonly static Dictionary<int, string> ArabicAux = new Dictionary<int, string>() {
+            { 3000, "MMM" },
+            { 2000, "MM" },
+            { 1000, "M" },
+            { 900, "CM" },
+            { 800, "DCCC" },
+            { 700, "DCC" },
+            { 600, "DC" },
+            { 500, "D" },
+            { 400, "CD" },
+            { 300, "CCC" },
+            { 200, "CC" },
+            { 100, "C" },
+            { 90, "XC" },
+            { 80, "LXXX" },
+            { 70, "LXX" },
+            { 60, "LX" },
+            { 50, "L" },
+            { 40, "XL" },
+            { 30, "XXX" },
+            { 20, "XX" },
+            { 10, "X" },
+            { 9, "IX" },
+            { 8, "VIII" },
+            { 7, "VII" },
+            { 6, "VI" },
+            { 5, "V" },
+            { 4, "IV" },
+            { 3, "III" },
+            { 2, "II" },
+            { 1, "I" },
+        };
+
+        public static void toRoman(int arabic) //what the heck?????
+        {
+            int mod = 0;
+            foreach (KeyValuePair<int, string> item in ArabicAux)
+            {
+                if (arabic / item.Key > 0)
+                {
+                    romanBuilder.Append($"{item.Value}");
+                    mod = arabic % item.Key;
+                    if (mod > 0)
+                    {
+                        toRoman(mod);
+                    }
+                    break;
+                }
+            }
+        }
+
+        private void romanInput_Select(object sender, EventArgs e)
+        {
+            romanInput.SelectAll();
+        }
+
+        private void arabicOutput_Select(object sender, EventArgs e)
+        {
+            arabicOutput.SelectAll();
+        }
+
+        private void arabicInput_Select(object sender, EventArgs e)
+        {
+            arabicInput.SelectAll();
+        }
+
+        private void romanOutput_Select(object sender, EventArgs e)
+        {
+            romanOutput.SelectAll();
         }
     }
 }

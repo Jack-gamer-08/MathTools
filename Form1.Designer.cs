@@ -69,6 +69,9 @@
             this.startBaseLabel = new System.Windows.Forms.Label();
             this.startBase = new System.Windows.Forms.ComboBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.secondSol = new System.Windows.Forms.Label();
+            this.firstSol = new System.Windows.Forms.Label();
+            this.solutionsLabel = new System.Windows.Forms.Label();
             this.equalsZero = new System.Windows.Forms.Label();
             this.solveLabel = new System.Windows.Forms.Label();
             this.invalidCoeffs = new System.Windows.Forms.Label();
@@ -80,6 +83,17 @@
             this.xLabel = new System.Windows.Forms.Label();
             this.xSquaredLabel = new System.Windows.Forms.Label();
             this.xSquaredCoeff = new System.Windows.Forms.TextBox();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.romanInvalidInput = new System.Windows.Forms.Label();
+            this.arabicInvalidInput = new System.Windows.Forms.Label();
+            this.romanOutput = new System.Windows.Forms.TextBox();
+            this.arabicToRomanBtn = new System.Windows.Forms.Button();
+            this.arabicInput = new System.Windows.Forms.TextBox();
+            this.arabicToRomanLabel = new System.Windows.Forms.Label();
+            this.arabicOutput = new System.Windows.Forms.TextBox();
+            this.romanToArabicBtn = new System.Windows.Forms.Button();
+            this.romanInput = new System.Windows.Forms.TextBox();
+            this.romanToArabicLabel = new System.Windows.Forms.Label();
             this.leftPanel = new System.Windows.Forms.Panel();
             this.btnPanel = new System.Windows.Forms.Panel();
             this.indicator8 = new System.Windows.Forms.Panel();
@@ -102,15 +116,13 @@
             this.titlePanel = new System.Windows.Forms.Panel();
             this.author = new System.Windows.Forms.Label();
             this.title = new System.Windows.Forms.Label();
-            this.solutionsLabel = new System.Windows.Forms.Label();
-            this.firstSol = new System.Windows.Forms.Label();
-            this.secondSol = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.tabPage5.SuspendLayout();
             this.leftPanel.SuspendLayout();
             this.btnPanel.SuspendLayout();
             this.titlePanel.SuspendLayout();
@@ -132,6 +144,7 @@
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Controls.Add(this.tabPage3);
             this.tabControl.Controls.Add(this.tabPage4);
+            this.tabControl.Controls.Add(this.tabPage5);
             this.tabControl.Location = new System.Drawing.Point(-4, -27);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -612,6 +625,36 @@
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Quadratic Equations";
             // 
+            // secondSol
+            // 
+            this.secondSol.AutoSize = true;
+            this.secondSol.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.secondSol.Location = new System.Drawing.Point(490, 478);
+            this.secondSol.Name = "secondSol";
+            this.secondSol.Size = new System.Drawing.Size(50, 29);
+            this.secondSol.TabIndex = 20;
+            this.secondSol.Text = "X =";
+            // 
+            // firstSol
+            // 
+            this.firstSol.AutoSize = true;
+            this.firstSol.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstSol.Location = new System.Drawing.Point(490, 418);
+            this.firstSol.Name = "firstSol";
+            this.firstSol.Size = new System.Drawing.Size(50, 29);
+            this.firstSol.TabIndex = 19;
+            this.firstSol.Text = "X =";
+            // 
+            // solutionsLabel
+            // 
+            this.solutionsLabel.AutoSize = true;
+            this.solutionsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.solutionsLabel.Location = new System.Drawing.Point(349, 418);
+            this.solutionsLabel.Name = "solutionsLabel";
+            this.solutionsLabel.Size = new System.Drawing.Size(119, 29);
+            this.solutionsLabel.TabIndex = 18;
+            this.solutionsLabel.Text = "Solutions:";
+            // 
             // equalsZero
             // 
             this.equalsZero.AutoSize = true;
@@ -647,7 +690,7 @@
             // 
             this.deltaLabel.AutoSize = true;
             this.deltaLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deltaLabel.Location = new System.Drawing.Point(155, 418);
+            this.deltaLabel.Location = new System.Drawing.Point(127, 418);
             this.deltaLabel.Name = "deltaLabel";
             this.deltaLabel.Size = new System.Drawing.Size(81, 29);
             this.deltaLabel.TabIndex = 7;
@@ -726,6 +769,136 @@
             this.xSquaredCoeff.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.xSquaredCoeff.Click += new System.EventHandler(this.xSquaredCoeff_Select);
             this.xSquaredCoeff.Enter += new System.EventHandler(this.xSquaredCoeff_Select);
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(48)))), ((int)(((byte)(184)))));
+            this.tabPage5.Controls.Add(this.romanInvalidInput);
+            this.tabPage5.Controls.Add(this.arabicInvalidInput);
+            this.tabPage5.Controls.Add(this.romanOutput);
+            this.tabPage5.Controls.Add(this.arabicToRomanBtn);
+            this.tabPage5.Controls.Add(this.arabicInput);
+            this.tabPage5.Controls.Add(this.arabicToRomanLabel);
+            this.tabPage5.Controls.Add(this.arabicOutput);
+            this.tabPage5.Controls.Add(this.romanToArabicBtn);
+            this.tabPage5.Controls.Add(this.romanInput);
+            this.tabPage5.Controls.Add(this.romanToArabicLabel);
+            this.tabPage5.Location = new System.Drawing.Point(4, 25);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(904, 631);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Roman";
+            // 
+            // romanInvalidInput
+            // 
+            this.romanInvalidInput.AutoSize = true;
+            this.romanInvalidInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.romanInvalidInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.romanInvalidInput.Location = new System.Drawing.Point(143, 234);
+            this.romanInvalidInput.Name = "romanInvalidInput";
+            this.romanInvalidInput.Size = new System.Drawing.Size(275, 20);
+            this.romanInvalidInput.TabIndex = 9;
+            this.romanInvalidInput.Text = "Please enter a valid input (1 - 3999)";
+            // 
+            // arabicInvalidInput
+            // 
+            this.arabicInvalidInput.AutoSize = true;
+            this.arabicInvalidInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arabicInvalidInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.arabicInvalidInput.Location = new System.Drawing.Point(529, 234);
+            this.arabicInvalidInput.Name = "arabicInvalidInput";
+            this.arabicInvalidInput.Size = new System.Drawing.Size(275, 20);
+            this.arabicInvalidInput.TabIndex = 8;
+            this.arabicInvalidInput.Text = "Please enter a valid input (1 - 3999)";
+            // 
+            // romanOutput
+            // 
+            this.romanOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.romanOutput.Location = new System.Drawing.Point(541, 360);
+            this.romanOutput.Name = "romanOutput";
+            this.romanOutput.ReadOnly = true;
+            this.romanOutput.Size = new System.Drawing.Size(250, 34);
+            this.romanOutput.TabIndex = 7;
+            this.romanOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.romanOutput.Click += new System.EventHandler(this.romanOutput_Select);
+            this.romanOutput.Enter += new System.EventHandler(this.romanOutput_Select);
+            // 
+            // arabicToRomanBtn
+            // 
+            this.arabicToRomanBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arabicToRomanBtn.Location = new System.Drawing.Point(591, 277);
+            this.arabicToRomanBtn.Name = "arabicToRomanBtn";
+            this.arabicToRomanBtn.Size = new System.Drawing.Size(150, 38);
+            this.arabicToRomanBtn.TabIndex = 6;
+            this.arabicToRomanBtn.Text = "Convert";
+            this.arabicToRomanBtn.UseVisualStyleBackColor = true;
+            this.arabicToRomanBtn.Click += new System.EventHandler(this.arabicToRomanBtn_Click);
+            // 
+            // arabicInput
+            // 
+            this.arabicInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arabicInput.Location = new System.Drawing.Point(541, 188);
+            this.arabicInput.Name = "arabicInput";
+            this.arabicInput.Size = new System.Drawing.Size(250, 34);
+            this.arabicInput.TabIndex = 5;
+            this.arabicInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.arabicInput.Click += new System.EventHandler(this.arabicInput_Select);
+            this.arabicInput.Enter += new System.EventHandler(this.arabicInput_Select);
+            // 
+            // arabicToRomanLabel
+            // 
+            this.arabicToRomanLabel.AutoSize = true;
+            this.arabicToRomanLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arabicToRomanLabel.Location = new System.Drawing.Point(547, 122);
+            this.arabicToRomanLabel.Name = "arabicToRomanLabel";
+            this.arabicToRomanLabel.Size = new System.Drawing.Size(237, 36);
+            this.arabicToRomanLabel.TabIndex = 4;
+            this.arabicToRomanLabel.Text = "Arabic to Roman";
+            // 
+            // arabicOutput
+            // 
+            this.arabicOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arabicOutput.Location = new System.Drawing.Point(155, 360);
+            this.arabicOutput.Name = "arabicOutput";
+            this.arabicOutput.ReadOnly = true;
+            this.arabicOutput.Size = new System.Drawing.Size(250, 34);
+            this.arabicOutput.TabIndex = 3;
+            this.arabicOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.arabicOutput.Click += new System.EventHandler(this.arabicOutput_Select);
+            this.arabicOutput.Enter += new System.EventHandler(this.arabicOutput_Select);
+            // 
+            // romanToArabicBtn
+            // 
+            this.romanToArabicBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.romanToArabicBtn.Location = new System.Drawing.Point(205, 277);
+            this.romanToArabicBtn.Name = "romanToArabicBtn";
+            this.romanToArabicBtn.Size = new System.Drawing.Size(150, 38);
+            this.romanToArabicBtn.TabIndex = 2;
+            this.romanToArabicBtn.Text = "Convert";
+            this.romanToArabicBtn.UseVisualStyleBackColor = true;
+            this.romanToArabicBtn.Click += new System.EventHandler(this.romanToArabicBtn_Click);
+            // 
+            // romanInput
+            // 
+            this.romanInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.romanInput.Location = new System.Drawing.Point(155, 188);
+            this.romanInput.Name = "romanInput";
+            this.romanInput.Size = new System.Drawing.Size(250, 34);
+            this.romanInput.TabIndex = 1;
+            this.romanInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.romanInput.Click += new System.EventHandler(this.romanInput_Select);
+            this.romanInput.Enter += new System.EventHandler(this.romanInput_Select);
+            // 
+            // romanToArabicLabel
+            // 
+            this.romanToArabicLabel.AutoSize = true;
+            this.romanToArabicLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.romanToArabicLabel.Location = new System.Drawing.Point(161, 122);
+            this.romanToArabicLabel.Name = "romanToArabicLabel";
+            this.romanToArabicLabel.Size = new System.Drawing.Size(237, 36);
+            this.romanToArabicLabel.TabIndex = 0;
+            this.romanToArabicLabel.Text = "Roman to Arabic";
             // 
             // leftPanel
             // 
@@ -873,7 +1046,7 @@
             this.option5.Name = "option5";
             this.option5.Size = new System.Drawing.Size(274, 60);
             this.option5.TabIndex = 9;
-            this.option5.Text = "Option 5";
+            this.option5.Text = "Roman Numeral Converter";
             this.option5.UseVisualStyleBackColor = false;
             this.option5.Click += new System.EventHandler(this.option5_Click);
             // 
@@ -981,36 +1154,6 @@
             this.title.TabIndex = 0;
             this.title.Text = "MathTools";
             // 
-            // solutionsLabel
-            // 
-            this.solutionsLabel.AutoSize = true;
-            this.solutionsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.solutionsLabel.Location = new System.Drawing.Point(366, 418);
-            this.solutionsLabel.Name = "solutionsLabel";
-            this.solutionsLabel.Size = new System.Drawing.Size(119, 29);
-            this.solutionsLabel.TabIndex = 18;
-            this.solutionsLabel.Text = "Solutions:";
-            // 
-            // firstSol
-            // 
-            this.firstSol.AutoSize = true;
-            this.firstSol.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstSol.Location = new System.Drawing.Point(507, 418);
-            this.firstSol.Name = "firstSol";
-            this.firstSol.Size = new System.Drawing.Size(50, 29);
-            this.firstSol.TabIndex = 19;
-            this.firstSol.Text = "X =";
-            // 
-            // secondSol
-            // 
-            this.secondSol.AutoSize = true;
-            this.secondSol.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.secondSol.Location = new System.Drawing.Point(507, 478);
-            this.secondSol.Name = "secondSol";
-            this.secondSol.Size = new System.Drawing.Size(50, 29);
-            this.secondSol.TabIndex = 20;
-            this.secondSol.Text = "X =";
-            // 
             // MathTools
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1032,6 +1175,8 @@
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
             this.leftPanel.ResumeLayout(false);
             this.btnPanel.ResumeLayout(false);
             this.titlePanel.ResumeLayout(false);
@@ -1118,6 +1263,17 @@
         private System.Windows.Forms.Label secondSol;
         private System.Windows.Forms.Label firstSol;
         private System.Windows.Forms.Label solutionsLabel;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TextBox romanInput;
+        private System.Windows.Forms.Label romanToArabicLabel;
+        private System.Windows.Forms.TextBox romanOutput;
+        private System.Windows.Forms.Button arabicToRomanBtn;
+        private System.Windows.Forms.TextBox arabicInput;
+        private System.Windows.Forms.Label arabicToRomanLabel;
+        private System.Windows.Forms.TextBox arabicOutput;
+        private System.Windows.Forms.Button romanToArabicBtn;
+        private System.Windows.Forms.Label romanInvalidInput;
+        private System.Windows.Forms.Label arabicInvalidInput;
     }
 }
 
