@@ -35,29 +35,50 @@ namespace MathTools
             romanInvalidInput.Hide();
             arabicInvalidInput.Hide();
 
-            //option 6
+            invalidWeightInput.Hide();
+            invalidLengthInput.Hide();
 
             currencyInvalidInput.Hide();
             currencyNoConnection.Hide();
         }
 
-        private bool internetConnection()
+        private bool isValid(String input, int t)
         {
-            try
+            bool value = true;
+            for (int i = 0; i < input.Length; i++)
             {
-                Ping myPing = new Ping();
-                String host = "google.com";
-                byte[] buffer = new byte[32];
-                int timeout = 1000;
-                PingOptions pingOptions = new PingOptions();
-                PingReply reply = myPing.Send(host, timeout, buffer, pingOptions);
-                return (reply.Status == IPStatus.Success);
+                char c = input[i];
+                if (!(c == '0' || c == '1' || (c == '2' && t != 3) || (c == '3' && t != 3) || (c == '4' && t != 3) || (c == '5' && t != 3) || (c == '6' && t != 3) || (c == '7' && t != 3) || (c == '8' && t != 3 && t != 4) || (c == '9' && t != 3 && t != 4) || (c == ' ' && (t == 1)) || (c == ',' && (t == 2 || t == 6)) || (c == '-' && (t == 6)) || (c == 'A' && t == 5) || (c == 'B' && t == 5) || (c == 'C' && t == 5) || (c == 'D' && t == 5) || (c == 'E' && t == 5) || (c == 'F' && t == 5)))
+                {
+                    value = false;
+                }
             }
-            catch (Exception)
-            {
-                return false;
-            }
+            return value;
         }
+
+        static bool allowConnection = true;
+        private static bool connectionCheck()
+        {
+            if (allowConnection)
+            {
+                try
+                {
+                    Ping myPing = new Ping();
+                    String host = "google.com";
+                    byte[] buffer = new byte[32];
+                    int timeout = 1000;
+                    PingOptions pingOptions = new PingOptions();
+                    PingReply reply = myPing.Send(host, timeout, buffer, pingOptions);
+                    return (reply.Status == IPStatus.Success);
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            }
+            else return false;
+        }
+        bool internetConnection = connectionCheck();
 
         private void option1_Click(object sender, EventArgs e)
         {
@@ -129,25 +150,6 @@ namespace MathTools
             indicator6.BackColor = Color.FromArgb(50, 47, 106);
             indicator7.BackColor = Color.FromArgb(50, 47, 106);
             indicator8.BackColor = Color.FromArgb(50, 47, 106);
-        }
-
-        private void MainPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private bool isValid(String input, int t)
-        {
-            bool value = true;
-            for (int i = 0; i < input.Length; i++)
-            {
-                char c = input[i];
-                if (!(c == '0' || c == '1' || (c == '2' && t != 3) || (c == '3' && t != 3) || (c == '4' && t != 3) || (c == '5' && t != 3) || (c == '6' && t != 3) || (c == '7' && t != 3) || (c == '8' && t != 3 && t != 4) || (c == '9' && t != 3 && t != 4) || (c == ' ' && (t == 1)) || (c == ',' && (t == 2 || t == 6)) || (c == '-' && (t == 6)) || (c == 'A' && t == 5) || (c == 'B' && t == 5) || (c == 'C' && t == 5) || (c == 'D' && t == 5) || (c == 'E' && t == 5) || (c == 'F' && t == 5)))
-                {
-                    value = false;
-                }
-            }
-            return value;
         }
 
         private void calculateGCDandLCMbtn_Click(object sender, EventArgs e)
@@ -716,7 +718,112 @@ namespace MathTools
             romanOutput.SelectAll();
         }
 
-        //option 6
+        Dictionary<string, double> weightDictionary = new Dictionary<string, double>() //kilogram is the base
+        {
+            {"Gram", 0.001 },
+            {"Kilogram", 1 },
+            {"Ton", 1000 },
+            {"Ounce", 0.0283495 },
+            {"Pound", 0.453592 },
+            {"Stone", 6.35029 }
+        };
+
+        private void weightInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                convertWeight();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void convertWeightBtn_Click(object sender, EventArgs e)
+        {
+            convertWeight();
+        }
+
+        private void convertWeight()
+        {
+            string input = weightInput.Text.Replace(" ", "").Replace(".", ",");
+            if(!isValid(input, 2) || string.IsNullOrEmpty(input) || startWeight.SelectedIndex == -1 || endWeight.SelectedIndex == -1)
+            {
+                invalidWeightInput.Show();
+            }
+            else
+            {
+                invalidWeightInput.Hide();
+
+                double startValue = weightDictionary[startWeight.SelectedItem as string];
+                double endValue = weightDictionary[endWeight.SelectedItem as string];
+
+                weightOutput.Text = "" + (1 / endValue * startValue * Convert.ToDouble(input));
+            }
+        }
+
+        private void weightInput_Select(object sender, EventArgs e)
+        {
+            weightInput.SelectAll();
+        }
+
+        private void weightOutput_Select(object sender, EventArgs e)
+        {
+            weightOutput.SelectAll();
+        }
+
+        Dictionary<string, double> lengthDictionary = new Dictionary<string, double>()
+        {
+            {"Millimeter", 0.001 },
+            {"Centimeter", 0.01 },
+            {"Meter", 1 },
+            {"Kilometer", 1000 },
+            {"Inch", 0.0254 },
+            {"Foot", 0.3048 },
+            {"Yard", 0.9144 },
+            {"Mile", 1609.344 },
+            {"Nautical mile", 1852 }
+        };
+
+        private void lengthInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                convertLength();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void convertLengthBtn_Click(object sender, EventArgs e)
+        {
+            convertLength();
+        }
+
+        private void convertLength()
+        {
+            string input = lengthInput.Text.Replace(" ", "").Replace(".", ",");
+            if (!isValid(input, 2) || string.IsNullOrEmpty(input) || startLength.SelectedIndex == -1 || endLength.SelectedIndex == -1)
+            {
+                invalidLengthInput.Show();
+            }
+            else
+            {
+                invalidLengthInput.Hide();
+
+                double startValue = lengthDictionary[startLength.SelectedItem as string];
+                double endValue = lengthDictionary[endLength.SelectedItem as string];
+
+                lengthOutput.Text = "" + (1 / endValue * startValue * Convert.ToDouble(input));
+            }
+        }
+
+        private void lengthInput_Select(object sender, EventArgs e)
+        {
+            lengthInput.SelectAll();
+        }
+
+        private void lengthOutput_Select(object sender, EventArgs e)
+        {
+            lengthOutput.SelectAll();
+        }
 
         private void currencyConversionInput_KeyDown(object sender, KeyEventArgs e)
         {
@@ -737,18 +844,20 @@ namespace MathTools
 
         private void convertCurrency()
         {
-            if(internetConnection())
+            if(internetConnection)
             {
-                string input = currencyConversionInput.Text.Replace(" ", "").Replace(".", ",");
                 currencyNoConnection.Hide();
 
-                if (!isValid(input, 2) || startCurrency.SelectedIndex == -1 || endCurrency.SelectedIndex == -1)
+                string input = currencyConversionInput.Text.Replace(" ", "").Replace(".", ",");
+
+                if (!isValid(input, 2) || String.IsNullOrEmpty(input) || startCurrency.SelectedIndex == -1 || endCurrency.SelectedIndex == -1)
                 {
                     currencyInvalidInput.Show();
                 }
                 else
                 {
                     currencyInvalidInput.Hide();
+
                     if (string.IsNullOrEmpty(exchangeRateApiKey))
                     {
                         throw new Exception("Please use a key to connect to the API");
@@ -783,7 +892,7 @@ namespace MathTools
                         double start = jsonFile["conversion_rates"][startCode];
                         double end = jsonFile["conversion_rates"][endCode];
 
-                        currencyConversionOutput.Text = "" + (1 / start * end * Convert.ToInt32(input));
+                        currencyConversionOutput.Text = "" + (1 / start * end * Convert.ToDouble(input));
                     }
                 }
             }

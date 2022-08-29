@@ -95,7 +95,26 @@
             this.romanInput = new System.Windows.Forms.TextBox();
             this.romanToArabicLabel = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.endLengthLabel = new System.Windows.Forms.Label();
+            this.endLength = new System.Windows.Forms.ComboBox();
+            this.startLengthLabel = new System.Windows.Forms.Label();
+            this.startLength = new System.Windows.Forms.ComboBox();
+            this.endWeightLabel = new System.Windows.Forms.Label();
+            this.endWeight = new System.Windows.Forms.ComboBox();
+            this.startWeightLabel = new System.Windows.Forms.Label();
+            this.startWeight = new System.Windows.Forms.ComboBox();
+            this.invalidWeightInput = new System.Windows.Forms.Label();
+            this.invalidLengthInput = new System.Windows.Forms.Label();
+            this.lengthOutput = new System.Windows.Forms.TextBox();
+            this.convertLengthBtn = new System.Windows.Forms.Button();
+            this.lengthInput = new System.Windows.Forms.TextBox();
+            this.convertLengthLabel = new System.Windows.Forms.Label();
+            this.weightOutput = new System.Windows.Forms.TextBox();
+            this.convertWeightBtn = new System.Windows.Forms.Button();
+            this.weightInput = new System.Windows.Forms.TextBox();
+            this.convertWeightLabel = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.currencyNoConnection = new System.Windows.Forms.Label();
             this.endCurrency = new System.Windows.Forms.ComboBox();
             this.currencyConversionOutput = new System.Windows.Forms.TextBox();
             this.currencyConversionResultLabel = new System.Windows.Forms.Label();
@@ -128,7 +147,6 @@
             this.titlePanel = new System.Windows.Forms.Panel();
             this.author = new System.Windows.Forms.Label();
             this.title = new System.Windows.Forms.Label();
-            this.currencyNoConnection = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -136,6 +154,7 @@
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.tabPage6.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.leftPanel.SuspendLayout();
             this.btnPanel.SuspendLayout();
@@ -150,7 +169,6 @@
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(903, 628);
             this.mainPanel.TabIndex = 1;
-            this.mainPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.MainPanel_Paint);
             // 
             // tabControl
             // 
@@ -923,12 +941,252 @@
             // tabPage6
             // 
             this.tabPage6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(48)))), ((int)(((byte)(184)))));
+            this.tabPage6.Controls.Add(this.endLengthLabel);
+            this.tabPage6.Controls.Add(this.endLength);
+            this.tabPage6.Controls.Add(this.startLengthLabel);
+            this.tabPage6.Controls.Add(this.startLength);
+            this.tabPage6.Controls.Add(this.endWeightLabel);
+            this.tabPage6.Controls.Add(this.endWeight);
+            this.tabPage6.Controls.Add(this.startWeightLabel);
+            this.tabPage6.Controls.Add(this.startWeight);
+            this.tabPage6.Controls.Add(this.invalidWeightInput);
+            this.tabPage6.Controls.Add(this.invalidLengthInput);
+            this.tabPage6.Controls.Add(this.lengthOutput);
+            this.tabPage6.Controls.Add(this.convertLengthBtn);
+            this.tabPage6.Controls.Add(this.lengthInput);
+            this.tabPage6.Controls.Add(this.convertLengthLabel);
+            this.tabPage6.Controls.Add(this.weightOutput);
+            this.tabPage6.Controls.Add(this.convertWeightBtn);
+            this.tabPage6.Controls.Add(this.weightInput);
+            this.tabPage6.Controls.Add(this.convertWeightLabel);
             this.tabPage6.Location = new System.Drawing.Point(4, 25);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage6.Size = new System.Drawing.Size(904, 631);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Unit Converter";
+            // 
+            // endLengthLabel
+            // 
+            this.endLengthLabel.AutoSize = true;
+            this.endLengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endLengthLabel.Location = new System.Drawing.Point(541, 359);
+            this.endLengthLabel.Name = "endLengthLabel";
+            this.endLengthLabel.Size = new System.Drawing.Size(49, 29);
+            this.endLengthLabel.TabIndex = 27;
+            this.endLengthLabel.Text = "To:";
+            // 
+            // endLength
+            // 
+            this.endLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endLength.FormattingEnabled = true;
+            this.endLength.Items.AddRange(new object[] {
+            "Millimeter",
+            "Centimeter",
+            "Meter",
+            "Kilometer",
+            "Inch",
+            "Foot",
+            "Yard",
+            "Mile",
+            "Nautical mile"});
+            this.endLength.Location = new System.Drawing.Point(621, 356);
+            this.endLength.Name = "endLength";
+            this.endLength.Size = new System.Drawing.Size(170, 37);
+            this.endLength.TabIndex = 26;
+            // 
+            // startLengthLabel
+            // 
+            this.startLengthLabel.AutoSize = true;
+            this.startLengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startLengthLabel.Location = new System.Drawing.Point(541, 269);
+            this.startLengthLabel.Name = "startLengthLabel";
+            this.startLengthLabel.Size = new System.Drawing.Size(76, 29);
+            this.startLengthLabel.TabIndex = 25;
+            this.startLengthLabel.Text = "From:";
+            // 
+            // startLength
+            // 
+            this.startLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startLength.FormattingEnabled = true;
+            this.startLength.Items.AddRange(new object[] {
+            "Millimeter",
+            "Centimeter",
+            "Meter",
+            "Kilometer",
+            "Inch",
+            "Foot",
+            "Yard",
+            "Mile",
+            "Nautical mile"});
+            this.startLength.Location = new System.Drawing.Point(621, 266);
+            this.startLength.Name = "startLength";
+            this.startLength.Size = new System.Drawing.Size(170, 37);
+            this.startLength.TabIndex = 24;
+            // 
+            // endWeightLabel
+            // 
+            this.endWeightLabel.AutoSize = true;
+            this.endWeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endWeightLabel.Location = new System.Drawing.Point(155, 358);
+            this.endWeightLabel.Name = "endWeightLabel";
+            this.endWeightLabel.Size = new System.Drawing.Size(49, 29);
+            this.endWeightLabel.TabIndex = 23;
+            this.endWeightLabel.Text = "To:";
+            // 
+            // endWeight
+            // 
+            this.endWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endWeight.FormattingEnabled = true;
+            this.endWeight.Items.AddRange(new object[] {
+            "Gram",
+            "Kilogram",
+            "Ton",
+            "Ounce",
+            "Pound",
+            "Stone"});
+            this.endWeight.Location = new System.Drawing.Point(235, 355);
+            this.endWeight.Name = "endWeight";
+            this.endWeight.Size = new System.Drawing.Size(170, 37);
+            this.endWeight.TabIndex = 22;
+            // 
+            // startWeightLabel
+            // 
+            this.startWeightLabel.AutoSize = true;
+            this.startWeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startWeightLabel.Location = new System.Drawing.Point(155, 268);
+            this.startWeightLabel.Name = "startWeightLabel";
+            this.startWeightLabel.Size = new System.Drawing.Size(76, 29);
+            this.startWeightLabel.TabIndex = 21;
+            this.startWeightLabel.Text = "From:";
+            // 
+            // startWeight
+            // 
+            this.startWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startWeight.FormattingEnabled = true;
+            this.startWeight.Items.AddRange(new object[] {
+            "Gram",
+            "Kilogram",
+            "Ton",
+            "Ounce",
+            "Pound",
+            "Stone"});
+            this.startWeight.Location = new System.Drawing.Point(235, 265);
+            this.startWeight.Name = "startWeight";
+            this.startWeight.Size = new System.Drawing.Size(170, 37);
+            this.startWeight.TabIndex = 20;
+            // 
+            // invalidWeightInput
+            // 
+            this.invalidWeightInput.AutoSize = true;
+            this.invalidWeightInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.invalidWeightInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.invalidWeightInput.Location = new System.Drawing.Point(166, 204);
+            this.invalidWeightInput.Name = "invalidWeightInput";
+            this.invalidWeightInput.Size = new System.Drawing.Size(197, 20);
+            this.invalidWeightInput.TabIndex = 19;
+            this.invalidWeightInput.Text = "Please enter a valid input";
+            // 
+            // invalidLengthInput
+            // 
+            this.invalidLengthInput.AutoSize = true;
+            this.invalidLengthInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.invalidLengthInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.invalidLengthInput.Location = new System.Drawing.Point(552, 204);
+            this.invalidLengthInput.Name = "invalidLengthInput";
+            this.invalidLengthInput.Size = new System.Drawing.Size(197, 20);
+            this.invalidLengthInput.TabIndex = 18;
+            this.invalidLengthInput.Text = "Please enter a valid input";
+            // 
+            // lengthOutput
+            // 
+            this.lengthOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lengthOutput.Location = new System.Drawing.Point(541, 542);
+            this.lengthOutput.Name = "lengthOutput";
+            this.lengthOutput.ReadOnly = true;
+            this.lengthOutput.Size = new System.Drawing.Size(250, 34);
+            this.lengthOutput.TabIndex = 17;
+            this.lengthOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lengthOutput.Click += new System.EventHandler(this.lengthOutput_Select);
+            this.lengthOutput.Enter += new System.EventHandler(this.lengthOutput_Select);
+            // 
+            // convertLengthBtn
+            // 
+            this.convertLengthBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.convertLengthBtn.Location = new System.Drawing.Point(591, 459);
+            this.convertLengthBtn.Name = "convertLengthBtn";
+            this.convertLengthBtn.Size = new System.Drawing.Size(150, 38);
+            this.convertLengthBtn.TabIndex = 16;
+            this.convertLengthBtn.Text = "Convert";
+            this.convertLengthBtn.UseVisualStyleBackColor = true;
+            this.convertLengthBtn.Click += new System.EventHandler(this.convertLengthBtn_Click);
+            // 
+            // lengthInput
+            // 
+            this.lengthInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lengthInput.Location = new System.Drawing.Point(541, 158);
+            this.lengthInput.Name = "lengthInput";
+            this.lengthInput.Size = new System.Drawing.Size(250, 34);
+            this.lengthInput.TabIndex = 15;
+            this.lengthInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lengthInput.Click += new System.EventHandler(this.lengthInput_Select);
+            this.lengthInput.Enter += new System.EventHandler(this.lengthInput_Select);
+            this.lengthInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lengthInput_KeyDown);
+            // 
+            // convertLengthLabel
+            // 
+            this.convertLengthLabel.AutoSize = true;
+            this.convertLengthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.convertLengthLabel.Location = new System.Drawing.Point(561, 92);
+            this.convertLengthLabel.Name = "convertLengthLabel";
+            this.convertLengthLabel.Size = new System.Drawing.Size(209, 36);
+            this.convertLengthLabel.TabIndex = 14;
+            this.convertLengthLabel.Text = "Convert length";
+            // 
+            // weightOutput
+            // 
+            this.weightOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.weightOutput.Location = new System.Drawing.Point(155, 542);
+            this.weightOutput.Name = "weightOutput";
+            this.weightOutput.ReadOnly = true;
+            this.weightOutput.Size = new System.Drawing.Size(250, 34);
+            this.weightOutput.TabIndex = 13;
+            this.weightOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.weightOutput.Click += new System.EventHandler(this.weightOutput_Select);
+            this.weightOutput.Enter += new System.EventHandler(this.weightOutput_Select);
+            // 
+            // convertWeightBtn
+            // 
+            this.convertWeightBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.convertWeightBtn.Location = new System.Drawing.Point(205, 459);
+            this.convertWeightBtn.Name = "convertWeightBtn";
+            this.convertWeightBtn.Size = new System.Drawing.Size(150, 38);
+            this.convertWeightBtn.TabIndex = 12;
+            this.convertWeightBtn.Text = "Convert";
+            this.convertWeightBtn.UseVisualStyleBackColor = true;
+            this.convertWeightBtn.Click += new System.EventHandler(this.convertWeightBtn_Click);
+            // 
+            // weightInput
+            // 
+            this.weightInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.weightInput.Location = new System.Drawing.Point(155, 158);
+            this.weightInput.Name = "weightInput";
+            this.weightInput.Size = new System.Drawing.Size(250, 34);
+            this.weightInput.TabIndex = 11;
+            this.weightInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.weightInput.Click += new System.EventHandler(this.weightInput_Select);
+            this.weightInput.Enter += new System.EventHandler(this.weightInput_Select);
+            this.weightInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.weightInput_KeyDown);
+            // 
+            // convertWeightLabel
+            // 
+            this.convertWeightLabel.AutoSize = true;
+            this.convertWeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.convertWeightLabel.Location = new System.Drawing.Point(173, 92);
+            this.convertWeightLabel.Name = "convertWeightLabel";
+            this.convertWeightLabel.Size = new System.Drawing.Size(214, 36);
+            this.convertWeightLabel.TabIndex = 10;
+            this.convertWeightLabel.Text = "Convert weight";
             // 
             // tabPage7
             // 
@@ -951,24 +1209,34 @@
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Currency Converter";
             // 
+            // currencyNoConnection
+            // 
+            this.currencyNoConnection.AutoSize = true;
+            this.currencyNoConnection.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currencyNoConnection.Location = new System.Drawing.Point(289, 586);
+            this.currencyNoConnection.Name = "currencyNoConnection";
+            this.currencyNoConnection.Size = new System.Drawing.Size(548, 25);
+            this.currencyNoConnection.TabIndex = 28;
+            this.currencyNoConnection.Text = "No internet connection. Please restart the app or try again later";
+            // 
             // endCurrency
             // 
             this.endCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endCurrency.FormattingEnabled = true;
             this.endCurrency.Items.AddRange(new object[] {
-            "EUR (Euro)",
-            "USD (United States dollar)",
-            "JPY (Japanese yen)",
-            "GBP (Pound sterling)",
             "AUD (Australian dollar)",
             "CAD (Canadian dollar)",
             "CHF (Swiss franch)",
             "CNH (Chinese renminbi)",
+            "EUR (Euro)",
+            "GBP (Pound sterling)",
             "HKD (Hong Kong dollar)",
-            "NZD (New Zealand dollar)"});
-            this.endCurrency.Location = new System.Drawing.Point(615, 246);
+            "JPY (Japanese yen)",
+            "NZD (New Zealand dollar)",
+            "USD (United States dollar)"});
+            this.endCurrency.Location = new System.Drawing.Point(570, 246);
             this.endCurrency.Name = "endCurrency";
-            this.endCurrency.Size = new System.Drawing.Size(166, 33);
+            this.endCurrency.Size = new System.Drawing.Size(240, 33);
             this.endCurrency.TabIndex = 27;
             // 
             // currencyConversionOutput
@@ -1040,7 +1308,7 @@
             // 
             this.endCurrencyLabel.AutoSize = true;
             this.endCurrencyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.endCurrencyLabel.Location = new System.Drawing.Point(516, 246);
+            this.endCurrencyLabel.Location = new System.Drawing.Point(487, 246);
             this.endCurrencyLabel.Name = "endCurrencyLabel";
             this.endCurrencyLabel.Size = new System.Drawing.Size(49, 29);
             this.endCurrencyLabel.TabIndex = 20;
@@ -1050,7 +1318,7 @@
             // 
             this.startCurrencyLabel.AutoSize = true;
             this.startCurrencyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startCurrencyLabel.Location = new System.Drawing.Point(166, 246);
+            this.startCurrencyLabel.Location = new System.Drawing.Point(120, 246);
             this.startCurrencyLabel.Name = "startCurrencyLabel";
             this.startCurrencyLabel.Size = new System.Drawing.Size(76, 29);
             this.startCurrencyLabel.TabIndex = 18;
@@ -1071,9 +1339,9 @@
             "JPY (Japanese yen)",
             "NZD (New Zealand dollar)",
             "USD (United States dollar)"});
-            this.startCurrency.Location = new System.Drawing.Point(266, 246);
+            this.startCurrency.Location = new System.Drawing.Point(203, 246);
             this.startCurrency.Name = "startCurrency";
-            this.startCurrency.Size = new System.Drawing.Size(166, 33);
+            this.startCurrency.Size = new System.Drawing.Size(240, 33);
             this.startCurrency.TabIndex = 17;
             // 
             // leftPanel
@@ -1207,7 +1475,7 @@
             this.option6.Name = "option6";
             this.option6.Size = new System.Drawing.Size(274, 60);
             this.option6.TabIndex = 10;
-            this.option6.Text = "Option 6";
+            this.option6.Text = "Unit Converter";
             this.option6.UseVisualStyleBackColor = false;
             this.option6.Click += new System.EventHandler(this.option6_Click);
             // 
@@ -1329,16 +1597,6 @@
             this.title.TabIndex = 0;
             this.title.Text = "MathTools";
             // 
-            // currencyNoConnection
-            // 
-            this.currencyNoConnection.AutoSize = true;
-            this.currencyNoConnection.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.currencyNoConnection.Location = new System.Drawing.Point(289, 586);
-            this.currencyNoConnection.Name = "currencyNoConnection";
-            this.currencyNoConnection.Size = new System.Drawing.Size(548, 25);
-            this.currencyNoConnection.TabIndex = 28;
-            this.currencyNoConnection.Text = "No internet connection. Please restart the app or try again later";
-            // 
             // MathTools
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1362,6 +1620,8 @@
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
             this.leftPanel.ResumeLayout(false);
@@ -1474,5 +1734,23 @@
         private System.Windows.Forms.Button convertCurrencyBtn;
         private System.Windows.Forms.ComboBox endCurrency;
         private System.Windows.Forms.Label currencyNoConnection;
+        private System.Windows.Forms.Label invalidWeightInput;
+        private System.Windows.Forms.Label invalidLengthInput;
+        private System.Windows.Forms.TextBox lengthOutput;
+        private System.Windows.Forms.Button convertLengthBtn;
+        private System.Windows.Forms.TextBox lengthInput;
+        private System.Windows.Forms.Label convertLengthLabel;
+        private System.Windows.Forms.TextBox weightOutput;
+        private System.Windows.Forms.Button convertWeightBtn;
+        private System.Windows.Forms.TextBox weightInput;
+        private System.Windows.Forms.Label convertWeightLabel;
+        private System.Windows.Forms.Label endLengthLabel;
+        private System.Windows.Forms.ComboBox endLength;
+        private System.Windows.Forms.Label startLengthLabel;
+        private System.Windows.Forms.ComboBox startLength;
+        private System.Windows.Forms.Label endWeightLabel;
+        private System.Windows.Forms.ComboBox endWeight;
+        private System.Windows.Forms.Label startWeightLabel;
+        private System.Windows.Forms.ComboBox startWeight;
     }
 }
