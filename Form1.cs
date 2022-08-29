@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
+using System.Net.Http;
+using System.Net.NetworkInformation;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using Newtonsoft.Json;
 
 namespace MathTools
 {
@@ -34,11 +34,29 @@ namespace MathTools
 
             romanInvalidInput.Hide();
             arabicInvalidInput.Hide();
+
+            //option 6
+
+            currencyInvalidInput.Hide();
+            currencyNoConnection.Hide();
         }
 
-        private void leftPanel_Paint(object sender, PaintEventArgs e)
+        private bool internetConnection()
         {
-
+            try
+            {
+                Ping myPing = new Ping();
+                String host = "google.com";
+                byte[] buffer = new byte[32];
+                int timeout = 1000;
+                PingOptions pingOptions = new PingOptions();
+                PingReply reply = myPing.Send(host, timeout, buffer, pingOptions);
+                return (reply.Status == IPStatus.Success);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         private void option1_Click(object sender, EventArgs e)
@@ -80,12 +98,14 @@ namespace MathTools
         {
             indicatorsOff();
             indicator6.BackColor = Color.FromArgb(71, 48, 184);
+            tabControl.SelectTab(5);
         }
 
         private void option7_Click(object sender, EventArgs e)
         {
             indicatorsOff();
             indicator7.BackColor = Color.FromArgb(71, 48, 184);
+            tabControl.SelectTab(6);
         }
 
         private void option8_Click(object sender, EventArgs e)
@@ -342,7 +362,7 @@ namespace MathTools
             interestOutput.SelectAll();
         }
 
-        private void convertBtn_Click(object sender, EventArgs e)
+        private void convertBaseBtn_Click(object sender, EventArgs e)
         {
             convert(conversionInput.Text);
         }
@@ -393,7 +413,7 @@ namespace MathTools
                     if (!isValid(input.ToUpper(), t) || startBase.SelectedIndex == -1 || endBase.SelectedIndex == -1)
                     {
                         conversionInvalidInput.Show();
-                        conversionOutput.Text = "";
+                        baseConversionOutput.Text = "";
                     }
                     else
                     {
@@ -430,14 +450,14 @@ namespace MathTools
                                 output = Convert.ToString(decimalInput, 16);
                                 break;
                         }
-                        conversionOutput.Text = output;
+                        baseConversionOutput.Text = output;
                     }
                 }
             }
             else
             {
                 conversionInvalidInput.Show();
-                conversionOutput.Text = "";
+                baseConversionOutput.Text = "";
                 conversionInput.Text = "";
             }
         }
@@ -449,7 +469,7 @@ namespace MathTools
 
         private void conversionOutput_Select(object sender, EventArgs e)
         {
-            conversionOutput.SelectAll();
+            baseConversionOutput.SelectAll();
         }
 
         private void solveBtn_Click(object sender, EventArgs e) //just quadratic equation
@@ -694,6 +714,93 @@ namespace MathTools
         private void romanOutput_Select(object sender, EventArgs e)
         {
             romanOutput.SelectAll();
+        }
+
+        //option 6
+
+        private void currencyConversionInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                convertCurrency();
+            }
+        }
+
+        private void convertCurrencyBtn_Click(object sender, EventArgs e)
+        {
+            convertCurrency();
+        }
+
+        bool alreadyCalledApi = false;
+        string exchangeRateApiKey = "9ddc3e999e421fc76d08f29d";
+        string apiResponse = "";
+
+        private void convertCurrency()
+        {
+            if(internetConnection())
+            {
+                string input = currencyConversionInput.Text.Replace(" ", "").Replace(".", ",");
+                currencyNoConnection.Hide();
+
+                if (!isValid(input, 2) || startCurrency.SelectedIndex == -1 || endCurrency.SelectedIndex == -1)
+                {
+                    currencyInvalidInput.Show();
+                }
+                else
+                {
+                    currencyInvalidInput.Hide();
+                    if (string.IsNullOrEmpty(exchangeRateApiKey))
+                    {
+                        throw new Exception("Please use a key to connect to the API");
+                    }
+                    else
+                    {
+                        if (!alreadyCalledApi)
+                        {
+                            alreadyCalledApi = true;
+
+                            using (var client = new HttpClient())
+                            {
+                                try
+                                {
+                                    var endpoint = new Uri("https://v6.exchangerate-api.com/v6/" + exchangeRateApiKey + "/latest/EUR");
+
+                                    apiResponse = client.GetAsync(endpoint).Result.Content.ReadAsStringAsync().Result;
+                                }
+                                catch (Exception ex)
+                                {
+                                    Console.WriteLine(ex);
+                                }
+                            }
+                        }
+
+                        dynamic jsonFile = JsonConvert.DeserializeObject(apiResponse);
+
+                        string startOption = startCurrency.SelectedItem as string;
+                        string endOption = endCurrency.SelectedItem as string;
+                        string startCode = "" + startOption[0] + startOption[1] + startOption[2];
+                        string endCode = "" + endOption[0] + endOption[1] + endOption[2];
+                        double start = jsonFile["conversion_rates"][startCode];
+                        double end = jsonFile["conversion_rates"][endCode];
+
+                        currencyConversionOutput.Text = "" + (1 / start * end * Convert.ToInt32(input));
+                    }
+                }
+            }
+            else
+            {
+                currencyNoConnection.Show();
+            }
+        }
+
+        private void currencyConversionInput_Select(object sender, EventArgs e)
+        {
+            currencyConversionInput.SelectAll();
+        }
+
+        private void currencyConversionOutput_Select(object sender, EventArgs e)
+        {
+            currencyConversionOutput.SelectAll();
         }
     }
 }

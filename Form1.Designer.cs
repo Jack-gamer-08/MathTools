@@ -59,11 +59,11 @@
             this.interestInputExplaination1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.conversionInvalidInput = new System.Windows.Forms.Label();
-            this.conversionOutput = new System.Windows.Forms.TextBox();
-            this.conversionResultLabel = new System.Windows.Forms.Label();
-            this.convertBtn = new System.Windows.Forms.Button();
+            this.baseConversionOutput = new System.Windows.Forms.TextBox();
+            this.baseConversionResultLabel = new System.Windows.Forms.Label();
+            this.convertBaseBtn = new System.Windows.Forms.Button();
             this.conversionInput = new System.Windows.Forms.TextBox();
-            this.convertLabel = new System.Windows.Forms.Label();
+            this.convertBaseLabel = new System.Windows.Forms.Label();
             this.endBaseLabel = new System.Windows.Forms.Label();
             this.endBase = new System.Windows.Forms.ComboBox();
             this.startBaseLabel = new System.Windows.Forms.Label();
@@ -94,6 +94,18 @@
             this.romanToArabicBtn = new System.Windows.Forms.Button();
             this.romanInput = new System.Windows.Forms.TextBox();
             this.romanToArabicLabel = new System.Windows.Forms.Label();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.endCurrency = new System.Windows.Forms.ComboBox();
+            this.currencyConversionOutput = new System.Windows.Forms.TextBox();
+            this.currencyConversionResultLabel = new System.Windows.Forms.Label();
+            this.convertCurrencyBtn = new System.Windows.Forms.Button();
+            this.currencyInvalidInput = new System.Windows.Forms.Label();
+            this.currencyConversionInput = new System.Windows.Forms.TextBox();
+            this.convertCurrencyLabel = new System.Windows.Forms.Label();
+            this.endCurrencyLabel = new System.Windows.Forms.Label();
+            this.startCurrencyLabel = new System.Windows.Forms.Label();
+            this.startCurrency = new System.Windows.Forms.ComboBox();
             this.leftPanel = new System.Windows.Forms.Panel();
             this.btnPanel = new System.Windows.Forms.Panel();
             this.indicator8 = new System.Windows.Forms.Panel();
@@ -116,6 +128,7 @@
             this.titlePanel = new System.Windows.Forms.Panel();
             this.author = new System.Windows.Forms.Label();
             this.title = new System.Windows.Forms.Label();
+            this.currencyNoConnection = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -123,6 +136,7 @@
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.tabPage7.SuspendLayout();
             this.leftPanel.SuspendLayout();
             this.btnPanel.SuspendLayout();
             this.titlePanel.SuspendLayout();
@@ -145,6 +159,8 @@
             this.tabControl.Controls.Add(this.tabPage3);
             this.tabControl.Controls.Add(this.tabPage4);
             this.tabControl.Controls.Add(this.tabPage5);
+            this.tabControl.Controls.Add(this.tabPage6);
+            this.tabControl.Controls.Add(this.tabPage7);
             this.tabControl.Location = new System.Drawing.Point(-4, -27);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -474,11 +490,11 @@
             // 
             this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(48)))), ((int)(((byte)(184)))));
             this.tabPage3.Controls.Add(this.conversionInvalidInput);
-            this.tabPage3.Controls.Add(this.conversionOutput);
-            this.tabPage3.Controls.Add(this.conversionResultLabel);
-            this.tabPage3.Controls.Add(this.convertBtn);
+            this.tabPage3.Controls.Add(this.baseConversionOutput);
+            this.tabPage3.Controls.Add(this.baseConversionResultLabel);
+            this.tabPage3.Controls.Add(this.convertBaseBtn);
             this.tabPage3.Controls.Add(this.conversionInput);
-            this.tabPage3.Controls.Add(this.convertLabel);
+            this.tabPage3.Controls.Add(this.convertBaseLabel);
             this.tabPage3.Controls.Add(this.endBaseLabel);
             this.tabPage3.Controls.Add(this.endBase);
             this.tabPage3.Controls.Add(this.startBaseLabel);
@@ -501,38 +517,38 @@
             this.conversionInvalidInput.TabIndex = 16;
             this.conversionInvalidInput.Text = "Please enter a valid input";
             // 
-            // conversionOutput
+            // baseConversionOutput
             // 
-            this.conversionOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.conversionOutput.Location = new System.Drawing.Point(373, 502);
-            this.conversionOutput.Name = "conversionOutput";
-            this.conversionOutput.ReadOnly = true;
-            this.conversionOutput.Size = new System.Drawing.Size(200, 34);
-            this.conversionOutput.TabIndex = 9;
-            this.conversionOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.conversionOutput.Click += new System.EventHandler(this.conversionOutput_Select);
-            this.conversionOutput.Enter += new System.EventHandler(this.conversionOutput_Select);
+            this.baseConversionOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.baseConversionOutput.Location = new System.Drawing.Point(373, 502);
+            this.baseConversionOutput.Name = "baseConversionOutput";
+            this.baseConversionOutput.ReadOnly = true;
+            this.baseConversionOutput.Size = new System.Drawing.Size(200, 34);
+            this.baseConversionOutput.TabIndex = 9;
+            this.baseConversionOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.baseConversionOutput.Click += new System.EventHandler(this.conversionOutput_Select);
+            this.baseConversionOutput.Enter += new System.EventHandler(this.conversionOutput_Select);
             // 
-            // conversionResultLabel
+            // baseConversionResultLabel
             // 
-            this.conversionResultLabel.AutoSize = true;
-            this.conversionResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.conversionResultLabel.Location = new System.Drawing.Point(419, 440);
-            this.conversionResultLabel.Name = "conversionResultLabel";
-            this.conversionResultLabel.Size = new System.Drawing.Size(103, 32);
-            this.conversionResultLabel.TabIndex = 8;
-            this.conversionResultLabel.Text = "Result:";
+            this.baseConversionResultLabel.AutoSize = true;
+            this.baseConversionResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.baseConversionResultLabel.Location = new System.Drawing.Point(419, 440);
+            this.baseConversionResultLabel.Name = "baseConversionResultLabel";
+            this.baseConversionResultLabel.Size = new System.Drawing.Size(103, 32);
+            this.baseConversionResultLabel.TabIndex = 8;
+            this.baseConversionResultLabel.Text = "Result:";
             // 
-            // convertBtn
+            // convertBaseBtn
             // 
-            this.convertBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.convertBtn.Location = new System.Drawing.Point(373, 343);
-            this.convertBtn.Name = "convertBtn";
-            this.convertBtn.Size = new System.Drawing.Size(200, 40);
-            this.convertBtn.TabIndex = 7;
-            this.convertBtn.Text = "Calculate";
-            this.convertBtn.UseVisualStyleBackColor = true;
-            this.convertBtn.Click += new System.EventHandler(this.convertBtn_Click);
+            this.convertBaseBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.convertBaseBtn.Location = new System.Drawing.Point(373, 343);
+            this.convertBaseBtn.Name = "convertBaseBtn";
+            this.convertBaseBtn.Size = new System.Drawing.Size(200, 40);
+            this.convertBaseBtn.TabIndex = 7;
+            this.convertBaseBtn.Text = "Calculate";
+            this.convertBaseBtn.UseVisualStyleBackColor = true;
+            this.convertBaseBtn.Click += new System.EventHandler(this.convertBaseBtn_Click);
             // 
             // conversionInput
             // 
@@ -545,15 +561,15 @@
             this.conversionInput.Enter += new System.EventHandler(this.conversionInput_Select);
             this.conversionInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.conversionInput_KeyDown);
             // 
-            // convertLabel
+            // convertBaseLabel
             // 
-            this.convertLabel.AutoSize = true;
-            this.convertLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.convertLabel.Location = new System.Drawing.Point(414, 71);
-            this.convertLabel.Name = "convertLabel";
-            this.convertLabel.Size = new System.Drawing.Size(113, 32);
-            this.convertLabel.TabIndex = 5;
-            this.convertLabel.Text = "Convert";
+            this.convertBaseLabel.AutoSize = true;
+            this.convertBaseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.convertBaseLabel.Location = new System.Drawing.Point(414, 71);
+            this.convertBaseLabel.Name = "convertBaseLabel";
+            this.convertBaseLabel.Size = new System.Drawing.Size(113, 32);
+            this.convertBaseLabel.TabIndex = 5;
+            this.convertBaseLabel.Text = "Convert";
             // 
             // endBaseLabel
             // 
@@ -904,6 +920,162 @@
             this.romanToArabicLabel.TabIndex = 0;
             this.romanToArabicLabel.Text = "Roman to Arabic";
             // 
+            // tabPage6
+            // 
+            this.tabPage6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(48)))), ((int)(((byte)(184)))));
+            this.tabPage6.Location = new System.Drawing.Point(4, 25);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(904, 631);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Unit Converter";
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(48)))), ((int)(((byte)(184)))));
+            this.tabPage7.Controls.Add(this.currencyNoConnection);
+            this.tabPage7.Controls.Add(this.endCurrency);
+            this.tabPage7.Controls.Add(this.currencyConversionOutput);
+            this.tabPage7.Controls.Add(this.currencyConversionResultLabel);
+            this.tabPage7.Controls.Add(this.convertCurrencyBtn);
+            this.tabPage7.Controls.Add(this.currencyInvalidInput);
+            this.tabPage7.Controls.Add(this.currencyConversionInput);
+            this.tabPage7.Controls.Add(this.convertCurrencyLabel);
+            this.tabPage7.Controls.Add(this.endCurrencyLabel);
+            this.tabPage7.Controls.Add(this.startCurrencyLabel);
+            this.tabPage7.Controls.Add(this.startCurrency);
+            this.tabPage7.Location = new System.Drawing.Point(4, 25);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(904, 631);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "Currency Converter";
+            // 
+            // endCurrency
+            // 
+            this.endCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endCurrency.FormattingEnabled = true;
+            this.endCurrency.Items.AddRange(new object[] {
+            "EUR (Euro)",
+            "USD (United States dollar)",
+            "JPY (Japanese yen)",
+            "GBP (Pound sterling)",
+            "AUD (Australian dollar)",
+            "CAD (Canadian dollar)",
+            "CHF (Swiss franch)",
+            "CNH (Chinese renminbi)",
+            "HKD (Hong Kong dollar)",
+            "NZD (New Zealand dollar)"});
+            this.endCurrency.Location = new System.Drawing.Point(615, 246);
+            this.endCurrency.Name = "endCurrency";
+            this.endCurrency.Size = new System.Drawing.Size(166, 33);
+            this.endCurrency.TabIndex = 27;
+            // 
+            // currencyConversionOutput
+            // 
+            this.currencyConversionOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currencyConversionOutput.Location = new System.Drawing.Point(373, 502);
+            this.currencyConversionOutput.Name = "currencyConversionOutput";
+            this.currencyConversionOutput.ReadOnly = true;
+            this.currencyConversionOutput.Size = new System.Drawing.Size(200, 34);
+            this.currencyConversionOutput.TabIndex = 26;
+            this.currencyConversionOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.currencyConversionOutput.Click += new System.EventHandler(this.currencyConversionOutput_Select);
+            this.currencyConversionOutput.Enter += new System.EventHandler(this.currencyConversionOutput_Select);
+            // 
+            // currencyConversionResultLabel
+            // 
+            this.currencyConversionResultLabel.AutoSize = true;
+            this.currencyConversionResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currencyConversionResultLabel.Location = new System.Drawing.Point(419, 440);
+            this.currencyConversionResultLabel.Name = "currencyConversionResultLabel";
+            this.currencyConversionResultLabel.Size = new System.Drawing.Size(103, 32);
+            this.currencyConversionResultLabel.TabIndex = 25;
+            this.currencyConversionResultLabel.Text = "Result:";
+            // 
+            // convertCurrencyBtn
+            // 
+            this.convertCurrencyBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.convertCurrencyBtn.Location = new System.Drawing.Point(373, 343);
+            this.convertCurrencyBtn.Name = "convertCurrencyBtn";
+            this.convertCurrencyBtn.Size = new System.Drawing.Size(200, 40);
+            this.convertCurrencyBtn.TabIndex = 24;
+            this.convertCurrencyBtn.Text = "Calculate";
+            this.convertCurrencyBtn.UseVisualStyleBackColor = true;
+            this.convertCurrencyBtn.Click += new System.EventHandler(this.convertCurrencyBtn_Click);
+            // 
+            // currencyInvalidInput
+            // 
+            this.currencyInvalidInput.AutoSize = true;
+            this.currencyInvalidInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currencyInvalidInput.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.currencyInvalidInput.Location = new System.Drawing.Point(362, 195);
+            this.currencyInvalidInput.Name = "currencyInvalidInput";
+            this.currencyInvalidInput.Size = new System.Drawing.Size(197, 20);
+            this.currencyInvalidInput.TabIndex = 23;
+            this.currencyInvalidInput.Text = "Please enter a valid input";
+            // 
+            // currencyConversionInput
+            // 
+            this.currencyConversionInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currencyConversionInput.Location = new System.Drawing.Point(373, 149);
+            this.currencyConversionInput.Name = "currencyConversionInput";
+            this.currencyConversionInput.Size = new System.Drawing.Size(200, 34);
+            this.currencyConversionInput.TabIndex = 22;
+            this.currencyConversionInput.Click += new System.EventHandler(this.currencyConversionInput_Select);
+            this.currencyConversionInput.Enter += new System.EventHandler(this.currencyConversionInput_Select);
+            this.currencyConversionInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.currencyConversionInput_KeyDown);
+            // 
+            // convertCurrencyLabel
+            // 
+            this.convertCurrencyLabel.AutoSize = true;
+            this.convertCurrencyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.convertCurrencyLabel.Location = new System.Drawing.Point(414, 71);
+            this.convertCurrencyLabel.Name = "convertCurrencyLabel";
+            this.convertCurrencyLabel.Size = new System.Drawing.Size(113, 32);
+            this.convertCurrencyLabel.TabIndex = 21;
+            this.convertCurrencyLabel.Text = "Convert";
+            // 
+            // endCurrencyLabel
+            // 
+            this.endCurrencyLabel.AutoSize = true;
+            this.endCurrencyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endCurrencyLabel.Location = new System.Drawing.Point(516, 246);
+            this.endCurrencyLabel.Name = "endCurrencyLabel";
+            this.endCurrencyLabel.Size = new System.Drawing.Size(49, 29);
+            this.endCurrencyLabel.TabIndex = 20;
+            this.endCurrencyLabel.Text = "To:";
+            // 
+            // startCurrencyLabel
+            // 
+            this.startCurrencyLabel.AutoSize = true;
+            this.startCurrencyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startCurrencyLabel.Location = new System.Drawing.Point(166, 246);
+            this.startCurrencyLabel.Name = "startCurrencyLabel";
+            this.startCurrencyLabel.Size = new System.Drawing.Size(76, 29);
+            this.startCurrencyLabel.TabIndex = 18;
+            this.startCurrencyLabel.Text = "From:";
+            // 
+            // startCurrency
+            // 
+            this.startCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startCurrency.FormattingEnabled = true;
+            this.startCurrency.Items.AddRange(new object[] {
+            "AUD (Australian dollar)",
+            "CAD (Canadian dollar)",
+            "CHF (Swiss franch)",
+            "CNH (Chinese renminbi)",
+            "EUR (Euro)",
+            "GBP (Pound sterling)",
+            "HKD (Hong Kong dollar)",
+            "JPY (Japanese yen)",
+            "NZD (New Zealand dollar)",
+            "USD (United States dollar)"});
+            this.startCurrency.Location = new System.Drawing.Point(266, 246);
+            this.startCurrency.Name = "startCurrency";
+            this.startCurrency.Size = new System.Drawing.Size(166, 33);
+            this.startCurrency.TabIndex = 17;
+            // 
             // leftPanel
             // 
             this.leftPanel.Controls.Add(this.btnPanel);
@@ -914,7 +1086,6 @@
             this.leftPanel.Name = "leftPanel";
             this.leftPanel.Size = new System.Drawing.Size(320, 628);
             this.leftPanel.TabIndex = 2;
-            this.leftPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.leftPanel_Paint);
             // 
             // btnPanel
             // 
@@ -1022,7 +1193,7 @@
             this.option7.Name = "option7";
             this.option7.Size = new System.Drawing.Size(274, 60);
             this.option7.TabIndex = 11;
-            this.option7.Text = "Option 7";
+            this.option7.Text = "Live Currency Converter";
             this.option7.UseVisualStyleBackColor = false;
             this.option7.Click += new System.EventHandler(this.option7_Click);
             // 
@@ -1158,6 +1329,16 @@
             this.title.TabIndex = 0;
             this.title.Text = "MathTools";
             // 
+            // currencyNoConnection
+            // 
+            this.currencyNoConnection.AutoSize = true;
+            this.currencyNoConnection.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currencyNoConnection.Location = new System.Drawing.Point(289, 586);
+            this.currencyNoConnection.Name = "currencyNoConnection";
+            this.currencyNoConnection.Size = new System.Drawing.Size(548, 25);
+            this.currencyNoConnection.TabIndex = 28;
+            this.currencyNoConnection.Text = "No internet connection. Please restart the app or try again later";
+            // 
             // MathTools
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1181,6 +1362,8 @@
             this.tabPage4.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            this.tabPage7.ResumeLayout(false);
+            this.tabPage7.PerformLayout();
             this.leftPanel.ResumeLayout(false);
             this.btnPanel.ResumeLayout(false);
             this.titlePanel.ResumeLayout(false);
@@ -1247,11 +1430,11 @@
         private System.Windows.Forms.Label endBaseLabel;
         private System.Windows.Forms.ComboBox endBase;
         private System.Windows.Forms.Label startBaseLabel;
-        private System.Windows.Forms.Label convertLabel;
-        private System.Windows.Forms.Button convertBtn;
+        private System.Windows.Forms.Label convertBaseLabel;
+        private System.Windows.Forms.Button convertBaseBtn;
         private System.Windows.Forms.TextBox conversionInput;
-        private System.Windows.Forms.TextBox conversionOutput;
-        private System.Windows.Forms.Label conversionResultLabel;
+        private System.Windows.Forms.TextBox baseConversionOutput;
+        private System.Windows.Forms.Label baseConversionResultLabel;
         private System.Windows.Forms.Label conversionInvalidInput;
         private System.Windows.Forms.Label squaredLabel;
         private System.Windows.Forms.TextBox knownTerm;
@@ -1278,6 +1461,18 @@
         private System.Windows.Forms.Button romanToArabicBtn;
         private System.Windows.Forms.Label romanInvalidInput;
         private System.Windows.Forms.Label arabicInvalidInput;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.Label currencyInvalidInput;
+        private System.Windows.Forms.TextBox currencyConversionInput;
+        private System.Windows.Forms.Label convertCurrencyLabel;
+        private System.Windows.Forms.Label endCurrencyLabel;
+        private System.Windows.Forms.Label startCurrencyLabel;
+        private System.Windows.Forms.ComboBox startCurrency;
+        private System.Windows.Forms.TextBox currencyConversionOutput;
+        private System.Windows.Forms.Label currencyConversionResultLabel;
+        private System.Windows.Forms.Button convertCurrencyBtn;
+        private System.Windows.Forms.ComboBox endCurrency;
+        private System.Windows.Forms.Label currencyNoConnection;
     }
 }
-
