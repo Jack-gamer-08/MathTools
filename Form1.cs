@@ -20,6 +20,7 @@ namespace MathTools
         private void MathTools_Load(object sender, EventArgs e)
         {
             indicator1.BackColor = Color.FromArgb(71, 48, 184);
+
             GCDandLCMinvalidInput.Hide();
 
             interestInvalidInput1.Hide();
@@ -40,6 +41,8 @@ namespace MathTools
 
             currencyInvalidInput.Hide();
             currencyNoConnection.Hide();
+
+            randomInvalidInputs.Hide();
         }
 
         private bool isValid(String input, int t)
@@ -133,6 +136,7 @@ namespace MathTools
         {
             indicatorsOff();
             indicator8.BackColor = Color.FromArgb(71, 48, 184);
+            tabControl.SelectTab(7);
         }
 
         private void contactBtn_Click(object sender, EventArgs e)
@@ -162,6 +166,11 @@ namespace MathTools
             if(e.KeyCode == Keys.Enter)
             {
                 GCDandLCMcalculator(GCDandLCMinput.Text);
+                e.SuppressKeyPress = true;
+            }
+            else if(e.KeyCode == Keys.Escape)
+            {
+                GCDandLCMinput.DeselectAll();
                 e.SuppressKeyPress = true;
             }
         }
@@ -376,6 +385,11 @@ namespace MathTools
                 convert(conversionInput.Text);
                 e.SuppressKeyPress = true;
             }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                conversionInput.DeselectAll();
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void convert(string input)
@@ -483,7 +497,7 @@ namespace MathTools
             string secondCoeff = xCoeff.Text.Replace(" ", "").Replace(".", ",");
             string thirdCoeff = knownTerm.Text.Replace(" ", "").Replace(".", ",");
 
-            if (!(isValid(firstCoeff, 6) && isValid(secondCoeff, 6) && isValid(thirdCoeff, 6) && firstCoeff != "" && secondCoeff != "" && thirdCoeff != ""))
+            if (!(isValid(firstCoeff, 6) && isValid(secondCoeff, 6) && isValid(thirdCoeff, 6) && string.IsNullOrEmpty(firstCoeff.Replace(",", "")) && string.IsNullOrEmpty(secondCoeff.Replace(",", "")) && string.IsNullOrEmpty(thirdCoeff.Replace(",", ""))))
             {
                 invalidCoeffs.Show();
                 deltaLabel.Text = "Delta:";
@@ -559,6 +573,11 @@ namespace MathTools
                 romanToArabic();
                 e.SuppressKeyPress = true;
             }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                romanInput.DeselectAll();
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void romanToArabic()
@@ -620,6 +639,11 @@ namespace MathTools
             if(e.KeyCode == Keys.Enter)
             {
                 arabicToRoman();
+                e.SuppressKeyPress = true;
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                arabicInput.DeselectAll();
                 e.SuppressKeyPress = true;
             }
         }
@@ -735,6 +759,11 @@ namespace MathTools
                 convertWeight();
                 e.SuppressKeyPress = true;
             }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                weightInput.DeselectAll();
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void convertWeightBtn_Click(object sender, EventArgs e)
@@ -745,7 +774,7 @@ namespace MathTools
         private void convertWeight()
         {
             string input = weightInput.Text.Replace(" ", "").Replace(".", ",");
-            if(!isValid(input, 2) || string.IsNullOrEmpty(input) || startWeight.SelectedIndex == -1 || endWeight.SelectedIndex == -1)
+            if(!isValid(input, 2) || string.IsNullOrEmpty(input.Replace(",", "")) || startWeight.SelectedIndex == -1 || endWeight.SelectedIndex == -1)
             {
                 invalidWeightInput.Show();
             }
@@ -790,6 +819,11 @@ namespace MathTools
                 convertLength();
                 e.SuppressKeyPress = true;
             }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                lengthInput.DeselectAll();
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void convertLengthBtn_Click(object sender, EventArgs e)
@@ -800,7 +834,7 @@ namespace MathTools
         private void convertLength()
         {
             string input = lengthInput.Text.Replace(" ", "").Replace(".", ",");
-            if (!isValid(input, 2) || string.IsNullOrEmpty(input) || startLength.SelectedIndex == -1 || endLength.SelectedIndex == -1)
+            if (!isValid(input, 2) || string.IsNullOrEmpty(input.Replace(", ", "")) || startLength.SelectedIndex == -1 || endLength.SelectedIndex == -1)
             {
                 invalidLengthInput.Show();
             }
@@ -831,6 +865,11 @@ namespace MathTools
             {
                 convertCurrency();
             }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                currencyConversionInput.DeselectAll();
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void convertCurrencyBtn_Click(object sender, EventArgs e)
@@ -844,13 +883,13 @@ namespace MathTools
 
         private void convertCurrency()
         {
-            if(internetConnection)
+            if (internetConnection)
             {
                 currencyNoConnection.Hide();
 
                 string input = currencyConversionInput.Text.Replace(" ", "").Replace(".", ",");
 
-                if (!isValid(input, 2) || String.IsNullOrEmpty(input) || startCurrency.SelectedIndex == -1 || endCurrency.SelectedIndex == -1)
+                if (!isValid(input, 2) || String.IsNullOrEmpty(input.Replace(",", "")) || startCurrency.SelectedIndex == -1 || endCurrency.SelectedIndex == -1)
                 {
                     currencyInvalidInput.Show();
                 }
@@ -910,6 +949,70 @@ namespace MathTools
         private void currencyConversionOutput_Select(object sender, EventArgs e)
         {
             currencyConversionOutput.SelectAll();
+        }
+
+        private void randomMin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter && string.IsNullOrEmpty(randomMin.Text.Replace(" ", "").Replace(".", "").Replace(",", "")) && string.IsNullOrEmpty(randomMax.Text.Replace(" ", "").Replace(".", "").Replace(",", "")))
+            {
+                randomGenerate();
+                e.SuppressKeyPress = true;
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                randomMin.DeselectAll();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void randomMax_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter && string.IsNullOrEmpty(randomMin.Text.Replace(" ", "").Replace(".", "").Replace(",", "")) && string.IsNullOrEmpty(randomMax.Text.Replace(" ", "").Replace(".", "").Replace(",", "")))
+            {
+                randomGenerate();
+                e.SuppressKeyPress = true;
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                randomMax.DeselectAll();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void randomGenerateBtn_Click(object sender, EventArgs e)
+        {
+            randomGenerate();
+        }
+
+        private void randomGenerate()
+        {
+            string minimum = randomMin.Text.Replace(" ", "");
+            string maximum = randomMax.Text.Replace(" ", "");
+            if(!isValid(minimum, 0) || !isValid(maximum, 0) || string.IsNullOrEmpty(minimum) || string.IsNullOrEmpty(maximum))
+            {
+                randomInvalidInputs.Show();
+            }
+            else
+            {
+                randomInvalidInputs.Hide();
+                
+                double min = Convert.ToDouble(minimum);
+                double max = Convert.ToDouble(maximum);
+
+                var rng = new Random();
+
+                randomOutput.Text = "" + ((max - min) * rng.NextDouble() + min);
+            }
+        }
+
+        private void randomMin_Select(object sender, EventArgs e)
+        {
+            randomMin.SelectAll();
+        }
+
+        private void randomMax_Select(object sender, EventArgs e)
+        {
+            randomMax.SelectAll();
         }
     }
 }

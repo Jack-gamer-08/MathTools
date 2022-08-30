@@ -125,6 +125,12 @@
             this.endCurrencyLabel = new System.Windows.Forms.Label();
             this.startCurrencyLabel = new System.Windows.Forms.Label();
             this.startCurrency = new System.Windows.Forms.ComboBox();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.randomLabel = new System.Windows.Forms.Label();
+            this.randomMax = new System.Windows.Forms.TextBox();
+            this.randomMin = new System.Windows.Forms.TextBox();
+            this.maxLabel = new System.Windows.Forms.Label();
+            this.minLabel = new System.Windows.Forms.Label();
             this.leftPanel = new System.Windows.Forms.Panel();
             this.btnPanel = new System.Windows.Forms.Panel();
             this.indicator8 = new System.Windows.Forms.Panel();
@@ -147,6 +153,9 @@
             this.titlePanel = new System.Windows.Forms.Panel();
             this.author = new System.Windows.Forms.Label();
             this.title = new System.Windows.Forms.Label();
+            this.randomGenerateBtn = new System.Windows.Forms.Button();
+            this.randomOutput = new System.Windows.Forms.TextBox();
+            this.randomInvalidInputs = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -156,6 +165,7 @@
             this.tabPage5.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.tabPage7.SuspendLayout();
+            this.tabPage8.SuspendLayout();
             this.leftPanel.SuspendLayout();
             this.btnPanel.SuspendLayout();
             this.titlePanel.SuspendLayout();
@@ -179,6 +189,7 @@
             this.tabControl.Controls.Add(this.tabPage5);
             this.tabControl.Controls.Add(this.tabPage6);
             this.tabControl.Controls.Add(this.tabPage7);
+            this.tabControl.Controls.Add(this.tabPage8);
             this.tabControl.Location = new System.Drawing.Point(-4, -27);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -575,6 +586,7 @@
             this.conversionInput.Name = "conversionInput";
             this.conversionInput.Size = new System.Drawing.Size(200, 34);
             this.conversionInput.TabIndex = 6;
+            this.conversionInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.conversionInput.Click += new System.EventHandler(this.conversionInput_Select);
             this.conversionInput.Enter += new System.EventHandler(this.conversionInput_Select);
             this.conversionInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.conversionInput_KeyDown);
@@ -583,11 +595,11 @@
             // 
             this.convertBaseLabel.AutoSize = true;
             this.convertBaseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.convertBaseLabel.Location = new System.Drawing.Point(414, 71);
+            this.convertBaseLabel.Location = new System.Drawing.Point(382, 71);
             this.convertBaseLabel.Name = "convertBaseLabel";
-            this.convertBaseLabel.Size = new System.Drawing.Size(113, 32);
+            this.convertBaseLabel.Size = new System.Drawing.Size(182, 32);
             this.convertBaseLabel.TabIndex = 5;
-            this.convertBaseLabel.Text = "Convert";
+            this.convertBaseLabel.Text = "Convert base";
             // 
             // endBaseLabel
             // 
@@ -601,6 +613,7 @@
             // 
             // endBase
             // 
+            this.endBase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.endBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endBase.FormattingEnabled = true;
             this.endBase.Items.AddRange(new object[] {
@@ -625,6 +638,7 @@
             // 
             // startBase
             // 
+            this.startBase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.startBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startBase.FormattingEnabled = true;
             this.startBase.Items.AddRange(new object[] {
@@ -978,6 +992,7 @@
             // 
             // endLength
             // 
+            this.endLength.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.endLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endLength.FormattingEnabled = true;
             this.endLength.Items.AddRange(new object[] {
@@ -1007,6 +1022,7 @@
             // 
             // startLength
             // 
+            this.startLength.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.startLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startLength.FormattingEnabled = true;
             this.startLength.Items.AddRange(new object[] {
@@ -1036,6 +1052,7 @@
             // 
             // endWeight
             // 
+            this.endWeight.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.endWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endWeight.FormattingEnabled = true;
             this.endWeight.Items.AddRange(new object[] {
@@ -1062,6 +1079,7 @@
             // 
             // startWeight
             // 
+            this.startWeight.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.startWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startWeight.FormattingEnabled = true;
             this.startWeight.Items.AddRange(new object[] {
@@ -1212,31 +1230,185 @@
             // currencyNoConnection
             // 
             this.currencyNoConnection.AutoSize = true;
-            this.currencyNoConnection.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.currencyNoConnection.Location = new System.Drawing.Point(289, 586);
+            this.currencyNoConnection.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currencyNoConnection.Location = new System.Drawing.Point(360, 596);
             this.currencyNoConnection.Name = "currencyNoConnection";
-            this.currencyNoConnection.Size = new System.Drawing.Size(548, 25);
+            this.currencyNoConnection.Size = new System.Drawing.Size(478, 20);
             this.currencyNoConnection.TabIndex = 28;
             this.currencyNoConnection.Text = "No internet connection. Please restart the app or try again later";
             // 
             // endCurrency
             // 
+            this.endCurrency.DropDownHeight = 180;
+            this.endCurrency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.endCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endCurrency.FormattingEnabled = true;
+            this.endCurrency.IntegralHeight = false;
             this.endCurrency.Items.AddRange(new object[] {
+            "AED (United Arab Emirates dirham)",
+            "AFN (Afghan afghani)",
+            "ALL (Albanian lek)",
+            "AMD (Armenian dram)",
+            "ANG (Netherlands Antillean guilder)",
+            "AOA (Angolan kwanza)",
+            "ARS (Argentine peso)",
             "AUD (Australian dollar)",
+            "AWG (Aruban florin)",
+            "AZN (Azerbaijani manat)",
+            "BAM (Bosnia and Herzegovina convertible mark)",
+            "BBD (Barbados dollar)",
+            "BDT (Bangladeshi taka)",
+            "BGN (Bulgarian levi)",
+            "BHD (Bahraini dinar)",
+            "BIF (Burundian franc)",
+            "BMD (Bermudian dollar)",
+            "BND (Brunei dollar)",
+            "BOB (Boliviano)",
+            "BRL (Brazilian real)",
+            "BSD (Bahamian dollar)",
+            "BTN (Bhutanese ngultrum)",
+            "BWP (Botswana pula)",
+            "BYN (Belarusian ruble)",
+            "BZD (Belize dollar)",
             "CAD (Canadian dollar)",
-            "CHF (Swiss franch)",
-            "CNH (Chinese renminbi)",
+            "CDF (Congolese franc)",
+            "CHF (Swiss franc)",
+            "CLP (Chilean peso)",
+            "CNY (Chinese renminbi)",
+            "COP (Colombian peso)",
+            "CRC (Costa Rican colon)",
+            "CUP (Cuban peso)",
+            "CVE (Cape verdean escudo)",
+            "CZK (Czech coruna)",
+            "DJF (Djiboutian franc)",
+            "DKK (Danish krone)",
+            "DOP (Dominican peso)",
+            "DZD (Algerian dinar)",
+            "EGP (Egyptian pound)",
+            "ERN (Eritrea nakfa)",
+            "ETB (Ethiopian birr)",
             "EUR (Euro)",
+            "FJD (Fiji dollar)",
+            "FKP (Falkland Islands pound)",
+            "FOK (Fill or Kill)",
             "GBP (Pound sterling)",
+            "GEL (Georgian iari)",
+            "GGP (Guernsey pound)",
+            "GHS (Ghanian cedi)",
+            "GIP (Gibraltar pound)",
+            "GMD (Gambian dalasi)",
+            "GNF (Guinean franc)",
+            "GTQ (Guatemalan quetzal)",
+            "GYD (Guyanese dollar)",
             "HKD (Hong Kong dollar)",
+            "HNL (Honduran lempira)",
+            "HRK (Croatian kuna)",
+            "HTG (Haitian gourde)",
+            "HUF (Hungarian forint)",
+            "IDR (Indonesian rupiah)",
+            "ILS (Israeli new shekel)",
+            "IMP (Isle of Man pound)",
+            "INR (Indian rupee)",
+            "IQD (Iraqi dinar)",
+            "IRR (Iranian rial)",
+            "ISK (Icelandic króna)",
+            "JEP (Jersey pound)",
+            "JMD (Jamaican dollar)",
+            "JOD (Jordanian dinar)",
             "JPY (Japanese yen)",
+            "KES (Kenyan shilling)",
+            "KGS (Kyrgyzstani som)",
+            "KHR (Cambodian riel)",
+            "KID (Kiribati dollar)",
+            "KMF (Komoro franc)",
+            "KRW (South Korean won)",
+            "KWD (Kuwaiti dinar)",
+            "KYD (Cayman Islands dollar)",
+            "KZT (Kazakhstani tenge)",
+            "LAK (Laos kip)",
+            "LBP (Lebanese pound)",
+            "LKR (Sri Lankan rupee)",
+            "LRD (Liberian dollar)",
+            "LSL (Lesotho loti)",
+            "LYD (Libyan dinar)",
+            "MAD (Moroccan dinham)",
+            "MDL (Moldovan leu)",
+            "MGA (Malagasy ariary)",
+            "MKD (North Macedonian denar)",
+            "MMK (Myanmar kyat)",
+            "MNT (Mongolian tögrög)",
+            "MOP (Macanese pataca)",
+            "MRU (Mauritanian ouguiya)",
+            "MUR (Mauritian rupee)",
+            "MVR (Maldivian rufiyaa)",
+            "MWK (Malawian kwacha)",
+            "MXN (Mexican peso)",
+            "MYR (Malaysian ringgit)",
+            "MZN (Mozambican metical)",
+            "NAD (Namibian dollar)",
+            "NGN (Nigerian naira)",
+            "NIO (Nicaraguan córdoba)",
+            "NOK (Norwegian krone)",
+            "NPR (Nepalese rupee)",
             "NZD (New Zealand dollar)",
-            "USD (United States dollar)"});
-            this.endCurrency.Location = new System.Drawing.Point(570, 246);
+            "OMR (Omani rial)",
+            "PAB (Panamarian balboa)",
+            "PEN (Peruvian sol)",
+            "PGK (Papua New Guinean kina)",
+            "PHP (Philippine peso)",
+            "PKR (Pakistani rupee)",
+            "PLN (Polish złoty)",
+            "PYG (Paraguayan guaraní)",
+            "QAR (Qatar riyal)",
+            "RON (Romanian leu)",
+            "RSD (Serbian dinar)",
+            "RUB (Russian ruble)",
+            "RWF (Rwandan franc)",
+            "SAR (Saudi riyal)",
+            "SBD (Solomon Islands dollar)",
+            "SCR (Seychelles rupee)",
+            "SDG (Sudanese pound)",
+            "SEK (Swedish krona)",
+            "SGD (Singapore dollar)",
+            "SHP (Saint Helena pound)",
+            "SLL (Serra Leonean leone)",
+            "SOS (Somali shilling)",
+            "SRD (Surinamese dollar)",
+            "SSP (South sudanese pound)",
+            "STN (São Tomé and Príncipe dobra)",
+            "SYP (Syrian pound)",
+            "SZL (Swazi lilangeni)",
+            "THB (Thai baht)",
+            "TJS (Tajikistani somoni)",
+            "TMT (Turkmenistan manat)",
+            "TND (Tunisian dinar)",
+            "TOP (Tongan pa\'anga)",
+            "TRY (Turkish lira)",
+            "TTD (Trinidad and Tobago dollar)",
+            "TVD (Tuvaluan dollar)",
+            "TWD (New Taiwan dollar)",
+            "TZS (Tanzanian shilling)",
+            "UAH (Ukrainian hkryvnia)",
+            "UGX (Ugandan shilling)",
+            "USD (United States dollar)",
+            "UYU (Uruguayan peso)",
+            "UZS (Uzbekistan som)",
+            "VES (Venezuelan bolívar soberano)",
+            "VND (Vietnamese đồng)",
+            "VUV (Vanuatu vatu)",
+            "WST (Samoan tala)",
+            "XAF (CFA franc BEAC)",
+            "XCD (East Caribbean dollar)",
+            "XDR (Special drawing rights)",
+            "XOF (CFA franc BCEAO)",
+            "XPF (CFP franc (franc Pacifique))",
+            "YER (Yemeni rial)",
+            "ZAR (South African rand)",
+            "ZMW (Zambian kwacha)",
+            "ZWL (Zimbabwean dollar)"});
+            this.endCurrency.Location = new System.Drawing.Point(559, 246);
             this.endCurrency.Name = "endCurrency";
-            this.endCurrency.Size = new System.Drawing.Size(240, 33);
+            this.endCurrency.Size = new System.Drawing.Size(300, 33);
             this.endCurrency.TabIndex = 27;
             // 
             // currencyConversionOutput
@@ -1290,6 +1462,7 @@
             this.currencyConversionInput.Name = "currencyConversionInput";
             this.currencyConversionInput.Size = new System.Drawing.Size(200, 34);
             this.currencyConversionInput.TabIndex = 22;
+            this.currencyConversionInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.currencyConversionInput.Click += new System.EventHandler(this.currencyConversionInput_Select);
             this.currencyConversionInput.Enter += new System.EventHandler(this.currencyConversionInput_Select);
             this.currencyConversionInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.currencyConversionInput_KeyDown);
@@ -1308,7 +1481,7 @@
             // 
             this.endCurrencyLabel.AutoSize = true;
             this.endCurrencyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.endCurrencyLabel.Location = new System.Drawing.Point(487, 246);
+            this.endCurrencyLabel.Location = new System.Drawing.Point(507, 246);
             this.endCurrencyLabel.Name = "endCurrencyLabel";
             this.endCurrencyLabel.Size = new System.Drawing.Size(49, 29);
             this.endCurrencyLabel.TabIndex = 20;
@@ -1318,7 +1491,7 @@
             // 
             this.startCurrencyLabel.AutoSize = true;
             this.startCurrencyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startCurrencyLabel.Location = new System.Drawing.Point(120, 246);
+            this.startCurrencyLabel.Location = new System.Drawing.Point(90, 246);
             this.startCurrencyLabel.Name = "startCurrencyLabel";
             this.startCurrencyLabel.Size = new System.Drawing.Size(76, 29);
             this.startCurrencyLabel.TabIndex = 18;
@@ -1326,23 +1499,247 @@
             // 
             // startCurrency
             // 
+            this.startCurrency.DropDownHeight = 180;
+            this.startCurrency.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.startCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startCurrency.FormattingEnabled = true;
+            this.startCurrency.IntegralHeight = false;
             this.startCurrency.Items.AddRange(new object[] {
+            "AED (United Arab Emirates dirham)",
+            "AFN (Afghan afghani)",
+            "ALL (Albanian lek)",
+            "AMD (Armenian dram)",
+            "ANG (Netherlands Antillean guilder)",
+            "AOA (Angolan kwanza)",
+            "ARS (Argentine peso)",
             "AUD (Australian dollar)",
+            "AWG (Aruban florin)",
+            "AZN (Azerbaijani manat)",
+            "BAM (Bosnia and Herzegovina convertible mark)",
+            "BBD (Barbados dollar)",
+            "BDT (Bangladeshi taka)",
+            "BGN (Bulgarian levi)",
+            "BHD (Bahraini dinar)",
+            "BIF (Burundian franc)",
+            "BMD (Bermudian dollar)",
+            "BND (Brunei dollar)",
+            "BOB (Boliviano)",
+            "BRL (Brazilian real)",
+            "BSD (Bahamian dollar)",
+            "BTN (Bhutanese ngultrum)",
+            "BWP (Botswana pula)",
+            "BYN (Belarusian ruble)",
+            "BZD (Belize dollar)",
             "CAD (Canadian dollar)",
-            "CHF (Swiss franch)",
-            "CNH (Chinese renminbi)",
+            "CDF (Congolese franc)",
+            "CHF (Swiss franc)",
+            "CLP (Chilean peso)",
+            "CNY (Chinese renminbi)",
+            "COP (Colombian peso)",
+            "CRC (Costa Rican colon)",
+            "CUP (Cuban peso)",
+            "CVE (Cape verdean escudo)",
+            "CZK (Czech coruna)",
+            "DJF (Djiboutian franc)",
+            "DKK (Danish krone)",
+            "DOP (Dominican peso)",
+            "DZD (Algerian dinar)",
+            "EGP (Egyptian pound)",
+            "ERN (Eritrea nakfa)",
+            "ETB (Ethiopian birr)",
             "EUR (Euro)",
+            "FJD (Fiji dollar)",
+            "FKP (Falkland Islands pound)",
+            "FOK (Fill or Kill)",
             "GBP (Pound sterling)",
+            "GEL (Georgian iari)",
+            "GGP (Guernsey pound)",
+            "GHS (Ghanian cedi)",
+            "GIP (Gibraltar pound)",
+            "GMD (Gambian dalasi)",
+            "GNF (Guinean franc)",
+            "GTQ (Guatemalan quetzal)",
+            "GYD (Guyanese dollar)",
             "HKD (Hong Kong dollar)",
+            "HNL (Honduran lempira)",
+            "HRK (Croatian kuna)",
+            "HTG (Haitian gourde)",
+            "HUF (Hungarian forint)",
+            "IDR (Indonesian rupiah)",
+            "ILS (Israeli new shekel)",
+            "IMP (Isle of Man pound)",
+            "INR (Indian rupee)",
+            "IQD (Iraqi dinar)",
+            "IRR (Iranian rial)",
+            "ISK (Icelandic króna)",
+            "JEP (Jersey pound)",
+            "JMD (Jamaican dollar)",
+            "JOD (Jordanian dinar)",
             "JPY (Japanese yen)",
+            "KES (Kenyan shilling)",
+            "KGS (Kyrgyzstani som)",
+            "KHR (Cambodian riel)",
+            "KID (Kiribati dollar)",
+            "KMF (Komoro franc)",
+            "KRW (South Korean won)",
+            "KWD (Kuwaiti dinar)",
+            "KYD (Cayman Islands dollar)",
+            "KZT (Kazakhstani tenge)",
+            "LAK (Laos kip)",
+            "LBP (Lebanese pound)",
+            "LKR (Sri Lankan rupee)",
+            "LRD (Liberian dollar)",
+            "LSL (Lesotho loti)",
+            "LYD (Libyan dinar)",
+            "MAD (Moroccan dinham)",
+            "MDL (Moldovan leu)",
+            "MGA (Malagasy ariary)",
+            "MKD (North Macedonian denar)",
+            "MMK (Myanmar kyat)",
+            "MNT (Mongolian tögrög)",
+            "MOP (Macanese pataca)",
+            "MRU (Mauritanian ouguiya)",
+            "MUR (Mauritian rupee)",
+            "MVR (Maldivian rufiyaa)",
+            "MWK (Malawian kwacha)",
+            "MXN (Mexican peso)",
+            "MYR (Malaysian ringgit)",
+            "MZN (Mozambican metical)",
+            "NAD (Namibian dollar)",
+            "NGN (Nigerian naira)",
+            "NIO (Nicaraguan córdoba)",
+            "NOK (Norwegian krone)",
+            "NPR (Nepalese rupee)",
             "NZD (New Zealand dollar)",
-            "USD (United States dollar)"});
-            this.startCurrency.Location = new System.Drawing.Point(203, 246);
+            "OMR (Omani rial)",
+            "PAB (Panamarian balboa)",
+            "PEN (Peruvian sol)",
+            "PGK (Papua New Guinean kina)",
+            "PHP (Philippine peso)",
+            "PKR (Pakistani rupee)",
+            "PLN (Polish złoty)",
+            "PYG (Paraguayan guaraní)",
+            "QAR (Qatar riyal)",
+            "RON (Romanian leu)",
+            "RSD (Serbian dinar)",
+            "RUB (Russian ruble)",
+            "RWF (Rwandan franc)",
+            "SAR (Saudi riyal)",
+            "SBD (Solomon Islands dollar)",
+            "SCR (Seychelles rupee)",
+            "SDG (Sudanese pound)",
+            "SEK (Swedish krona)",
+            "SGD (Singapore dollar)",
+            "SHP (Saint Helena pound)",
+            "SLL (Serra Leonean leone)",
+            "SOS (Somali shilling)",
+            "SRD (Surinamese dollar)",
+            "SSP (South sudanese pound)",
+            "STN (São Tomé and Príncipe dobra)",
+            "SYP (Syrian pound)",
+            "SZL (Swazi lilangeni)",
+            "THB (Thai baht)",
+            "TJS (Tajikistani somoni)",
+            "TMT (Turkmenistan manat)",
+            "TND (Tunisian dinar)",
+            "TOP (Tongan pa\'anga)",
+            "TRY (Turkish lira)",
+            "TTD (Trinidad and Tobago dollar)",
+            "TVD (Tuvaluan dollar)",
+            "TWD (New Taiwan dollar)",
+            "TZS (Tanzanian shilling)",
+            "UAH (Ukrainian hkryvnia)",
+            "UGX (Ugandan shilling)",
+            "USD (United States dollar)",
+            "UYU (Uruguayan peso)",
+            "UZS (Uzbekistan som)",
+            "VES (Venezuelan bolívar soberano)",
+            "VND (Vietnamese đồng)",
+            "VUV (Vanuatu vatu)",
+            "WST (Samoan tala)",
+            "XAF (CFA franc BEAC)",
+            "XCD (East Caribbean dollar)",
+            "XDR (Special drawing rights)",
+            "XOF (CFA franc BCEAO)",
+            "XPF (CFP franc (franc Pacifique))",
+            "YER (Yemeni rial)",
+            "ZAR (South African rand)",
+            "ZMW (Zambian kwacha)",
+            "ZWL (Zimbabwean dollar)"});
+            this.startCurrency.Location = new System.Drawing.Point(169, 246);
             this.startCurrency.Name = "startCurrency";
-            this.startCurrency.Size = new System.Drawing.Size(240, 33);
+            this.startCurrency.Size = new System.Drawing.Size(300, 33);
             this.startCurrency.TabIndex = 17;
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(48)))), ((int)(((byte)(184)))));
+            this.tabPage8.Controls.Add(this.randomInvalidInputs);
+            this.tabPage8.Controls.Add(this.randomOutput);
+            this.tabPage8.Controls.Add(this.randomGenerateBtn);
+            this.tabPage8.Controls.Add(this.randomLabel);
+            this.tabPage8.Controls.Add(this.randomMax);
+            this.tabPage8.Controls.Add(this.randomMin);
+            this.tabPage8.Controls.Add(this.maxLabel);
+            this.tabPage8.Controls.Add(this.minLabel);
+            this.tabPage8.Location = new System.Drawing.Point(4, 25);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(904, 631);
+            this.tabPage8.TabIndex = 7;
+            this.tabPage8.Text = "Random";
+            // 
+            // randomLabel
+            // 
+            this.randomLabel.AutoSize = true;
+            this.randomLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.randomLabel.Location = new System.Drawing.Point(296, 141);
+            this.randomLabel.Name = "randomLabel";
+            this.randomLabel.Size = new System.Drawing.Size(353, 36);
+            this.randomLabel.TabIndex = 4;
+            this.randomLabel.Text = "Generate random number";
+            // 
+            // randomMax
+            // 
+            this.randomMax.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.randomMax.Location = new System.Drawing.Point(680, 241);
+            this.randomMax.Name = "randomMax";
+            this.randomMax.Size = new System.Drawing.Size(150, 38);
+            this.randomMax.TabIndex = 3;
+            this.randomMax.Click += new System.EventHandler(this.randomMax_Select);
+            this.randomMax.Enter += new System.EventHandler(this.randomMax_Select);
+            this.randomMax.KeyDown += new System.Windows.Forms.KeyEventHandler(this.randomMax_KeyDown);
+            // 
+            // randomMin
+            // 
+            this.randomMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.randomMin.Location = new System.Drawing.Point(273, 241);
+            this.randomMin.Name = "randomMin";
+            this.randomMin.Size = new System.Drawing.Size(150, 38);
+            this.randomMin.TabIndex = 2;
+            this.randomMin.Click += new System.EventHandler(this.randomMin_Select);
+            this.randomMin.Enter += new System.EventHandler(this.randomMin_Select);
+            this.randomMin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.randomMin_KeyDown);
+            // 
+            // maxLabel
+            // 
+            this.maxLabel.AutoSize = true;
+            this.maxLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maxLabel.Location = new System.Drawing.Point(526, 244);
+            this.maxLabel.Name = "maxLabel";
+            this.maxLabel.Size = new System.Drawing.Size(144, 32);
+            this.maxLabel.TabIndex = 1;
+            this.maxLabel.Text = "Maximum:";
+            // 
+            // minLabel
+            // 
+            this.minLabel.AutoSize = true;
+            this.minLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minLabel.Location = new System.Drawing.Point(119, 244);
+            this.minLabel.Name = "minLabel";
+            this.minLabel.Size = new System.Drawing.Size(137, 32);
+            this.minLabel.TabIndex = 0;
+            this.minLabel.Text = "Minimum:";
             // 
             // leftPanel
             // 
@@ -1447,7 +1844,7 @@
             this.option8.Name = "option8";
             this.option8.Size = new System.Drawing.Size(274, 60);
             this.option8.TabIndex = 12;
-            this.option8.Text = "Option 8";
+            this.option8.Text = "Random Number Generator";
             this.option8.UseVisualStyleBackColor = false;
             this.option8.Click += new System.EventHandler(this.option8_Click);
             // 
@@ -1597,6 +1994,38 @@
             this.title.TabIndex = 0;
             this.title.Text = "MathTools";
             // 
+            // randomGenerateBtn
+            // 
+            this.randomGenerateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.randomGenerateBtn.Location = new System.Drawing.Point(369, 353);
+            this.randomGenerateBtn.Name = "randomGenerateBtn";
+            this.randomGenerateBtn.Size = new System.Drawing.Size(207, 40);
+            this.randomGenerateBtn.TabIndex = 5;
+            this.randomGenerateBtn.Text = "Generate";
+            this.randomGenerateBtn.UseVisualStyleBackColor = true;
+            this.randomGenerateBtn.Click += new System.EventHandler(this.randomGenerateBtn_Click);
+            // 
+            // randomOutput
+            // 
+            this.randomOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.randomOutput.Location = new System.Drawing.Point(373, 488);
+            this.randomOutput.Name = "randomOutput";
+            this.randomOutput.ReadOnly = true;
+            this.randomOutput.Size = new System.Drawing.Size(200, 34);
+            this.randomOutput.TabIndex = 27;
+            this.randomOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // randomInvalidInputs
+            // 
+            this.randomInvalidInputs.AutoSize = true;
+            this.randomInvalidInputs.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.randomInvalidInputs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.randomInvalidInputs.Location = new System.Drawing.Point(358, 305);
+            this.randomInvalidInputs.Name = "randomInvalidInputs";
+            this.randomInvalidInputs.Size = new System.Drawing.Size(201, 20);
+            this.randomInvalidInputs.TabIndex = 28;
+            this.randomInvalidInputs.Text = "Please enter valids inputs";
+            // 
             // MathTools
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1624,6 +2053,8 @@
             this.tabPage6.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
+            this.tabPage8.ResumeLayout(false);
+            this.tabPage8.PerformLayout();
             this.leftPanel.ResumeLayout(false);
             this.btnPanel.ResumeLayout(false);
             this.titlePanel.ResumeLayout(false);
@@ -1752,5 +2183,14 @@
         private System.Windows.Forms.ComboBox endWeight;
         private System.Windows.Forms.Label startWeightLabel;
         private System.Windows.Forms.ComboBox startWeight;
+        private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.Label minLabel;
+        private System.Windows.Forms.Label randomLabel;
+        private System.Windows.Forms.TextBox randomMax;
+        private System.Windows.Forms.TextBox randomMin;
+        private System.Windows.Forms.Label maxLabel;
+        private System.Windows.Forms.TextBox randomOutput;
+        private System.Windows.Forms.Button randomGenerateBtn;
+        private System.Windows.Forms.Label randomInvalidInputs;
     }
 }
