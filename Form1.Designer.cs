@@ -242,6 +242,7 @@
             this.LCMoutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.LCMoutput.Click += new System.EventHandler(this.LCMoutput_Select);
             this.LCMoutput.Enter += new System.EventHandler(this.LCMoutput_Select);
+            this.LCMoutput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LCMoutput_KeyDown);
             // 
             // GCDoutput
             // 
@@ -254,6 +255,7 @@
             this.GCDoutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.GCDoutput.Click += new System.EventHandler(this.GCDoutput_Select);
             this.GCDoutput.Enter += new System.EventHandler(this.GCDoutput_Select);
+            this.GCDoutput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GCDoutput_KeyDown);
             // 
             // GCDandLCMinput
             // 
@@ -390,6 +392,7 @@
             this.totalOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.totalOutput.Click += new System.EventHandler(this.totalOutput_Select);
             this.totalOutput.Enter += new System.EventHandler(this.totalOutput_Select);
+            this.totalOutput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.totalOutput_KeyDown);
             // 
             // interestOutput
             // 
@@ -403,6 +406,7 @@
             this.interestOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.interestOutput.Click += new System.EventHandler(this.interestOutput_Select);
             this.interestOutput.Enter += new System.EventHandler(this.interestOutput_Select);
+            this.interestOutput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.interestOutput_KeyDown);
             // 
             // yearsInput
             // 
@@ -414,6 +418,7 @@
             this.yearsInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.yearsInput.Click += new System.EventHandler(this.yearsInput_Select);
             this.yearsInput.Enter += new System.EventHandler(this.yearsInput_Select);
+            this.yearsInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.yearsInput_KeyDown);
             // 
             // rateInput
             // 
@@ -425,6 +430,7 @@
             this.rateInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.rateInput.Click += new System.EventHandler(this.rateInput_Select);
             this.rateInput.Enter += new System.EventHandler(this.rateInput_Select);
+            this.rateInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.rateInput_KeyDown);
             // 
             // amountInput
             // 
@@ -436,6 +442,7 @@
             this.amountInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.amountInput.Click += new System.EventHandler(this.amountInput_Select);
             this.amountInput.Enter += new System.EventHandler(this.amountInput_Select);
+            this.amountInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.amountInput_KeyDown);
             // 
             // totalLabel
             // 
@@ -572,8 +579,9 @@
             this.baseConversionOutput.Size = new System.Drawing.Size(200, 34);
             this.baseConversionOutput.TabIndex = 9;
             this.baseConversionOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.baseConversionOutput.Click += new System.EventHandler(this.conversionOutput_Select);
-            this.baseConversionOutput.Enter += new System.EventHandler(this.conversionOutput_Select);
+            this.baseConversionOutput.Click += new System.EventHandler(this.baseConversionOutput_Select);
+            this.baseConversionOutput.Enter += new System.EventHandler(this.baseConversionOutput_Select);
+            this.baseConversionOutput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.baseConversionOutput_KeyDown);
             // 
             // baseConversionResultLabel
             // 
@@ -604,9 +612,9 @@
             this.conversionInput.Size = new System.Drawing.Size(200, 34);
             this.conversionInput.TabIndex = 6;
             this.conversionInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.conversionInput.Click += new System.EventHandler(this.conversionInput_Select);
-            this.conversionInput.Enter += new System.EventHandler(this.conversionInput_Select);
-            this.conversionInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.conversionInput_KeyDown);
+            this.conversionInput.Click += new System.EventHandler(this.baseConversionInput_Select);
+            this.conversionInput.Enter += new System.EventHandler(this.baseConversionInput_Select);
+            this.conversionInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.baseConversionInput_KeyDown);
             // 
             // convertBaseLabel
             // 
@@ -794,6 +802,7 @@
             this.knownTerm.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.knownTerm.Click += new System.EventHandler(this.knownTerm_Select);
             this.knownTerm.Enter += new System.EventHandler(this.knownTerm_Select);
+            this.knownTerm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.knownTerm_KeyDown);
             // 
             // xCoeff
             // 
@@ -805,6 +814,7 @@
             this.xCoeff.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.xCoeff.Click += new System.EventHandler(this.xCoeff_Select);
             this.xCoeff.Enter += new System.EventHandler(this.xCoeff_Select);
+            this.xCoeff.KeyDown += new System.Windows.Forms.KeyEventHandler(this.xCoeff_KeyDown);
             // 
             // xLabel
             // 
@@ -836,6 +846,7 @@
             this.xSquaredCoeff.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.xSquaredCoeff.Click += new System.EventHandler(this.xSquaredCoeff_Select);
             this.xSquaredCoeff.Enter += new System.EventHandler(this.xSquaredCoeff_Select);
+            this.xSquaredCoeff.KeyDown += new System.Windows.Forms.KeyEventHandler(this.xSquaredCoeff_KeyDown);
             // 
             // tabPage5
             // 
@@ -890,6 +901,7 @@
             this.romanOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.romanOutput.Click += new System.EventHandler(this.romanOutput_Select);
             this.romanOutput.Enter += new System.EventHandler(this.romanOutput_Select);
+            this.romanOutput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.romanOutput_KeyDown);
             // 
             // arabicToRomanBtn
             // 
@@ -935,6 +947,7 @@
             this.arabicOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.arabicOutput.Click += new System.EventHandler(this.arabicOutput_Select);
             this.arabicOutput.Enter += new System.EventHandler(this.arabicOutput_Select);
+            this.arabicOutput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.arabicOutput_KeyDown);
             // 
             // romanToArabicBtn
             // 
@@ -1144,6 +1157,7 @@
             this.lengthOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.lengthOutput.Click += new System.EventHandler(this.lengthOutput_Select);
             this.lengthOutput.Enter += new System.EventHandler(this.lengthOutput_Select);
+            this.lengthOutput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.lengthOutput_KeyDown);
             // 
             // convertLengthBtn
             // 
@@ -1189,6 +1203,7 @@
             this.weightOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.weightOutput.Click += new System.EventHandler(this.weightOutput_Select);
             this.weightOutput.Enter += new System.EventHandler(this.weightOutput_Select);
+            this.weightOutput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.weightOutput_KeyDown);
             // 
             // convertWeightBtn
             // 
@@ -1439,6 +1454,7 @@
             this.currencyConversionOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.currencyConversionOutput.Click += new System.EventHandler(this.currencyConversionOutput_Select);
             this.currencyConversionOutput.Enter += new System.EventHandler(this.currencyConversionOutput_Select);
+            this.currencyConversionOutput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.currencyConversionOutput_KeyDown);
             // 
             // currencyConversionResultLabel
             // 
@@ -1726,6 +1742,9 @@
             this.randomOutput.Size = new System.Drawing.Size(200, 34);
             this.randomOutput.TabIndex = 27;
             this.randomOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.randomOutput.Click += new System.EventHandler(this.randomOutput_Select);
+            this.randomOutput.Enter += new System.EventHandler(this.randomOutput_Select);
+            this.randomOutput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.randomOutput_KeyDown);
             // 
             // randomGenerateBtn
             // 

@@ -60,6 +60,31 @@ namespace MathTools
                     value = false;
                 }
             }
+            if(t == 2 || t == 6)
+            {
+                int commas = 0;
+                for(int i = 0; i < input.Length; i++)
+                {
+                    if (input[i] == ',')
+                    {
+                        commas++;
+                    }
+                }
+                if(commas > 1)
+                {
+                    value = false;
+                }
+            }
+            if(t == 6)
+            {
+                for(int i = 1; i < input.Length; i++)
+                {
+                    if(input[i] == '-')
+                    {
+                        value = false;
+                    }
+                }
+            }
             return value;
         }
 
@@ -300,9 +325,27 @@ namespace MathTools
             GCDoutput.SelectAll();
         }
 
+        private void GCDoutput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Escape)
+            {
+                GCDoutput.DeselectAll();
+                e.SuppressKeyPress = true;
+            }
+        }
+
         private void LCMoutput_Select(object sender, EventArgs e)
         {
             LCMoutput.SelectAll();
+        }
+
+        private void LCMoutput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                LCMoutput.DeselectAll();
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void calculateInterestBtn_Click(object sender, EventArgs e)
@@ -360,9 +403,27 @@ namespace MathTools
             amountInput.SelectAll();
         }
 
+        private void amountInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                amountInput.DeselectAll();
+                e.SuppressKeyPress = true;
+            }
+        }
+
         private void rateInput_Select(object sender, EventArgs e)
         {
             rateInput.SelectAll();
+        }
+
+        private void rateInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                rateInput.DeselectAll();
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void yearsInput_Select(object sender, EventArgs e)
@@ -370,9 +431,27 @@ namespace MathTools
             yearsInput.SelectAll();
         }
 
+        private void yearsInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                yearsInput.DeselectAll();
+                e.SuppressKeyPress = true;
+            }
+        }
+
         private void totalOutput_Select(object sender, EventArgs e)
         {
             totalOutput.SelectAll();
+        }
+
+        private void totalOutput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                totalOutput.DeselectAll();
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void interestOutput_Select(object sender, EventArgs e)
@@ -380,12 +459,21 @@ namespace MathTools
             interestOutput.SelectAll();
         }
 
+        private void interestOutput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                interestOutput.DeselectAll();
+                e.SuppressKeyPress = true;
+            }
+        }
+
         private void convertBaseBtn_Click(object sender, EventArgs e)
         {
             convert(conversionInput.Text);
         }
 
-        private void conversionInput_KeyDown(object sender, KeyEventArgs e)
+        private void baseConversionInput_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)
             {
@@ -485,14 +573,23 @@ namespace MathTools
             }
         }
 
-        private void conversionInput_Select(object sender, EventArgs e)
+        private void baseConversionInput_Select(object sender, EventArgs e)
         {
             conversionInput.SelectAll();
         }
 
-        private void conversionOutput_Select(object sender, EventArgs e)
+        private void baseConversionOutput_Select(object sender, EventArgs e)
         {
             baseConversionOutput.SelectAll();
+        }
+
+        private void baseConversionOutput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                baseConversionOutput.DeselectAll();
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void solveBtn_Click(object sender, EventArgs e) //just quadratic equation
@@ -504,7 +601,7 @@ namespace MathTools
             string secondCoeff = xCoeff.Text.Replace(" ", "").Replace(".", ",");
             string thirdCoeff = knownTerm.Text.Replace(" ", "").Replace(".", ",");
 
-            if (!(isValid(firstCoeff, 6) && isValid(secondCoeff, 6) && isValid(thirdCoeff, 6) && string.IsNullOrEmpty(firstCoeff.Replace(",", "")) && string.IsNullOrEmpty(secondCoeff.Replace(",", "")) && string.IsNullOrEmpty(thirdCoeff.Replace(",", ""))))
+            if (!(isValid(firstCoeff, 6) && isValid(secondCoeff, 6) && isValid(thirdCoeff, 6) && !string.IsNullOrEmpty(firstCoeff.Replace(",", "")) && !string.IsNullOrEmpty(secondCoeff.Replace(",", "")) && !string.IsNullOrEmpty(thirdCoeff.Replace(",", ""))))
             {
                 invalidCoeffs.Show();
                 deltaLabel.Text = "Delta:";
@@ -544,14 +641,41 @@ namespace MathTools
             xSquaredCoeff.SelectAll();
         }
 
+        private void xSquaredCoeff_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                xSquaredCoeff.DeselectAll();
+                e.SuppressKeyPress = true;
+            }
+        }
+
         private void xCoeff_Select(object sender, EventArgs e)
         {
             xCoeff.SelectAll();
         }
 
+        private void xCoeff_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                xCoeff.DeselectAll();
+                e.SuppressKeyPress = true;
+            }
+        }
+
         private void knownTerm_Select(object sender, EventArgs e)
         {
             knownTerm.SelectAll();
+        }
+
+        private void knownTerm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                knownTerm.DeselectAll();
+                e.SuppressKeyPress = true;
+            }
         }
 
         private bool isValidNumeral(string input)
@@ -739,6 +863,15 @@ namespace MathTools
             arabicOutput.SelectAll();
         }
 
+        private void arabicOutput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                arabicOutput.DeselectAll();
+                e.SuppressKeyPress = true;
+            }
+        }
+
         private void arabicInput_Select(object sender, EventArgs e)
         {
             arabicInput.SelectAll();
@@ -747,6 +880,15 @@ namespace MathTools
         private void romanOutput_Select(object sender, EventArgs e)
         {
             romanOutput.SelectAll();
+        }
+
+        private void romanOutput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                romanOutput.DeselectAll();
+                e.SuppressKeyPress = true;
+            }
         }
 
         Dictionary<string, double> weightDictionary = new Dictionary<string, double>() //kilogram is the base
@@ -804,6 +946,15 @@ namespace MathTools
         private void weightOutput_Select(object sender, EventArgs e)
         {
             weightOutput.SelectAll();
+        }
+
+        private void weightOutput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                weightOutput.DeselectAll();
+                e.SuppressKeyPress = true;
+            }
         }
 
         Dictionary<string, double> lengthDictionary = new Dictionary<string, double>()
@@ -864,6 +1015,15 @@ namespace MathTools
         private void lengthOutput_Select(object sender, EventArgs e)
         {
             lengthOutput.SelectAll();
+        }
+
+        private void lengthOutput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                lengthOutput.DeselectAll();
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void currencyConversionInput_KeyDown(object sender, KeyEventArgs e)
@@ -958,6 +1118,15 @@ namespace MathTools
             currencyConversionOutput.SelectAll();
         }
 
+        private void currencyConversionOutput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                currencyConversionOutput.DeselectAll();
+                e.SuppressKeyPress = true;
+            }
+        }
+
         private void randomMin_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter && string.IsNullOrEmpty(randomMin.Text.Replace(" ", "").Replace(".", "").Replace(",", "")) && string.IsNullOrEmpty(randomMax.Text.Replace(" ", "").Replace(".", "").Replace(",", "")))
@@ -1020,6 +1189,20 @@ namespace MathTools
         private void randomMax_Select(object sender, EventArgs e)
         {
             randomMax.SelectAll();
+        }
+
+        private void randomOutput_Select(object sender, EventArgs e)
+        {
+            randomOutput.SelectAll();
+        }
+
+        private void randomOutput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                randomOutput.DeselectAll();
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void telegramBtn_Click(object sender, EventArgs e)
