@@ -354,19 +354,19 @@ namespace MathTools
             string rate = rateInput.Text.Replace(" ", "").Replace(".", ",");
             string years = yearsInput.Text.Replace(" ", "");
             bool validInputs = true;
-            if (!isValid(amount, 2) || amount == "")
+            if (!isValid(amount, 2) || string.IsNullOrEmpty(amount.Replace(",", "")))
             {
                 validInputs = false;
                 interestInvalidInput1.Show();
             }
             else interestInvalidInput1.Hide();
-            if (!isValid(rate, 2) || rate == "")
+            if (!isValid(rate, 2) || string.IsNullOrEmpty(rate.Replace(",", "")))
             {
                 validInputs = false;
                 interestInvalidInput2.Show();
             }
             else interestInvalidInput2.Hide();
-            if (!isValid(years, 0) || years == "")
+            if (!isValid(years, 0) || string.IsNullOrEmpty(years.Replace(",", "")))
             {
                 validInputs = false;
                 interestInvalidInput3.Show();
