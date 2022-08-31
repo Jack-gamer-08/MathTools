@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -126,11 +127,26 @@
             this.startCurrencyLabel = new System.Windows.Forms.Label();
             this.startCurrency = new System.Windows.Forms.ComboBox();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.randomInvalidInputs = new System.Windows.Forms.Label();
+            this.randomOutput = new System.Windows.Forms.TextBox();
+            this.randomGenerateBtn = new System.Windows.Forms.Button();
             this.randomLabel = new System.Windows.Forms.Label();
             this.randomMax = new System.Windows.Forms.TextBox();
             this.randomMin = new System.Windows.Forms.TextBox();
             this.maxLabel = new System.Windows.Forms.Label();
             this.minLabel = new System.Windows.Forms.Label();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.copiedEmail = new System.Windows.Forms.Label();
+            this.copiedDiscord = new System.Windows.Forms.Label();
+            this.contactLabel3 = new System.Windows.Forms.Label();
+            this.contactLabel2 = new System.Windows.Forms.Label();
+            this.contactLabel1 = new System.Windows.Forms.Label();
+            this.emailTextbox = new System.Windows.Forms.TextBox();
+            this.emailBtn = new System.Windows.Forms.Button();
+            this.discordBtn = new System.Windows.Forms.Button();
+            this.telegramBtn = new System.Windows.Forms.Button();
+            this.discordTextbox = new System.Windows.Forms.TextBox();
+            this.telegramTextbox = new System.Windows.Forms.TextBox();
             this.leftPanel = new System.Windows.Forms.Panel();
             this.btnPanel = new System.Windows.Forms.Panel();
             this.indicator8 = new System.Windows.Forms.Panel();
@@ -153,9 +169,8 @@
             this.titlePanel = new System.Windows.Forms.Panel();
             this.author = new System.Windows.Forms.Label();
             this.title = new System.Windows.Forms.Label();
-            this.randomGenerateBtn = new System.Windows.Forms.Button();
-            this.randomOutput = new System.Windows.Forms.TextBox();
-            this.randomInvalidInputs = new System.Windows.Forms.Label();
+            this.copiedDiscordTimer = new System.Windows.Forms.Timer(this.components);
+            this.copiedEmailTimer = new System.Windows.Forms.Timer(this.components);
             this.mainPanel.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -166,6 +181,7 @@
             this.tabPage6.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.tabPage8.SuspendLayout();
+            this.tabPage9.SuspendLayout();
             this.leftPanel.SuspendLayout();
             this.btnPanel.SuspendLayout();
             this.titlePanel.SuspendLayout();
@@ -190,6 +206,7 @@
             this.tabControl.Controls.Add(this.tabPage6);
             this.tabControl.Controls.Add(this.tabPage7);
             this.tabControl.Controls.Add(this.tabPage8);
+            this.tabControl.Controls.Add(this.tabPage9);
             this.tabControl.Location = new System.Drawing.Point(-4, -27);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -673,7 +690,7 @@
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(904, 631);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Quadratic Equations";
+            this.tabPage4.Text = "Quadratic";
             // 
             // secondSol
             // 
@@ -978,7 +995,7 @@
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage6.Size = new System.Drawing.Size(904, 631);
             this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "Unit Converter";
+            this.tabPage6.Text = "Units";
             // 
             // endLengthLabel
             // 
@@ -1225,7 +1242,7 @@
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage7.Size = new System.Drawing.Size(904, 631);
             this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "Currency Converter";
+            this.tabPage7.Text = "Currencies";
             // 
             // currencyNoConnection
             // 
@@ -1687,7 +1704,39 @@
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage8.Size = new System.Drawing.Size(904, 631);
             this.tabPage8.TabIndex = 7;
-            this.tabPage8.Text = "Random";
+            this.tabPage8.Text = "RNG";
+            // 
+            // randomInvalidInputs
+            // 
+            this.randomInvalidInputs.AutoSize = true;
+            this.randomInvalidInputs.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.randomInvalidInputs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.randomInvalidInputs.Location = new System.Drawing.Point(358, 305);
+            this.randomInvalidInputs.Name = "randomInvalidInputs";
+            this.randomInvalidInputs.Size = new System.Drawing.Size(201, 20);
+            this.randomInvalidInputs.TabIndex = 28;
+            this.randomInvalidInputs.Text = "Please enter valids inputs";
+            // 
+            // randomOutput
+            // 
+            this.randomOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.randomOutput.Location = new System.Drawing.Point(373, 488);
+            this.randomOutput.Name = "randomOutput";
+            this.randomOutput.ReadOnly = true;
+            this.randomOutput.Size = new System.Drawing.Size(200, 34);
+            this.randomOutput.TabIndex = 27;
+            this.randomOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // randomGenerateBtn
+            // 
+            this.randomGenerateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.randomGenerateBtn.Location = new System.Drawing.Point(369, 353);
+            this.randomGenerateBtn.Name = "randomGenerateBtn";
+            this.randomGenerateBtn.Size = new System.Drawing.Size(207, 40);
+            this.randomGenerateBtn.TabIndex = 5;
+            this.randomGenerateBtn.Text = "Generate";
+            this.randomGenerateBtn.UseVisualStyleBackColor = true;
+            this.randomGenerateBtn.Click += new System.EventHandler(this.randomGenerateBtn_Click);
             // 
             // randomLabel
             // 
@@ -1740,6 +1789,143 @@
             this.minLabel.Size = new System.Drawing.Size(137, 32);
             this.minLabel.TabIndex = 0;
             this.minLabel.Text = "Minimum:";
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(48)))), ((int)(((byte)(184)))));
+            this.tabPage9.Controls.Add(this.copiedEmail);
+            this.tabPage9.Controls.Add(this.copiedDiscord);
+            this.tabPage9.Controls.Add(this.contactLabel3);
+            this.tabPage9.Controls.Add(this.contactLabel2);
+            this.tabPage9.Controls.Add(this.contactLabel1);
+            this.tabPage9.Controls.Add(this.emailTextbox);
+            this.tabPage9.Controls.Add(this.emailBtn);
+            this.tabPage9.Controls.Add(this.discordBtn);
+            this.tabPage9.Controls.Add(this.telegramBtn);
+            this.tabPage9.Controls.Add(this.discordTextbox);
+            this.tabPage9.Controls.Add(this.telegramTextbox);
+            this.tabPage9.Location = new System.Drawing.Point(4, 25);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(904, 631);
+            this.tabPage9.TabIndex = 8;
+            this.tabPage9.Text = "Copied!";
+            // 
+            // copiedEmail
+            // 
+            this.copiedEmail.AutoSize = true;
+            this.copiedEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.copiedEmail.Location = new System.Drawing.Point(720, 510);
+            this.copiedEmail.Name = "copiedEmail";
+            this.copiedEmail.Size = new System.Drawing.Size(66, 20);
+            this.copiedEmail.TabIndex = 11;
+            this.copiedEmail.Text = "Copied!";
+            // 
+            // copiedDiscord
+            // 
+            this.copiedDiscord.AutoSize = true;
+            this.copiedDiscord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.copiedDiscord.Location = new System.Drawing.Point(720, 410);
+            this.copiedDiscord.Name = "copiedDiscord";
+            this.copiedDiscord.Size = new System.Drawing.Size(66, 20);
+            this.copiedDiscord.TabIndex = 8;
+            this.copiedDiscord.Text = "Copied!";
+            // 
+            // contactLabel3
+            // 
+            this.contactLabel3.AutoSize = true;
+            this.contactLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactLabel3.Location = new System.Drawing.Point(201, 163);
+            this.contactLabel3.Name = "contactLabel3";
+            this.contactLabel3.Size = new System.Drawing.Size(541, 29);
+            this.contactLabel3.TabIndex = 3;
+            this.contactLabel3.Text = "or simply suggestions to make the program better";
+            // 
+            // contactLabel2
+            // 
+            this.contactLabel2.AutoSize = true;
+            this.contactLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactLabel2.Location = new System.Drawing.Point(98, 125);
+            this.contactLabel2.Name = "contactLabel2";
+            this.contactLabel2.Size = new System.Drawing.Size(754, 29);
+            this.contactLabel2.TabIndex = 2;
+            this.contactLabel2.Text = "Please report any bug you found, something that crashed the program";
+            // 
+            // contactLabel1
+            // 
+            this.contactLabel1.AutoSize = true;
+            this.contactLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contactLabel1.Location = new System.Drawing.Point(376, 54);
+            this.contactLabel1.Name = "contactLabel1";
+            this.contactLabel1.Size = new System.Drawing.Size(191, 36);
+            this.contactLabel1.TabIndex = 1;
+            this.contactLabel1.Text = "Contact page";
+            // 
+            // emailTextbox
+            // 
+            this.emailTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailTextbox.Location = new System.Drawing.Point(73, 459);
+            this.emailTextbox.Multiline = true;
+            this.emailTextbox.Name = "emailTextbox";
+            this.emailTextbox.ReadOnly = true;
+            this.emailTextbox.Size = new System.Drawing.Size(540, 40);
+            this.emailTextbox.TabIndex = 9;
+            this.emailTextbox.Text = "Email: giacomo.mosele2008@gmail.com";
+            // 
+            // emailBtn
+            // 
+            this.emailBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailBtn.Location = new System.Drawing.Point(653, 459);
+            this.emailBtn.Name = "emailBtn";
+            this.emailBtn.Size = new System.Drawing.Size(220, 40);
+            this.emailBtn.TabIndex = 10;
+            this.emailBtn.Text = "Copy address";
+            this.emailBtn.UseVisualStyleBackColor = true;
+            this.emailBtn.Click += new System.EventHandler(this.emailBtn_Click);
+            // 
+            // discordBtn
+            // 
+            this.discordBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.discordBtn.Location = new System.Drawing.Point(653, 359);
+            this.discordBtn.Name = "discordBtn";
+            this.discordBtn.Size = new System.Drawing.Size(220, 40);
+            this.discordBtn.TabIndex = 7;
+            this.discordBtn.Text = "Copy ID";
+            this.discordBtn.UseVisualStyleBackColor = true;
+            this.discordBtn.Click += new System.EventHandler(this.discordBtn_Click);
+            // 
+            // telegramBtn
+            // 
+            this.telegramBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.telegramBtn.Location = new System.Drawing.Point(653, 259);
+            this.telegramBtn.Name = "telegramBtn";
+            this.telegramBtn.Size = new System.Drawing.Size(220, 40);
+            this.telegramBtn.TabIndex = 5;
+            this.telegramBtn.Text = "Open chat";
+            this.telegramBtn.UseVisualStyleBackColor = true;
+            this.telegramBtn.Click += new System.EventHandler(this.telegramBtn_Click);
+            // 
+            // discordTextbox
+            // 
+            this.discordTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.discordTextbox.Location = new System.Drawing.Point(73, 359);
+            this.discordTextbox.Multiline = true;
+            this.discordTextbox.Name = "discordTextbox";
+            this.discordTextbox.ReadOnly = true;
+            this.discordTextbox.Size = new System.Drawing.Size(540, 40);
+            this.discordTextbox.TabIndex = 6;
+            this.discordTextbox.Text = "Discord: Jack_gamer_08#3480";
+            // 
+            // telegramTextbox
+            // 
+            this.telegramTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.telegramTextbox.Location = new System.Drawing.Point(73, 259);
+            this.telegramTextbox.Multiline = true;
+            this.telegramTextbox.Name = "telegramTextbox";
+            this.telegramTextbox.ReadOnly = true;
+            this.telegramTextbox.Size = new System.Drawing.Size(540, 40);
+            this.telegramTextbox.TabIndex = 4;
+            this.telegramTextbox.Text = "Telegram: jack_mosele";
             // 
             // leftPanel
             // 
@@ -1994,37 +2180,15 @@
             this.title.TabIndex = 0;
             this.title.Text = "MathTools";
             // 
-            // randomGenerateBtn
+            // copiedDiscordTimer
             // 
-            this.randomGenerateBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.randomGenerateBtn.Location = new System.Drawing.Point(369, 353);
-            this.randomGenerateBtn.Name = "randomGenerateBtn";
-            this.randomGenerateBtn.Size = new System.Drawing.Size(207, 40);
-            this.randomGenerateBtn.TabIndex = 5;
-            this.randomGenerateBtn.Text = "Generate";
-            this.randomGenerateBtn.UseVisualStyleBackColor = true;
-            this.randomGenerateBtn.Click += new System.EventHandler(this.randomGenerateBtn_Click);
+            this.copiedDiscordTimer.Interval = 1200;
+            this.copiedDiscordTimer.Tick += new System.EventHandler(this.copiedDiscordTimer_Tick);
             // 
-            // randomOutput
+            // copiedEmailTimer
             // 
-            this.randomOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.randomOutput.Location = new System.Drawing.Point(373, 488);
-            this.randomOutput.Name = "randomOutput";
-            this.randomOutput.ReadOnly = true;
-            this.randomOutput.Size = new System.Drawing.Size(200, 34);
-            this.randomOutput.TabIndex = 27;
-            this.randomOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // randomInvalidInputs
-            // 
-            this.randomInvalidInputs.AutoSize = true;
-            this.randomInvalidInputs.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.randomInvalidInputs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.randomInvalidInputs.Location = new System.Drawing.Point(358, 305);
-            this.randomInvalidInputs.Name = "randomInvalidInputs";
-            this.randomInvalidInputs.Size = new System.Drawing.Size(201, 20);
-            this.randomInvalidInputs.TabIndex = 28;
-            this.randomInvalidInputs.Text = "Please enter valids inputs";
+            this.copiedEmailTimer.Interval = 1200;
+            this.copiedEmailTimer.Tick += new System.EventHandler(this.copiedEmailTimer_Tick);
             // 
             // MathTools
             // 
@@ -2055,6 +2219,8 @@
             this.tabPage7.PerformLayout();
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
+            this.tabPage9.ResumeLayout(false);
+            this.tabPage9.PerformLayout();
             this.leftPanel.ResumeLayout(false);
             this.btnPanel.ResumeLayout(false);
             this.titlePanel.ResumeLayout(false);
@@ -2192,5 +2358,19 @@
         private System.Windows.Forms.TextBox randomOutput;
         private System.Windows.Forms.Button randomGenerateBtn;
         private System.Windows.Forms.Label randomInvalidInputs;
+        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.TextBox discordTextbox;
+        private System.Windows.Forms.TextBox telegramTextbox;
+        private System.Windows.Forms.Button telegramBtn;
+        private System.Windows.Forms.Button emailBtn;
+        private System.Windows.Forms.Button discordBtn;
+        private System.Windows.Forms.TextBox emailTextbox;
+        private System.Windows.Forms.Label contactLabel3;
+        private System.Windows.Forms.Label contactLabel2;
+        private System.Windows.Forms.Label contactLabel1;
+        private System.Windows.Forms.Label copiedEmail;
+        private System.Windows.Forms.Label copiedDiscord;
+        private System.Windows.Forms.Timer copiedDiscordTimer;
+        private System.Windows.Forms.Timer copiedEmailTimer;
     }
 }

@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Windows.Forms;
+using System.Timers;
 
 using Newtonsoft.Json;
 
@@ -43,6 +44,9 @@ namespace MathTools
             currencyNoConnection.Hide();
 
             randomInvalidInputs.Hide();
+
+            copiedDiscord.Hide();
+            copiedEmail.Hide();
         }
 
         private bool isValid(String input, int t)
@@ -142,6 +146,9 @@ namespace MathTools
         private void contactBtn_Click(object sender, EventArgs e)
         {
             indicatorsOff();
+            tabControl.SelectTab(8);
+            telegramTextbox.DeselectAll();
+            telegramTextbox.DeselectAll();
         }
 
         private void indicatorsOff()
@@ -1013,6 +1020,43 @@ namespace MathTools
         private void randomMax_Select(object sender, EventArgs e)
         {
             randomMax.SelectAll();
+        }
+
+        private void telegramBtn_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://t.me/jack_mosele");
+        }
+
+        private void discordBtn_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText("Jack_gamer_08#3480");
+
+            copiedDiscord.Show();
+
+            copiedDiscordTimer.Start();
+        }
+
+        private void copiedDiscordTimer_Tick(object sender, EventArgs e)
+        {
+            copiedDiscord.Hide();
+
+            copiedDiscordTimer.Stop();
+        }
+
+        private void emailBtn_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText("giacomo.mosele2008@gmail.com");
+
+            copiedEmail.Show();
+
+            copiedEmailTimer.Start();
+        }
+
+        private void copiedEmailTimer_Tick(object sender, EventArgs e)
+        {
+            copiedEmail.Hide();
+
+            copiedEmailTimer.Stop();
         }
     }
 }
