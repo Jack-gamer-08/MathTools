@@ -13,6 +13,9 @@ namespace MathTools
 {
     public partial class MathTools : Form
     {
+        Color mainColor = Color.FromArgb(71, 48, 184);
+        Color menuColor = Color.FromArgb(50, 47, 106);
+
         public MathTools()
         {
             InitializeComponent();
@@ -44,6 +47,8 @@ namespace MathTools
             currencyNoConnection.Hide();
 
             randomInvalidInputs.Hide();
+
+            monthInput.SelectedIndex = 0;
 
             copiedDiscord.Hide();
             copiedEmail.Hide();
@@ -122,50 +127,64 @@ namespace MathTools
         private void option2_Click(object sender, EventArgs e)
         {
             indicatorsOff();
-            indicator2.BackColor = Color.FromArgb(71, 48, 184);
+            indicator2.BackColor = mainColor;
             tabControl.SelectTab(1);
         }
 
         private void option3_Click(object sender, EventArgs e)
         {
             indicatorsOff();
-            indicator3.BackColor = Color.FromArgb(71, 48, 184);
+            indicator3.BackColor = mainColor;
             tabControl.SelectTab(2);
         }
 
         private void option4_Click(object sender, EventArgs e)
         {
             indicatorsOff();
-            indicator4.BackColor = Color.FromArgb(71, 48, 184);
+            indicator4.BackColor = mainColor;
             tabControl.SelectTab(3);
         }
 
         private void option5_Click(object sender, EventArgs e)
         {
             indicatorsOff();
-            indicator5.BackColor = Color.FromArgb(71, 48, 184);
+            indicator5.BackColor = mainColor;
             tabControl.SelectTab(4);
         }
 
         private void option6_Click(object sender, EventArgs e)
         {
             indicatorsOff();
-            indicator6.BackColor = Color.FromArgb(71, 48, 184);
+            indicator6.BackColor = mainColor;
             tabControl.SelectTab(5);
         }
 
         private void option7_Click(object sender, EventArgs e)
         {
             indicatorsOff();
-            indicator7.BackColor = Color.FromArgb(71, 48, 184);
+            indicator7.BackColor = mainColor;
             tabControl.SelectTab(6);
         }
 
         private void option8_Click(object sender, EventArgs e)
         {
             indicatorsOff();
-            indicator8.BackColor = Color.FromArgb(71, 48, 184);
+            indicator8.BackColor = mainColor;
             tabControl.SelectTab(7);
+        }
+
+        private void option9_Click(object sender, EventArgs e)
+        {
+            indicatorsOff();
+            indicator9.BackColor = mainColor;
+            tabControl.SelectTab(9);
+        }
+
+        private void option10_Click(object sender, EventArgs e)
+        {
+            indicatorsOff();
+            indicator10.BackColor = mainColor;
+            tabControl.SelectTab(10);
         }
 
         private void contactBtn_Click(object sender, EventArgs e)
@@ -178,14 +197,16 @@ namespace MathTools
 
         private void indicatorsOff()
         {
-            indicator1.BackColor = Color.FromArgb(50, 47, 106);
-            indicator2.BackColor = Color.FromArgb(50, 47, 106);
-            indicator3.BackColor = Color.FromArgb(50, 47, 106);
-            indicator4.BackColor = Color.FromArgb(50, 47, 106);
-            indicator5.BackColor = Color.FromArgb(50, 47, 106);
-            indicator6.BackColor = Color.FromArgb(50, 47, 106);
-            indicator7.BackColor = Color.FromArgb(50, 47, 106);
-            indicator8.BackColor = Color.FromArgb(50, 47, 106);
+            indicator1.BackColor = menuColor;
+            indicator2.BackColor = menuColor;
+            indicator3.BackColor = menuColor;
+            indicator4.BackColor = menuColor;
+            indicator5.BackColor = menuColor;
+            indicator6.BackColor = menuColor;
+            indicator7.BackColor = menuColor;
+            indicator8.BackColor = menuColor;
+            indicator9.BackColor = menuColor;
+            indicator10.BackColor = menuColor;
         }
 
         private void calculateGCDandLCMbtn_Click(object sender, EventArgs e)
@@ -1240,6 +1261,130 @@ namespace MathTools
             copiedEmail.Hide();
 
             copiedEmailTimer.Stop();
+        }
+
+        private void dayInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                zeller();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void monthInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                zeller();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void yearInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                zeller();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void calculateWeekdayBtn_Click(object sender, EventArgs e)
+        {
+            zeller();
+        }
+
+        private void zeller()
+        {
+            string[] weekdays = { "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" };
+
+            int day = Convert.ToInt32(dayInput.Value);
+            int month = monthInput.SelectedIndex + 1;
+            int year = Convert.ToInt32(yearInput.Value);
+
+            if (month == 1 || month == 2)
+            {
+                month += 12;
+                year--;
+            }
+
+            int century = year / 100;
+            int yearInCentury = year % 100;
+
+            int output = (day + 13 * (month + 1) / 5 + yearInCentury + yearInCentury / 4 + century / 4 + 5 * century) % 7; //zeller's congruence
+
+            weekdayOutput.Text = weekdays[output];
+        }
+
+        private void generateTripletsBtn_Click(object sender, EventArgs e)
+        {
+            generateTriplets();
+        }
+
+        private void cathetiInput_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                generateTriplets();
+                e.SuppressKeyPress = true;
+            }
+        }
+
+        private void generateTriplets()
+        {
+            tripletsOutput.Clear();
+            
+            int cathetus = Convert.ToInt32(cathetiInput.Value);
+
+            int[,] list = new int[cathetus * cathetus, 3];
+
+            for(int a = 1; a <= cathetus; a++)
+            {
+                for(int b = 1; b <= cathetus; b++)
+                {
+                    double c = Math.Sqrt(a*a + b*b);
+
+                    if (c % 1 == 0 && !alreadyExists(a, b, cathetus, list))
+                    {
+                        int index = 10 * (a - 1) + b - 1;
+
+                        list[index, 0] = a;
+                        list[index, 1] = b;
+                        list[index, 2] = (int) c;
+                    }
+                }
+            }
+
+            int lines = 0;
+
+            for(int i = 0; i < cathetus * cathetus; i++)
+            {
+                int a = list[i, 0];
+                int b = list[i, 1];
+                int c = list[i, 2];
+                string str = a + " - " + b + " - " + c;
+                if(str != "0 - 0 - 0")
+                {
+                    tripletsOutput.AppendText(((lines != 0) ? Environment.NewLine : "") + str);
+                    lines++;
+                }
+            }
+        }
+
+        private bool alreadyExists(int a, int b, int cathetus, int[,] list)
+        {
+            int GCD = gcd(a, b);
+            bool exists = false;
+            for(int i = 0; i < cathetus * cathetus; i++)
+            {
+                if ((list[i, 0] == a / GCD && list[i, 1] == b / GCD) || (list[i, 0] == b / GCD && list[i, 1] == a / GCD))
+                {
+                    exists = true;
+                    break;
+                }
+            }
+            return exists;
         }
     }
 }

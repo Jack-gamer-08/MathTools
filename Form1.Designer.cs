@@ -147,8 +147,25 @@
             this.telegramBtn = new System.Windows.Forms.Button();
             this.discordTextbox = new System.Windows.Forms.TextBox();
             this.telegramTextbox = new System.Windows.Forms.TextBox();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.weekdayOutput = new System.Windows.Forms.TextBox();
+            this.calculateWeekdayBtn = new System.Windows.Forms.Button();
+            this.monthInput = new System.Windows.Forms.ComboBox();
+            this.yearInput = new System.Windows.Forms.NumericUpDown();
+            this.dayInput = new System.Windows.Forms.NumericUpDown();
+            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.generateTripletsBtn = new System.Windows.Forms.Button();
+            this.tripletsFoundLabel = new System.Windows.Forms.Label();
+            this.tripletsOutput = new System.Windows.Forms.TextBox();
+            this.cathetiInput = new System.Windows.Forms.NumericUpDown();
+            this.cathetiLabel = new System.Windows.Forms.Label();
+            this.tripletsLabel = new System.Windows.Forms.Label();
             this.leftPanel = new System.Windows.Forms.Panel();
             this.btnPanel = new System.Windows.Forms.Panel();
+            this.indicator10 = new System.Windows.Forms.Panel();
+            this.indicator9 = new System.Windows.Forms.Panel();
+            this.option10 = new System.Windows.Forms.Button();
+            this.option9 = new System.Windows.Forms.Button();
             this.indicator8 = new System.Windows.Forms.Panel();
             this.indicator7 = new System.Windows.Forms.Panel();
             this.indicator6 = new System.Windows.Forms.Panel();
@@ -182,6 +199,11 @@
             this.tabPage7.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.tabPage9.SuspendLayout();
+            this.tabPage10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.yearInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dayInput)).BeginInit();
+            this.tabPage11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cathetiInput)).BeginInit();
             this.leftPanel.SuspendLayout();
             this.btnPanel.SuspendLayout();
             this.titlePanel.SuspendLayout();
@@ -207,6 +229,8 @@
             this.tabControl.Controls.Add(this.tabPage7);
             this.tabControl.Controls.Add(this.tabPage8);
             this.tabControl.Controls.Add(this.tabPage9);
+            this.tabControl.Controls.Add(this.tabPage10);
+            this.tabControl.Controls.Add(this.tabPage11);
             this.tabControl.Location = new System.Drawing.Point(-4, -27);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -1828,7 +1852,7 @@
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage9.Size = new System.Drawing.Size(904, 631);
             this.tabPage9.TabIndex = 8;
-            this.tabPage9.Text = "Copied!";
+            this.tabPage9.Text = "Contact";
             // 
             // copiedEmail
             // 
@@ -1946,6 +1970,205 @@
             this.telegramTextbox.TabIndex = 4;
             this.telegramTextbox.Text = "Telegram: jack_mosele";
             // 
+            // tabPage10
+            // 
+            this.tabPage10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(48)))), ((int)(((byte)(184)))));
+            this.tabPage10.Controls.Add(this.weekdayOutput);
+            this.tabPage10.Controls.Add(this.calculateWeekdayBtn);
+            this.tabPage10.Controls.Add(this.monthInput);
+            this.tabPage10.Controls.Add(this.yearInput);
+            this.tabPage10.Controls.Add(this.dayInput);
+            this.tabPage10.Location = new System.Drawing.Point(4, 25);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage10.Size = new System.Drawing.Size(904, 631);
+            this.tabPage10.TabIndex = 9;
+            this.tabPage10.Text = "Weekday";
+            // 
+            // weekdayOutput
+            // 
+            this.weekdayOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.weekdayOutput.Location = new System.Drawing.Point(347, 430);
+            this.weekdayOutput.Name = "weekdayOutput";
+            this.weekdayOutput.ReadOnly = true;
+            this.weekdayOutput.Size = new System.Drawing.Size(250, 34);
+            this.weekdayOutput.TabIndex = 4;
+            this.weekdayOutput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // calculateWeekdayBtn
+            // 
+            this.calculateWeekdayBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calculateWeekdayBtn.Location = new System.Drawing.Point(322, 253);
+            this.calculateWeekdayBtn.Name = "calculateWeekdayBtn";
+            this.calculateWeekdayBtn.Size = new System.Drawing.Size(300, 46);
+            this.calculateWeekdayBtn.TabIndex = 3;
+            this.calculateWeekdayBtn.Text = "Calculate weekday";
+            this.calculateWeekdayBtn.UseVisualStyleBackColor = true;
+            this.calculateWeekdayBtn.Click += new System.EventHandler(this.calculateWeekdayBtn_Click);
+            // 
+            // monthInput
+            // 
+            this.monthInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.monthInput.FormattingEnabled = true;
+            this.monthInput.Items.AddRange(new object[] {
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "Dicember"});
+            this.monthInput.Location = new System.Drawing.Point(347, 141);
+            this.monthInput.Name = "monthInput";
+            this.monthInput.Size = new System.Drawing.Size(250, 37);
+            this.monthInput.TabIndex = 2;
+            this.monthInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.monthInput_KeyDown);
+            // 
+            // yearInput
+            // 
+            this.yearInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yearInput.Location = new System.Drawing.Point(647, 142);
+            this.yearInput.Maximum = new decimal(new int[] {
+            4902,
+            0,
+            0,
+            0});
+            this.yearInput.Minimum = new decimal(new int[] {
+            1582,
+            0,
+            0,
+            0});
+            this.yearInput.Name = "yearInput";
+            this.yearInput.Size = new System.Drawing.Size(150, 34);
+            this.yearInput.TabIndex = 1;
+            this.yearInput.Tag = "";
+            this.yearInput.Value = new decimal(new int[] {
+            1970,
+            0,
+            0,
+            0});
+            this.yearInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.yearInput_KeyDown);
+            // 
+            // dayInput
+            // 
+            this.dayInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dayInput.Location = new System.Drawing.Point(147, 142);
+            this.dayInput.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.dayInput.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.dayInput.Name = "dayInput";
+            this.dayInput.Size = new System.Drawing.Size(150, 34);
+            this.dayInput.TabIndex = 0;
+            this.dayInput.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.dayInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dayInput_KeyDown);
+            // 
+            // tabPage11
+            // 
+            this.tabPage11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(48)))), ((int)(((byte)(184)))));
+            this.tabPage11.Controls.Add(this.generateTripletsBtn);
+            this.tabPage11.Controls.Add(this.tripletsFoundLabel);
+            this.tabPage11.Controls.Add(this.tripletsOutput);
+            this.tabPage11.Controls.Add(this.cathetiInput);
+            this.tabPage11.Controls.Add(this.cathetiLabel);
+            this.tabPage11.Controls.Add(this.tripletsLabel);
+            this.tabPage11.Location = new System.Drawing.Point(4, 25);
+            this.tabPage11.Name = "tabPage11";
+            this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage11.Size = new System.Drawing.Size(904, 631);
+            this.tabPage11.TabIndex = 10;
+            this.tabPage11.Text = "Triplets";
+            // 
+            // generateTripletsBtn
+            // 
+            this.generateTripletsBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.generateTripletsBtn.Location = new System.Drawing.Point(359, 232);
+            this.generateTripletsBtn.Name = "generateTripletsBtn";
+            this.generateTripletsBtn.Size = new System.Drawing.Size(236, 40);
+            this.generateTripletsBtn.TabIndex = 5;
+            this.generateTripletsBtn.Text = "Generate triplets!";
+            this.generateTripletsBtn.UseVisualStyleBackColor = true;
+            this.generateTripletsBtn.Click += new System.EventHandler(this.generateTripletsBtn_Click);
+            // 
+            // tripletsFoundLabel
+            // 
+            this.tripletsFoundLabel.AutoSize = true;
+            this.tripletsFoundLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tripletsFoundLabel.Location = new System.Drawing.Point(121, 312);
+            this.tripletsFoundLabel.Name = "tripletsFoundLabel";
+            this.tripletsFoundLabel.Size = new System.Drawing.Size(298, 29);
+            this.tripletsFoundLabel.TabIndex = 4;
+            this.tripletsFoundLabel.Text = "Pythagorean triplets found:";
+            // 
+            // tripletsOutput
+            // 
+            this.tripletsOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tripletsOutput.Location = new System.Drawing.Point(126, 354);
+            this.tripletsOutput.Multiline = true;
+            this.tripletsOutput.Name = "tripletsOutput";
+            this.tripletsOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tripletsOutput.Size = new System.Drawing.Size(701, 235);
+            this.tripletsOutput.TabIndex = 3;
+            // 
+            // cathetiInput
+            // 
+            this.cathetiInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cathetiInput.Location = new System.Drawing.Point(665, 157);
+            this.cathetiInput.Maximum = new decimal(new int[] {
+            999,
+            0,
+            0,
+            0});
+            this.cathetiInput.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.cathetiInput.Name = "cathetiInput";
+            this.cathetiInput.Size = new System.Drawing.Size(162, 34);
+            this.cathetiInput.TabIndex = 2;
+            this.cathetiInput.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.cathetiInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cathetiInput_KeyDown);
+            // 
+            // cathetiLabel
+            // 
+            this.cathetiLabel.AutoSize = true;
+            this.cathetiLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cathetiLabel.Location = new System.Drawing.Point(121, 159);
+            this.cathetiLabel.Name = "cathetiLabel";
+            this.cathetiLabel.Size = new System.Drawing.Size(519, 29);
+            this.cathetiLabel.TabIndex = 1;
+            this.cathetiLabel.Text = "How long should the catheti be at most? (1-999)";
+            // 
+            // tripletsLabel
+            // 
+            this.tripletsLabel.AutoSize = true;
+            this.tripletsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tripletsLabel.Location = new System.Drawing.Point(256, 73);
+            this.tripletsLabel.Name = "tripletsLabel";
+            this.tripletsLabel.Size = new System.Drawing.Size(431, 36);
+            this.tripletsLabel.TabIndex = 0;
+            this.tripletsLabel.Text = "Pythagorean Triplets Generator";
+            // 
             // leftPanel
             // 
             this.leftPanel.Controls.Add(this.btnPanel);
@@ -1961,6 +2184,10 @@
             // 
             this.btnPanel.AutoScroll = true;
             this.btnPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(47)))), ((int)(((byte)(106)))));
+            this.btnPanel.Controls.Add(this.indicator10);
+            this.btnPanel.Controls.Add(this.indicator9);
+            this.btnPanel.Controls.Add(this.option10);
+            this.btnPanel.Controls.Add(this.option9);
             this.btnPanel.Controls.Add(this.indicator8);
             this.btnPanel.Controls.Add(this.indicator7);
             this.btnPanel.Controls.Add(this.indicator6);
@@ -1982,6 +2209,48 @@
             this.btnPanel.Name = "btnPanel";
             this.btnPanel.Size = new System.Drawing.Size(320, 452);
             this.btnPanel.TabIndex = 5;
+            // 
+            // indicator10
+            // 
+            this.indicator10.Location = new System.Drawing.Point(0, 540);
+            this.indicator10.Name = "indicator10";
+            this.indicator10.Size = new System.Drawing.Size(23, 60);
+            this.indicator10.TabIndex = 24;
+            // 
+            // indicator9
+            // 
+            this.indicator9.Location = new System.Drawing.Point(0, 480);
+            this.indicator9.Name = "indicator9";
+            this.indicator9.Size = new System.Drawing.Size(23, 60);
+            this.indicator9.TabIndex = 23;
+            // 
+            // option10
+            // 
+            this.option10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(47)))), ((int)(((byte)(106)))));
+            this.option10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.option10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.option10.ForeColor = System.Drawing.Color.White;
+            this.option10.Location = new System.Drawing.Point(23, 540);
+            this.option10.Name = "option10";
+            this.option10.Size = new System.Drawing.Size(274, 60);
+            this.option10.TabIndex = 22;
+            this.option10.Text = "Pythagorean Triplet Generator";
+            this.option10.UseVisualStyleBackColor = false;
+            this.option10.Click += new System.EventHandler(this.option10_Click);
+            // 
+            // option9
+            // 
+            this.option9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(47)))), ((int)(((byte)(106)))));
+            this.option9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.option9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.option9.ForeColor = System.Drawing.Color.White;
+            this.option9.Location = new System.Drawing.Point(23, 480);
+            this.option9.Name = "option9";
+            this.option9.Size = new System.Drawing.Size(274, 60);
+            this.option9.TabIndex = 21;
+            this.option9.Text = "Date to Weekday";
+            this.option9.UseVisualStyleBackColor = false;
+            this.option9.Click += new System.EventHandler(this.option9_Click);
             // 
             // indicator8
             // 
@@ -2240,6 +2509,13 @@
             this.tabPage8.PerformLayout();
             this.tabPage9.ResumeLayout(false);
             this.tabPage9.PerformLayout();
+            this.tabPage10.ResumeLayout(false);
+            this.tabPage10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.yearInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dayInput)).EndInit();
+            this.tabPage11.ResumeLayout(false);
+            this.tabPage11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cathetiInput)).EndInit();
             this.leftPanel.ResumeLayout(false);
             this.btnPanel.ResumeLayout(false);
             this.titlePanel.ResumeLayout(false);
@@ -2391,5 +2667,22 @@
         private System.Windows.Forms.Label copiedDiscord;
         private System.Windows.Forms.Timer copiedDiscordTimer;
         private System.Windows.Forms.Timer copiedEmailTimer;
+        private System.Windows.Forms.Panel indicator10;
+        private System.Windows.Forms.Panel indicator9;
+        private System.Windows.Forms.Button option10;
+        private System.Windows.Forms.Button option9;
+        private System.Windows.Forms.TabPage tabPage10;
+        private System.Windows.Forms.TabPage tabPage11;
+        private System.Windows.Forms.Label tripletsLabel;
+        private System.Windows.Forms.ComboBox monthInput;
+        private System.Windows.Forms.NumericUpDown yearInput;
+        private System.Windows.Forms.NumericUpDown dayInput;
+        private System.Windows.Forms.Button calculateWeekdayBtn;
+        private System.Windows.Forms.TextBox weekdayOutput;
+        private System.Windows.Forms.Label cathetiLabel;
+        private System.Windows.Forms.NumericUpDown cathetiInput;
+        private System.Windows.Forms.TextBox tripletsOutput;
+        private System.Windows.Forms.Label tripletsFoundLabel;
+        private System.Windows.Forms.Button generateTripletsBtn;
     }
 }
